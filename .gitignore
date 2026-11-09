@@ -1,0 +1,12 @@
+# Raw data (full files, never committed)
+data/raw/
+# Generated outputs are committed for the portfolio (small), except the DB
+# (rebuilt by src/03_build_gold.py)
+outputs/midterms.db
+# Python
+__pycache__/
+*.pyc
+.venv/
+# OS
+.DS_Store
+Thumbs.db
