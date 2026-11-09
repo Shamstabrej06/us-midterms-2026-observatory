@@ -1,0 +1,73 @@
+cycle,state,state_abbr,state_fips,incumbent,incumbent_party,winner_party,outcome,margin_pts,status
+2022,Alabama,AL,1,Kay Ivey,Republican,Republican,hold,37.7,certified
+2022,Alaska,AK,2,Mike Dunleavy,Republican,Republican,hold,26.1,certified
+2022,Arizona,AZ,4,Doug Ducey,Republican,Democratic,gain,0.6,certified
+2022,Arkansas,AR,5,Asa Hutchinson,Republican,Republican,hold,27.8,certified
+2022,California,CA,6,Gavin Newsom,Democratic,Democratic,hold,18.4,certified
+2022,Colorado,CO,8,Jared Polis,Democratic,Democratic,hold,19.3,certified
+2022,Connecticut,CT,9,Ned Lamont,Democratic,Democratic,hold,12.9,certified
+2022,Florida,FL,12,Ron DeSantis,Republican,Republican,hold,19.4,certified
+2022,Georgia,GA,13,Brian Kemp,Republican,Republican,hold,7.5,certified
+2022,Hawaii,HI,15,David Ige,Democratic,Democratic,hold,26.4,certified
+2022,Idaho,ID,16,Brad Little,Republican,Republican,hold,40.2,certified
+2022,Illinois,IL,17,J. B. Pritzker,Democratic,Democratic,hold,12.5,certified
+2022,Iowa,IA,19,Kim Reynolds,Republican,Republican,hold,18.5,certified
+2022,Kansas,KS,20,Laura Kelly,Democratic,Democratic,hold,2.2,certified
+2022,Maine,ME,23,Janet Mills,Democratic,Democratic,hold,13.3,certified
+2022,Maryland,MD,24,Larry Hogan,Republican,Democratic,gain,32.4,certified
+2022,Massachusetts,MA,25,Charlie Baker,Republican,Democratic,gain,29.1,certified
+2022,Michigan,MI,26,Gretchen Whitmer,Democratic,Democratic,hold,10.6,certified
+2022,Minnesota,MN,27,Tim Walz,Democratic,Democratic,hold,7.7,certified
+2022,Nebraska,NE,31,Pete Ricketts,Republican,Republican,hold,23.4,certified
+2022,Nevada,NV,32,Steve Sisolak,Democratic,Republican,gain,1.5,certified
+2022,New Hampshire,NH,33,Chris Sununu,Republican,Republican,hold,15.5,certified
+2022,New Mexico,NM,35,Michelle Lujan Grisham,Democratic,Democratic,hold,6.4,certified
+2022,New York,NY,36,Kathy Hochul,Democratic,Democratic,hold,6.4,certified
+2022,Ohio,OH,39,Mike DeWine,Republican,Republican,hold,25.0,certified
+2022,Oklahoma,OK,40,Kevin Stitt,Republican,Republican,hold,13.6,certified
+2022,Oregon,OR,41,Kate Brown,Democratic,Democratic,hold,3.4,certified
+2022,Pennsylvania,PA,42,Tom Wolf,Democratic,Democratic,hold,14.8,certified
+2022,Rhode Island,RI,44,Dan McKee,Democratic,Democratic,hold,19.0,certified
+2022,South Carolina,SC,45,Henry McMaster,Republican,Republican,hold,17.4,certified
+2022,South Dakota,SD,46,Kristi Noem,Republican,Republican,hold,26.8,certified
+2022,Tennessee,TN,47,Bill Lee,Republican,Republican,hold,32.0,certified
+2022,Texas,TX,48,Greg Abbott,Republican,Republican,hold,10.9,certified
+2022,Vermont,VT,50,Phil Scott,Republican,Republican,hold,47.0,certified
+2022,Wisconsin,WI,55,Tony Evers,Democratic,Democratic,hold,3.4,certified
+2022,Wyoming,WY,56,Mark Gordon,Republican,Republican,hold,58.3,certified
+2026,Alabama,AL,1,Kay Ivey,Republican,Republican,hold,4.0,preliminary
+2026,Alaska,AK,2,Mike Dunleavy,Republican,,uncalled,,preliminary
+2026,Arizona,AZ,4,Katie Hobbs,Democratic,Democratic,hold,12.6,preliminary
+2026,Arkansas,AR,5,Sarah Huckabee Sanders,Republican,Republican,hold,15.3,preliminary
+2026,California,CA,6,Gavin Newsom,Democratic,Democratic,hold,29.2,preliminary
+2026,Colorado,CO,8,Jared Polis,Democratic,Democratic,hold,27.3,preliminary
+2026,Connecticut,CT,9,Ned Lamont,Democratic,Democratic,hold,18.6,preliminary
+2026,Florida,FL,12,Ron DeSantis,Republican,Republican,hold,1.3,preliminary
+2026,Georgia,GA,13,Brian Kemp,Republican,Democratic,gain,8.6,preliminary
+2026,Hawaii,HI,15,Josh Green,Democratic,Democratic,hold,45.2,preliminary
+2026,Idaho,ID,16,Brad Little,Republican,Republican,hold,24.8,preliminary
+2026,Illinois,IL,17,JB Pritzker,Democratic,Democratic,hold,23.0,preliminary
+2026,Iowa,IA,19,Kim Reynolds,Republican,Democratic,gain,11.0,preliminary
+2026,Kansas,KS,20,Laura Kelly,Democratic,,uncalled,,preliminary
+2026,Maine,ME,23,Janet Mills,Democratic,Democratic,hold,17.1,preliminary
+2026,Maryland,MD,24,Wes Moore,Democratic,Democratic,hold,29.6,preliminary
+2026,Massachusetts,MA,25,Maura Healey,Democratic,Democratic,hold,27.7,preliminary
+2026,Michigan,MI,26,Gretchen Whitmer,Democratic,Democratic,hold,10.7,preliminary
+2026,Minnesota,MN,27,Tim Walz,Democratic,Democratic,hold,12.9,preliminary
+2026,Nebraska,NE,31,Jim Pillen,Republican,Republican,hold,8.6,preliminary
+2026,Nevada,NV,32,Joe Lombardo,Republican,Democratic,gain,7.3,preliminary
+2026,New Hampshire,NH,33,Kelly Ayotte,Republican,Republican,hold,4.3,preliminary
+2026,New Mexico,NM,35,Michelle Lujan Grisham,Democratic,Democratic,hold,14.6,preliminary
+2026,New York,NY,36,Kathy Hochul,Democratic,Democratic,hold,19.4,preliminary
+2026,Ohio,OH,39,Mike DeWine,Republican,Democratic,gain,7.9,preliminary
+2026,Oklahoma,OK,40,Kevin Stitt,Republican,Republican,hold,6.0,preliminary
+2026,Oregon,OR,41,Tina Kotek,Democratic,Democratic,hold,8.1,preliminary
+2026,Pennsylvania,PA,42,Josh Shapiro,Democratic,Democratic,hold,22.1,preliminary
+2026,Rhode Island,RI,44,Dan McKee,Democratic,Democratic,hold,29.9,preliminary
+2026,South Carolina,SC,45,Henry McMaster,Republican,Republican,hold,4.5,preliminary
+2026,South Dakota,SD,46,Larry Rhoden,Republican,Republican,hold,27.0,preliminary
+2026,Tennessee,TN,47,Bill Lee,Republican,Republican,hold,2.5,preliminary
+2026,Texas,TX,48,Greg Abbott,Republican,Democratic,gain,7.1,preliminary
+2026,Vermont,VT,50,Phil Scott,Republican,Republican,hold,7.0,preliminary
+2026,Wisconsin,WI,55,Tony Evers,Democratic,Democratic,hold,8.0,preliminary
+2026,Wyoming,WY,56,Mark Gordon,Republican,Republican,hold,51.8,preliminary

@@ -1,0 +1,4 @@
+cycle,chamber,party,seats_before,seats_not_up,seats_up,seats_won_up,seats_after,net_change,status
+2026,Senate,Democratic,45.0,32.0,13,21.0,53.0,8.0,preliminary
+2026,Senate,Republican,53.0,31.0,22,14.0,45.0,-8.0,preliminary
+2026,Senate,Independent,2.0,2.0,0,0.0,2.0,0.0,preliminary

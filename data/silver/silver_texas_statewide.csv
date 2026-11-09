@@ -1,0 +1,14 @@
+cycle,state,office,dem_candidate,dem_votes,dem_pct,rep_candidate,rep_votes,rep_pct,margin_pts,winner_party,status
+2026,Texas,Attorney General,Nathan Johnson,5133762.0,52.4,Mayes Middleton,4502859.0,45.9,6.5,Democratic,preliminary
+2014,Texas,Governor,Wendy Davis,1835596.0,38.9,Greg Abbott,2796547.0,59.27,-20.37,Republican,certified
+2018,Texas,Governor,Lupe Valdez,3546615.0,42.51,Greg Abbott,4656196.0,55.81,-13.3,Republican,certified
+2022,Texas,Governor,Beto O'Rourke,3553656.0,43.86,Greg Abbott,4435558.0,54.75,-10.89,Republican,certified
+2026,Texas,Governor,Gina Hinojosa,5231979.0,52.8,Greg Abbott,4525393.0,45.7,7.1,Democratic,preliminary
+2016,Texas,President,,3877868.0,45.29,,4685047.0,54.71,-9.43,Republican,certified
+2020,Texas,President,,5259126.0,47.17,,5890347.0,52.83,-5.66,Republican,certified
+2024,Texas,President,,4835250.0,43.06,,6393597.0,56.94,-13.88,Republican,certified
+2014,Texas,Senate,,1597387.0,35.82,,2861531.0,64.18,-28.35,Republican,certified
+2018,Texas,Senate,,4045632.0,48.71,,4260553.0,51.29,-2.59,Republican,certified
+2020,Texas,Senate,,4888764.0,45.05,,5962983.0,54.95,-9.9,Republican,certified
+2024,Texas,Senate,,5031249.0,45.65,,5990741.0,54.35,-8.71,Republican,certified
+2026,Texas,Senate,James Talarico,5446309.0,55.1,Ken Paxton,4250166.0,43.0,12.1,Democratic,preliminary

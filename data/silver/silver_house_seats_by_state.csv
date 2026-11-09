@@ -1,0 +1,201 @@
+cycle,state,total_seats,dem_seats,dem_change,rep_seats,rep_change,state_abbr,state_fips,delegation_majority
+2014,Alabama,7.0,1.0,,6.0,,AL,1,Republican
+2014,Alaska,1.0,0.0,,1.0,,AK,2,Republican
+2014,Arizona,9.0,4.0,1.0,5.0,1.0,AZ,4,Republican
+2014,Arkansas,4.0,0.0,,4.0,,AR,5,Republican
+2014,California,53.0,39.0,1.0,14.0,1.0,CA,6,Democratic
+2014,Colorado,7.0,3.0,,4.0,,CO,8,Republican
+2014,Connecticut,5.0,5.0,,0.0,,CT,9,Democratic
+2014,Delaware,1.0,1.0,,0.0,,DE,10,Democratic
+2014,Florida,27.0,10.0,,17.0,,FL,12,Republican
+2014,Georgia,14.0,4.0,1.0,10.0,1.0,GA,13,Republican
+2014,Hawaii,2.0,2.0,,0.0,,HI,15,Democratic
+2014,Idaho,2.0,0.0,,2.0,,ID,16,Republican
+2014,Illinois,18.0,10.0,2.0,8.0,2.0,IL,17,Democratic
+2014,Indiana,9.0,2.0,,7.0,,IN,18,Republican
+2014,Iowa,4.0,1.0,1.0,3.0,1.0,IA,19,Republican
+2014,Kansas,4.0,0.0,,4.0,,KS,20,Republican
+2014,Kentucky,6.0,1.0,,5.0,,KY,21,Republican
+2014,Louisiana,6.0,1.0,,5.0,,LA,22,Republican
+2014,Maine,2.0,1.0,1.0,1.0,1.0,ME,23,Even
+2014,Maryland,8.0,7.0,,1.0,,MD,24,Democratic
+2014,Massachusetts,9.0,9.0,,0.0,,MA,25,Democratic
+2014,Michigan,14.0,5.0,,9.0,,MI,26,Republican
+2014,Minnesota,8.0,5.0,,3.0,,MN,27,Democratic
+2014,Mississippi,4.0,1.0,,3.0,,MS,28,Republican
+2014,Missouri,8.0,2.0,,6.0,,MO,29,Republican
+2014,Montana,1.0,0.0,,1.0,,MT,30,Republican
+2014,Nebraska,3.0,1.0,1.0,2.0,1.0,NE,31,Republican
+2014,Nevada,4.0,1.0,1.0,3.0,1.0,NV,32,Republican
+2014,New Hampshire,2.0,1.0,1.0,1.0,1.0,NH,33,Even
+2014,New Jersey,12.0,6.0,,6.0,,NJ,34,Even
+2014,New Mexico,3.0,2.0,,1.0,,NM,35,Democratic
+2014,New York,27.0,18.0,3.0,9.0,3.0,NY,36,Democratic
+2014,North Carolina,13.0,3.0,1.0,10.0,1.0,NC,37,Republican
+2014,North Dakota,1.0,0.0,,1.0,,ND,38,Republican
+2014,Ohio,16.0,4.0,,12.0,,OH,39,Republican
+2014,Oklahoma,5.0,0.0,,5.0,,OK,40,Republican
+2014,Oregon,5.0,4.0,,1.0,,OR,41,Democratic
+2014,Pennsylvania,18.0,5.0,,13.0,,PA,42,Republican
+2014,Rhode Island,2.0,2.0,,0.0,,RI,44,Democratic
+2014,South Carolina,7.0,1.0,,6.0,,SC,45,Republican
+2014,South Dakota,1.0,0.0,,1.0,,SD,46,Republican
+2014,Tennessee,9.0,2.0,,7.0,,TN,47,Republican
+2014,Texas,36.0,11.0,1.0,25.0,1.0,TX,48,Republican
+2014,Utah,4.0,0.0,1.0,4.0,1.0,UT,49,Republican
+2014,Vermont,1.0,1.0,,0.0,,VT,50,Democratic
+2014,Virginia,11.0,3.0,,8.0,,VA,51,Republican
+2014,Washington,10.0,6.0,,4.0,,WA,53,Democratic
+2014,West Virginia,3.0,0.0,1.0,3.0,1.0,WV,54,Republican
+2014,Wisconsin,8.0,3.0,,5.0,,WI,55,Republican
+2014,Wyoming,1.0,0.0,,1.0,,WY,56,Republican
+2018,Alabama,7.0,1.0,,6.0,,AL,1,Republican
+2018,Alaska,1.0,0.0,,1.0,,AK,2,Republican
+2018,Arizona,9.0,5.0,1.0,4.0,1.0,AZ,4,Democratic
+2018,Arkansas,4.0,0.0,,4.0,,AR,5,Republican
+2018,California,53.0,46.0,7.0,7.0,7.0,CA,6,Democratic
+2018,Colorado,7.0,4.0,1.0,3.0,1.0,CO,8,Democratic
+2018,Connecticut,5.0,5.0,,0.0,,CT,9,Democratic
+2018,Delaware,1.0,1.0,,0.0,,DE,10,Democratic
+2018,Florida,27.0,13.0,2.0,14.0,2.0,FL,12,Republican
+2018,Georgia,14.0,5.0,1.0,9.0,1.0,GA,13,Republican
+2018,Hawaii,2.0,2.0,,0.0,,HI,15,Democratic
+2018,Idaho,2.0,0.0,,2.0,,ID,16,Republican
+2018,Illinois,18.0,13.0,2.0,5.0,2.0,IL,17,Democratic
+2018,Indiana,9.0,2.0,,7.0,,IN,18,Republican
+2018,Iowa,4.0,3.0,2.0,1.0,2.0,IA,19,Democratic
+2018,Kansas,4.0,1.0,1.0,3.0,1.0,KS,20,Republican
+2018,Kentucky,6.0,1.0,,5.0,,KY,21,Republican
+2018,Louisiana,6.0,1.0,,5.0,,LA,22,Republican
+2018,Maine,2.0,2.0,1.0,0.0,1.0,ME,23,Democratic
+2018,Maryland,8.0,7.0,,1.0,,MD,24,Democratic
+2018,Massachusetts,9.0,9.0,,0.0,,MA,25,Democratic
+2018,Michigan,14.0,7.0,2.0,7.0,2.0,MI,26,Even
+2018,Minnesota,8.0,5.0,,3.0,,MN,27,Democratic
+2018,Mississippi,4.0,1.0,,3.0,,MS,28,Republican
+2018,Missouri,8.0,2.0,,6.0,,MO,29,Republican
+2018,Montana,1.0,0.0,,1.0,,MT,30,Republican
+2018,Nebraska,3.0,0.0,,3.0,,NE,31,Republican
+2018,Nevada,4.0,3.0,,1.0,,NV,32,Democratic
+2018,New Hampshire,2.0,2.0,,0.0,,NH,33,Democratic
+2018,New Jersey,12.0,11.0,4.0,1.0,4.0,NJ,34,Democratic
+2018,New Mexico,3.0,3.0,1.0,0.0,1.0,NM,35,Democratic
+2018,New York,27.0,21.0,3.0,6.0,3.0,NY,36,Democratic
+2018,North Carolina,13.0,3.0,,9.0,1.0,NC,37,Republican
+2018,North Dakota,1.0,0.0,,1.0,,ND,38,Republican
+2018,Ohio,16.0,4.0,,12.0,,OH,39,Republican
+2018,Oklahoma,5.0,1.0,1.0,4.0,1.0,OK,40,Republican
+2018,Oregon,5.0,4.0,,1.0,,OR,41,Democratic
+2018,Pennsylvania,18.0,9.0,4.0,9.0,4.0,PA,42,Even
+2018,Rhode Island,2.0,2.0,,0.0,,RI,44,Democratic
+2018,South Carolina,7.0,2.0,1.0,5.0,1.0,SC,45,Republican
+2018,South Dakota,1.0,0.0,,1.0,,SD,46,Republican
+2018,Tennessee,9.0,2.0,,7.0,,TN,47,Republican
+2018,Texas,36.0,13.0,2.0,23.0,2.0,TX,48,Republican
+2018,Utah,4.0,1.0,1.0,3.0,1.0,UT,49,Republican
+2018,Vermont,1.0,1.0,,0.0,,VT,50,Democratic
+2018,Virginia,11.0,7.0,3.0,4.0,3.0,VA,51,Democratic
+2018,Washington,10.0,7.0,1.0,3.0,1.0,WA,53,Democratic
+2018,West Virginia,3.0,0.0,,3.0,,WV,54,Republican
+2018,Wisconsin,8.0,3.0,,5.0,,WI,55,Republican
+2018,Wyoming,1.0,0.0,,1.0,,WY,56,Republican
+2022,Alabama,7.0,1.0,,6.0,,AL,1,Republican
+2022,Alaska,1.0,1.0,1.0,0.0,1.0,AK,2,Democratic
+2022,Arizona,9.0,3.0,2.0,6.0,2.0,AZ,4,Republican
+2022,Arkansas,4.0,0.0,,4.0,,AR,5,Republican
+2022,California,52.0,40.0,2.0,12.0,1.0,CA,6,Democratic
+2022,Colorado,8.0,5.0,1.0,3.0,,CO,8,Democratic
+2022,Connecticut,5.0,5.0,,0.0,,CT,9,Democratic
+2022,Delaware,1.0,1.0,,0.0,,DE,10,Democratic
+2022,Florida,28.0,8.0,3.0,20.0,4.0,FL,12,Republican
+2022,Georgia,14.0,5.0,1.0,9.0,1.0,GA,13,Republican
+2022,Hawaii,2.0,2.0,,0.0,,HI,15,Democratic
+2022,Idaho,2.0,0.0,,2.0,,ID,16,Republican
+2022,Illinois,17.0,14.0,1.0,3.0,2.0,IL,17,Democratic
+2022,Indiana,9.0,2.0,,7.0,,IN,18,Republican
+2022,Iowa,4.0,0.0,1.0,4.0,1.0,IA,19,Republican
+2022,Kansas,4.0,1.0,,3.0,,KS,20,Republican
+2022,Kentucky,6.0,1.0,,5.0,,KY,21,Republican
+2022,Louisiana,6.0,1.0,,5.0,,LA,22,Republican
+2022,Maine,2.0,2.0,,0.0,,ME,23,Democratic
+2022,Maryland,8.0,7.0,,1.0,,MD,24,Democratic
+2022,Massachusetts,9.0,9.0,,0.0,,MA,25,Democratic
+2022,Michigan,13.0,7.0,,6.0,1.0,MI,26,Democratic
+2022,Minnesota,8.0,4.0,,4.0,,MN,27,Even
+2022,Mississippi,4.0,1.0,,3.0,,MS,28,Republican
+2022,Missouri,8.0,2.0,,6.0,,MO,29,Republican
+2022,Montana,2.0,0.0,,2.0,1.0,MT,30,Republican
+2022,Nebraska,3.0,0.0,,3.0,,NE,31,Republican
+2022,Nevada,4.0,3.0,,1.0,,NV,32,Democratic
+2022,New Hampshire,2.0,2.0,,0.0,,NH,33,Democratic
+2022,New Jersey,12.0,9.0,1.0,3.0,1.0,NJ,34,Democratic
+2022,New Mexico,3.0,3.0,1.0,0.0,1.0,NM,35,Democratic
+2022,New York,26.0,15.0,4.0,11.0,3.0,NY,36,Democratic
+2022,North Carolina,14.0,7.0,2.0,7.0,1.0,NC,37,Even
+2022,North Dakota,1.0,0.0,,1.0,,ND,38,Republican
+2022,Ohio,15.0,5.0,1.0,10.0,2.0,OH,39,Republican
+2022,Oklahoma,5.0,0.0,,5.0,,OK,40,Republican
+2022,Oregon,6.0,4.0,,2.0,1.0,OR,41,Democratic
+2022,Pennsylvania,17.0,9.0,,8.0,1.0,PA,42,Democratic
+2022,Rhode Island,2.0,2.0,,0.0,,RI,44,Democratic
+2022,South Carolina,7.0,1.0,,6.0,,SC,45,Republican
+2022,South Dakota,1.0,0.0,,1.0,,SD,46,Republican
+2022,Tennessee,9.0,1.0,1.0,8.0,1.0,TN,47,Republican
+2022,Texas,38.0,13.0,,25.0,2.0,TX,48,Republican
+2022,Utah,4.0,0.0,,4.0,,UT,49,Republican
+2022,Vermont,1.0,1.0,,0.0,,VT,50,Democratic
+2022,Virginia,11.0,6.0,1.0,5.0,1.0,VA,51,Democratic
+2022,Washington,10.0,8.0,1.0,2.0,1.0,WA,53,Democratic
+2022,West Virginia,2.0,0.0,,2.0,1.0,WV,54,Republican
+2022,Wisconsin,8.0,2.0,1.0,6.0,1.0,WI,55,Republican
+2022,Wyoming,1.0,0.0,,1.0,,WY,56,Republican
+2026,Alabama,7.0,2.0,,5.0,,AL,1,Republican
+2026,Alaska,1.0,,,,,AK,2,Even
+2026,Arizona,9.0,5.0,2.0,4.0,2.0,AZ,4,Democratic
+2026,Arkansas,4.0,0.0,,4.0,,AR,5,Republican
+2026,California,52.0,48.0,5.0,4.0,5.0,CA,6,Democratic
+2026,Colorado,8.0,7.0,3.0,1.0,3.0,CO,8,Democratic
+2026,Connecticut,5.0,5.0,,0.0,,CT,9,Democratic
+2026,Delaware,1.0,1.0,,0.0,,DE,10,Democratic
+2026,Florida,28.0,8.0,,20.0,,FL,12,Republican
+2026,Georgia,14.0,5.0,,9.0,,GA,13,Republican
+2026,Hawaii,2.0,2.0,,0.0,,HI,15,Democratic
+2026,Idaho,2.0,0.0,,2.0,,ID,16,Republican
+2026,Illinois,17.0,14.0,,3.0,,IL,17,Democratic
+2026,Indiana,9.0,3.0,1.0,6.0,1.0,IN,18,Republican
+2026,Iowa,4.0,3.0,3.0,1.0,3.0,IA,19,Democratic
+2026,Kansas,4.0,1.0,,3.0,,KS,20,Republican
+2026,Kentucky,6.0,2.0,1.0,4.0,1.0,KY,21,Republican
+2026,Louisiana,6.0,,,,,LA,22,Even
+2026,Maine,2.0,1.0,1.0,1.0,1.0,ME,23,Even
+2026,Maryland,8.0,7.0,,1.0,,MD,24,Democratic
+2026,Massachusetts,9.0,9.0,,0.0,,MA,25,Democratic
+2026,Michigan,13.0,9.0,3.0,4.0,3.0,MI,26,Democratic
+2026,Minnesota,8.0,5.0,1.0,3.0,1.0,MN,27,Democratic
+2026,Mississippi,4.0,1.0,,3.0,,MS,28,Republican
+2026,Missouri,8.0,3.0,1.0,5.0,1.0,MO,29,Republican
+2026,Montana,2.0,1.0,1.0,1.0,1.0,MT,30,Even
+2026,Nebraska,3.0,1.0,1.0,2.0,1.0,NE,31,Republican
+2026,Nevada,4.0,4.0,1.0,0.0,1.0,NV,32,Democratic
+2026,New Hampshire,2.0,2.0,,0.0,,NH,33,Democratic
+2026,New Jersey,12.0,11.0,2.0,1.0,2.0,NJ,34,Democratic
+2026,New Mexico,3.0,3.0,,0.0,,NM,35,Democratic
+2026,New York,26.0,20.0,1.0,6.0,1.0,NY,36,Democratic
+2026,North Carolina,14.0,,,,,NC,37,Even
+2026,North Dakota,1.0,0.0,,1.0,,ND,38,Republican
+2026,Ohio,15.0,8.0,3.0,7.0,3.0,OH,39,Democratic
+2026,Oklahoma,5.0,0.0,,5.0,,OK,40,Republican
+2026,Oregon,6.0,5.0,,1.0,,OR,41,Democratic
+2026,Pennsylvania,17.0,11.0,4.0,6.0,4.0,PA,42,Democratic
+2026,Rhode Island,2.0,2.0,,0.0,,RI,44,Democratic
+2026,South Carolina,7.0,2.0,1.0,5.0,1.0,SC,45,Republican
+2026,South Dakota,1.0,0.0,,1.0,,SD,46,Republican
+2026,Tennessee,9.0,1.0,,8.0,,TN,47,Republican
+2026,Texas,38.0,14.0,1.0,24.0,1.0,TX,48,Republican
+2026,Utah,4.0,1.0,1.0,3.0,1.0,UT,49,Republican
+2026,Vermont,1.0,1.0,,0.0,,VT,50,Democratic
+2026,Virginia,11.0,8.0,2.0,3.0,2.0,VA,51,Democratic
+2026,Washington,10.0,8.0,,2.0,,WA,53,Democratic
+2026,West Virginia,2.0,0.0,,2.0,,WV,54,Republican
+2026,Wisconsin,8.0,4.0,2.0,4.0,2.0,WI,55,Even
+2026,Wyoming,1.0,0.0,,1.0,,WY,56,Republican
