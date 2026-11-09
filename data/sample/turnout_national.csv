@@ -1,0 +1,10 @@
+year,vep_turnout_rate_pct,status,source
+1994,41.1,final,UF Election Lab US_VEP_Turnout_Rates_v1.4
+1998,38.1,final,UF Election Lab US_VEP_Turnout_Rates_v1.4
+2002,39.5,final,UF Election Lab US_VEP_Turnout_Rates_v1.4
+2006,40.4,final,UF Election Lab US_VEP_Turnout_Rates_v1.4
+2010,41.0,final,UF Election Lab US_VEP_Turnout_Rates_v1.4
+2014,36.7,final,UF Election Lab US_VEP_Turnout_Rates_v1.4
+2018,50.05,final,UF Election Lab US_VEP_Turnout_Rates_v1.4
+2022,46.12,final,UF Election Lab US_VEP_Turnout_Rates_v1.4
+2026,,not yet published,"UF Election Lab has not published a 2026 VEP rate; Wikipedia infobox reports an estimated 125 million total ballots (preliminary, no VEP denominator published)"
