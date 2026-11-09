@@ -1,0 +1,6 @@
+office_key,office_name,chamber,seats_total
+HOU,House,House,435
+SEN,Senate,Senate,100
+PRE,President,Executive,1
+GOV,Governor,State executive,50
+ATG,Attorney General,State executive,50
