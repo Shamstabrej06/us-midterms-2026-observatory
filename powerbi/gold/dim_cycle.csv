@@ -1,0 +1,19 @@
+cycle,congress,election_type,president,president_party,senate_majority,house_majority,trifecta
+1992,103,presidential,Bill Clinton,Democratic,Democratic,Democratic,True
+1994,104,midterm,Bill Clinton,Democratic,Republican,Republican,False
+1996,105,presidential,Bill Clinton,Democratic,Republican,Republican,False
+1998,106,midterm,Bill Clinton,Democratic,Republican,Republican,False
+2000,107,presidential,George W. Bush,Republican,Even,Republican,False
+2002,108,midterm,George W. Bush,Republican,Republican,Republican,True
+2004,109,presidential,George W. Bush,Republican,Republican,Republican,True
+2006,110,midterm,George W. Bush,Republican,Democratic,Democratic,False
+2008,111,presidential,Barack Obama,Democratic,Democratic,Democratic,True
+2010,112,midterm,Barack Obama,Democratic,Democratic,Republican,False
+2012,113,presidential,Barack Obama,Democratic,Democratic,Republican,False
+2014,114,midterm,Barack Obama,Democratic,Republican,Republican,False
+2016,115,presidential,Donald Trump,Republican,Republican,Republican,True
+2018,116,midterm,Donald Trump,Republican,Republican,Democratic,False
+2020,117,presidential,Joe Biden,Democratic,Republican,Democratic,False
+2022,118,midterm,Joe Biden,Democratic,Republican,Republican,False
+2024,119,presidential,Donald Trump,Republican,Republican,Republican,True
+2026,120,midterm,Donald Trump,Republican,Democratic,Democratic,False

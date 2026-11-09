@@ -1,0 +1,57 @@
+state_fips,state_abbr,state_name,region,division,population_2024
+1,AL,Alabama,South,East South Central,5157699
+2,AK,Alaska,West,Pacific,740133
+4,AZ,Arizona,West,Mountain,7582384
+5,AR,Arkansas,South,West South Central,3088354
+6,CA,California,West,Pacific,39431263
+8,CO,Colorado,West,Mountain,5957493
+9,CT,Connecticut,Northeast,New England,3675069
+10,DE,Delaware,South,South Atlantic,1051917
+11,DC,District of Columbia,South,South Atlantic,702250
+12,FL,Florida,South,South Atlantic,23372215
+13,GA,Georgia,South,South Atlantic,11180878
+15,HI,Hawaii,West,Pacific,1446146
+16,ID,Idaho,West,Mountain,2001619
+17,IL,Illinois,Midwest,East North Central,12710158
+18,IN,Indiana,Midwest,East North Central,6924275
+19,IA,Iowa,Midwest,West North Central,3241488
+20,KS,Kansas,Midwest,West North Central,2970606
+21,KY,Kentucky,South,East South Central,4588372
+22,LA,Louisiana,South,West South Central,4597740
+23,ME,Maine,Northeast,New England,1405012
+24,MD,Maryland,South,South Atlantic,6263220
+25,MA,Massachusetts,Northeast,New England,7136171
+26,MI,Michigan,Midwest,East North Central,10140459
+27,MN,Minnesota,Midwest,West North Central,5793151
+28,MS,Mississippi,South,East South Central,2943045
+29,MO,Missouri,Midwest,West North Central,6245466
+30,MT,Montana,West,Mountain,1137233
+31,NE,Nebraska,Midwest,West North Central,2005465
+32,NV,Nevada,West,Mountain,3267467
+33,NH,New Hampshire,Northeast,New England,1409032
+34,NJ,New Jersey,Northeast,Middle Atlantic,9500851
+35,NM,New Mexico,West,Mountain,2130256
+36,NY,New York,Northeast,Middle Atlantic,19867248
+37,NC,North Carolina,South,South Atlantic,11046024
+38,ND,North Dakota,Midwest,West North Central,796568
+39,OH,Ohio,Midwest,East North Central,11883304
+40,OK,Oklahoma,South,West South Central,4095393
+41,OR,Oregon,West,Pacific,4272371
+42,PA,Pennsylvania,Northeast,Middle Atlantic,13078751
+44,RI,Rhode Island,Northeast,New England,1112308
+45,SC,South Carolina,South,South Atlantic,5478831
+46,SD,South Dakota,Midwest,West North Central,924669
+47,TN,Tennessee,South,East South Central,7227750
+48,TX,Texas,South,West South Central,31290831
+49,UT,Utah,West,Mountain,3503613
+50,VT,Vermont,Northeast,New England,648493
+51,VA,Virginia,South,South Atlantic,8811195
+53,WA,Washington,West,Pacific,7958180
+54,WV,West Virginia,South,South Atlantic,1769979
+55,WI,Wisconsin,Midwest,East North Central,5960975
+56,WY,Wyoming,West,Mountain,587618
+60,AS,American Samoa,Territory,Territory,
+66,GU,Guam,Territory,Territory,
+69,MP,Northern Mariana Islands,Territory,Territory,
+72,PR,Puerto Rico,Territory,Territory,
+78,VI,U.S. Virgin Islands,Territory,Territory,

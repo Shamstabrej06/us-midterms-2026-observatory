@@ -1,0 +1,164 @@
+cycle,district,winner,margin_pts,margin_band
+2018,Georgia 7th,Republican,0.15,<5 pts
+2018,Utah 4th,Democratic (flip),0.26,<5 pts
+2018,North Carolina 9th,Republican,0.32,<5 pts
+2018,New York 27th,Republican,0.38,<5 pts
+2018,Texas 23rd,Republican,0.43,<5 pts
+2018,Minnesota 1st,Republican (flip),0.45,<5 pts
+2018,California 21st,Democratic (flip),0.74,<5 pts
+2018,Illinois 13th,Republican,0.76,<5 pts
+2018,Kansas 2nd,Republican,0.85,<5 pts
+2018,Georgia 6th,Democratic (flip),1.03,<5 pts
+2018,Maine 2nd,Democratic (flip),1.24,<5 pts
+2018,New Jersey 3rd,Democratic (flip),1.29,<5 pts
+2018,South Carolina 1st,Democratic (flip),1.39,<5 pts
+2018,Oklahoma 5th,Democratic (flip),1.4,<5 pts
+2018,Florida 26th,Democratic (flip),1.75,<5 pts
+2018,New York 22nd,Democratic (flip),1.78,<5 pts
+2018,New Mexico 2nd,Democratic (flip),1.87,<5 pts
+2018,Virginia 7th,Democratic (flip),1.94,<5 pts
+2018,Nebraska 2nd,Republican,1.99,<5 pts
+2018,Iowa 3rd,Democratic (flip),2.16,<5 pts
+2018,Virginia 2nd,Democratic (flip),2.24,<5 pts
+2018,Pennsylvania 1st,Republican,2.52,<5 pts
+2018,Pennsylvania 10th,Republican,2.64,<5 pts
+2018,Texas 21st,Republican,2.82,<5 pts
+2018,Texas 31st,Republican,3.0,<5 pts
+2018,California 39th,Democratic (flip),3.11,<5 pts
+2018,Texas 24th,Republican,3.21,<5 pts
+2018,Kentucky 6th,Republican,3.21,<5 pts
+2018,Iowa 4th,Republican,3.33,<5 pts
+2018,California 50th,Republican,3.48,<5 pts
+2018,Michigan 8th,Democratic (flip),3.83,<5 pts
+2018,Missouri 2nd,Republican,3.95,<5 pts
+2018,New York 1st,Republican,4.09,<5 pts
+2018,California 45th,Democratic (flip),4.1,<5 pts
+2018,Ohio 12th,Republican,4.16,<5 pts
+2018,Minnesota 7th,Democratic,4.26,<5 pts
+2018,Texas 10th,Republican,4.27,<5 pts
+2018,Pennsylvania 16th,Republican,4.28,<5 pts
+2018,California 10th,Democratic (flip),4.49,<5 pts
+2018,Michigan 6th,Republican,4.55,<5 pts
+2018,Montana at-large,Republican,4.63,<5 pts
+2018,Washington 8th,Democratic (flip),4.83,<5 pts
+2018,Texas 22nd,Republican,4.98,<5 pts
+2018,Illinois 14th,Democratic (flip),5.0,5-10 pts
+2018,New Jersey 7th,Democratic (flip),5.02,5-10 pts
+2018,Iowa 1st,Democratic (flip),5.06,5-10 pts
+2018,Texas 7th,Democratic (flip),5.06,5-10 pts
+2018,New York 19th,Democratic (flip),5.21,5-10 pts
+2018,New York 24th,Republican,5.26,5-10 pts
+2018,Ohio 1st,Republican,5.36,5-10 pts
+2018,California 22nd,Republican,5.44,5-10 pts
+2018,North Carolina 2nd,Republican,5.45,5-10 pts
+2018,Minnesota 2nd,Democratic (flip),5.5,5-10 pts
+2018,Minnesota 8th,Republican (flip),5.54,5-10 pts
+2018,Washington 3rd,Republican,5.66,5-10 pts
+2018,North Carolina 13th,Republican,6.0,5-10 pts
+2018,Florida 27th,Democratic (flip),6.0,5-10 pts
+2018,Florida 15th,Republican,6.04,5-10 pts
+2018,Illinois 12th,Republican,6.18,5-10 pts
+2018,New York 2nd,Republican,6.22,5-10 pts
+2018,Arkansas 2nd,Republican,6.31,5-10 pts
+2018,New York 11th,Democratic (flip),6.45,5-10 pts
+2018,Texas 32nd,Democratic (flip),6.5,5-10 pts
+2018,Virginia 5th,Republican,6.53,5-10 pts
+2018,Alaska at-large,Republican,6.58,5-10 pts
+2018,Michigan 11th,Democratic (flip),6.67,5-10 pts
+2018,California 48th,Democratic (flip),7.1,5-10 pts
+2018,Illinois 6th,Democratic (flip),7.15,5-10 pts
+2018,Texas 2nd,Republican,7.29,5-10 pts
+2018,Michigan 7th,Republican,7.61,5-10 pts
+2018,Texas 6th,Republican,7.66,5-10 pts
+2018,New Jersey 2nd,Democratic (flip),7.67,5-10 pts
+2018,Arizona 1st,Democratic,7.69,5-10 pts
+2018,Colorado 3rd,Republican,7.97,5-10 pts
+2018,Nevada 4th,Democratic,8.18,5-10 pts
+2018,California 4th,Republican,8.26,5-10 pts
+2018,New York 23rd,Republican,8.49,5-10 pts
+2018,New Hampshire 1st,Democratic,8.55,5-10 pts
+2018,Florida 18th,Republican,8.6,5-10 pts
+2018,California 25th,Democratic (flip),8.73,5-10 pts
+2018,Texas 25th,Republican,8.75,5-10 pts
+2018,Nevada 3rd,Democratic,9.06,5-10 pts
+2018,Florida 16th,Republican,9.12,5-10 pts
+2018,Pennsylvania 8th,Democratic,9.29,5-10 pts
+2018,Arizona 2nd,Democratic (flip),9.49,5-10 pts
+2018,Kansas 3rd,Democratic (flip),9.66,5-10 pts
+2018,Indiana 2nd,Republican,9.67,5-10 pts
+2018,California 1st,Republican,9.77,5-10 pts
+2018,Washington 5th,Republican,9.86,5-10 pts
+2022,Colorado 3rd,Republican,0.17,<5 pts
+2022,California 13th,Republican,0.42,<5 pts
+2022,Michigan 10th,Republican,0.49,<5 pts
+2022,New York 17th,Republican (flip),0.64,<5 pts
+2022,Colorado 8th,Democratic,0.69,<5 pts
+2022,Iowa 3rd,Republican (flip),0.69,<5 pts
+2022,New Mexico 2nd,Democratic (flip),0.7,<5 pts
+2022,Connecticut 5th,Democratic,0.79,<5 pts
+2022,Washington 3rd,Democratic (flip),0.83,<5 pts
+2022,Arizona 1st,Republican,0.88,<5 pts
+2022,New York 22nd,Republican,0.98,<5 pts
+2022,New York 18th,Democratic,1.35,<5 pts
+2022,Arizona 6th,Republican (flip),1.5,<5 pts
+2022,New York 19th,Republican (flip),1.56,<5 pts
+2022,Pennsylvania 7th,Democratic,1.97,<5 pts
+2022,Oregon 5th,Republican (flip),2.08,<5 pts
+2022,Pennsylvania 8th,Democratic,2.45,<5 pts
+2022,Oregon 6th,Democratic,2.45,<5 pts
+2022,California 34th,Democratic,2.49,<5 pts
+2022,Nebraska 2nd,Republican,2.67,<5 pts
+2022,New Jersey 7th,Republican (flip),2.8,<5 pts
+2022,California 22nd,Republican,3.05,<5 pts
+2022,Montana 1st,Republican,3.16,<5 pts
+2022,North Carolina 13th,Democratic,3.19,<5 pts
+2022,Virginia 2nd,Republican (flip),3.41,<5 pts
+2022,California 47th,Democratic,3.43,<5 pts
+2022,New York 4th,Republican (flip),3.59,<5 pts
+2022,Wisconsin 3rd,Republican (flip),3.7,<5 pts
+2022,Rhode Island 2nd,Democratic,3.71,<5 pts
+2022,Nevada 3rd,Democratic,3.97,<5 pts
+2022,Illinois 17th,Democratic,3.97,<5 pts
+2022,Virginia 7th,Democratic,4.66,<5 pts
+2022,California 41st,Republican,4.69,<5 pts
+2022,North Carolina 1st,Democratic,4.74,<5 pts
+2022,Florida 23rd,Democratic,4.76,<5 pts
+2022,California 45th,Republican,4.83,<5 pts
+2022,Nevada 4th,Democratic,4.83,<5 pts
+2022,Minnesota 2nd,Democratic,5.23,5-10 pts
+2022,California 49th,Democratic,5.26,5-10 pts
+2022,Ohio 13th,Democratic,5.35,5-10 pts
+2022,Michigan 7th,Democratic,5.42,5-10 pts
+2022,Ohio 1st,Democratic (flip),5.52,5-10 pts
+2022,Nevada 1st,Democratic,5.61,5-10 pts
+2022,Indiana 1st,Democratic,5.68,5-10 pts
+2022,Maine 2nd,Democratic,6.1,5-10 pts
+2022,California 27th,Republican,6.48,5-10 pts
+2022,Virginia 10th,Democratic,6.51,5-10 pts
+2022,Pennsylvania 17th,Democratic,6.78,5-10 pts
+2022,Iowa 1st,Republican,6.81,5-10 pts
+2022,Washington 8th,Democratic,6.87,5-10 pts
+2022,Florida 9th,Democratic,7.27,5-10 pts
+2022,California 3rd,Republican,7.3,5-10 pts
+2022,Oregon 4th,Democratic,7.48,5-10 pts
+2022,New York 3rd,Republican (flip),7.53,5-10 pts
+2022,Pennsylvania 10th,Republican,7.67,5-10 pts
+2022,New York 25th,Democratic,7.74,5-10 pts
+2022,Arizona 2nd,Republican (flip),7.74,5-10 pts
+2022,Florida 13th,Republican (flip),8.08,5-10 pts
+2022,New Hampshire 1st,Democratic,8.13,5-10 pts
+2022,Iowa 2nd,Republican,8.25,5-10 pts
+2022,Illinois 14th,Democratic,8.32,5-10 pts
+2022,California 21st,Democratic,8.36,5-10 pts
+2022,Texas 15th,Republican,8.48,5-10 pts
+2022,Texas 34th,Democratic,8.5,5-10 pts
+2022,Illinois 6th,Democratic,8.72,5-10 pts
+2022,North Carolina 6th,Democratic,8.85,5-10 pts
+2022,Wisconsin 1st,Republican,8.91,5-10 pts
+2022,California 26th,Democratic,9.06,5-10 pts
+2022,North Carolina 11th,Republican,9.28,5-10 pts
+2022,Maryland 6th,Democratic,9.58,5-10 pts
+2022,California 9th,Democratic,9.63,5-10 pts
+2022,Pennsylvania 1st,Republican,9.73,5-10 pts
+2022,Alaska at-large,Democratic,9.93,5-10 pts
+2022,Georgia 2nd,Democratic,9.95,5-10 pts
