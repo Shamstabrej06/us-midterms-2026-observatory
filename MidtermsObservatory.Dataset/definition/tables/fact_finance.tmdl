@@ -1,0 +1,179 @@
+table fact_finance
+	lineageTag: 2b9730d2-9415-5397-955b-3550e04abf32
+
+	column candidate_id
+		dataType: string
+		lineageTag: cfa5ee18-de01-5794-a394-1d3e30e653d4
+		summarizeBy: none
+		sourceColumn: candidate_id
+
+	column candidate_name
+		dataType: string
+		lineageTag: 93ea6742-4cb1-57d5-9dbb-baf0018e4564
+		summarizeBy: none
+		sourceColumn: candidate_name
+
+	column cycle
+		dataType: int64
+		formatString: 0
+		lineageTag: b01fb738-5787-5dec-ad39-e3f7abc3c8a5
+		summarizeBy: none
+		sourceColumn: cycle
+
+	column office
+		dataType: string
+		lineageTag: 5785fe15-a519-5e02-815f-c7c89b6ac0af
+		summarizeBy: none
+		sourceColumn: office
+
+	column office_name
+		dataType: string
+		lineageTag: 889949b4-ecc9-5429-8723-3a6b8bc13f34
+		summarizeBy: none
+		sourceColumn: office_name
+
+	column state_abbr
+		dataType: string
+		lineageTag: 218ff87c-d3c9-5c26-8199-01a01c6ee965
+		summarizeBy: none
+		sourceColumn: state_abbr
+
+	column state_name
+		dataType: string
+		lineageTag: f54d1eae-428a-5c27-81bc-b6aac10dd0f0
+		summarizeBy: none
+		sourceColumn: state_name
+
+	column district
+		dataType: double
+		formatString: 0
+		lineageTag: 2dddfa0e-1eea-5f0d-8c29-84f2d579cdc4
+		summarizeBy: none
+		sourceColumn: district
+
+	column incumbent_status
+		dataType: string
+		lineageTag: 67465ae4-c7ec-5062-bdad-c38cf63d7222
+		summarizeBy: none
+		sourceColumn: incumbent_status
+
+	column party_raw
+		dataType: string
+		lineageTag: ea9c1388-baf2-5bbf-8206-1de5018d4130
+		summarizeBy: none
+		sourceColumn: party_raw
+
+	column party_name
+		dataType: string
+		lineageTag: b950f71a-b87e-5591-8e15-e4c1faba50a0
+		summarizeBy: none
+		sourceColumn: party_name
+
+	column total_receipts
+		dataType: double
+		formatString: $#,0
+		lineageTag: 2680d772-95df-5608-9f86-48c42173badd
+		summarizeBy: none
+		sourceColumn: total_receipts
+
+	column total_disbursements
+		dataType: double
+		formatString: $#,0
+		lineageTag: 11fd3642-f862-5d79-b449-83705e2accc5
+		summarizeBy: none
+		sourceColumn: total_disbursements
+
+	column cash_on_hand_bop
+		dataType: double
+		formatString: $#,0
+		lineageTag: b6ed45ee-3982-542d-be0f-655ae49e20f8
+		summarizeBy: none
+		sourceColumn: cash_on_hand_bop
+
+	column cash_on_hand_end
+		dataType: double
+		formatString: $#,0
+		lineageTag: 091e0204-2661-57a1-9f8c-fd5f1455bc6f
+		summarizeBy: none
+		sourceColumn: cash_on_hand_end
+
+	column debts_owed_by
+		dataType: double
+		formatString: $#,0
+		lineageTag: 9eacc419-a1df-54a5-99b6-04a06f8d1ef5
+		summarizeBy: none
+		sourceColumn: debts_owed_by
+
+	column individual_contributions
+		dataType: double
+		formatString: $#,0
+		lineageTag: 61fa1538-c505-59b7-90f0-7ec849f37ce4
+		summarizeBy: none
+		sourceColumn: individual_contributions
+
+	column other_committee_contributions
+		dataType: double
+		formatString: $#,0
+		lineageTag: 64290a29-346a-5653-a0b2-e65001264c98
+		summarizeBy: none
+		sourceColumn: other_committee_contributions
+
+	column party_committee_contributions
+		dataType: double
+		formatString: $#,0
+		lineageTag: 04547ed0-f1fb-5b04-824b-3d7612b83a09
+		summarizeBy: none
+		sourceColumn: party_committee_contributions
+
+	column coverage_end_date
+		dataType: string
+		lineageTag: 8e921020-5082-5d0e-857e-e9e6541f2188
+		summarizeBy: none
+		sourceColumn: coverage_end_date
+
+	column status
+		dataType: string
+		lineageTag: a5bb5d1a-a8a0-5198-806c-7a3f482e76aa
+		summarizeBy: none
+		sourceColumn: status
+
+	column party_key
+		dataType: string
+		lineageTag: a4d49462-b0e5-5870-9ccc-27b08edd1c4a
+		summarizeBy: none
+		sourceColumn: party_key
+
+	measure 'Total Receipts' =
+			SUM ( fact_finance[total_receipts] )
+		lineageTag: 112bb183-837a-5eeb-8b1a-040847307529
+		formatString: "$#,0"
+
+	measure 'House Receipts' =
+			CALCULATE (
+			    SUM ( fact_finance[total_receipts] ),
+			    fact_finance[office] = "H"
+			)
+		lineageTag: a1bc859f-a4e6-5b7a-b369-5c421a4af793
+		formatString: "$#,0"
+
+	measure 'Senate Receipts' =
+			CALCULATE (
+			    SUM ( fact_finance[total_receipts] ),
+			    fact_finance[office] = "S"
+			)
+		lineageTag: 9febf7a7-e848-5e89-bc92-8b263ab35315
+		formatString: "$#,0"
+
+	measure 'Candidates Count' =
+			COUNTROWS ( fact_finance )
+		lineageTag: 4e6b029d-7c65-586c-8b0e-daba94e3368b
+
+	partition fact_finance = m
+		mode: import
+		source =
+			let
+			    Source = Csv.Document(File.Contents(RepoFolder & "/powerbi/gold/fact_finance.csv"),[Delimiter=",", Columns=22, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+			    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+			    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"candidate_id", type text}, {"candidate_name", type text}, {"cycle", Int64.Type}, {"office", type text}, {"office_name", type text}, {"state_abbr", type text}, {"state_name", type text}, {"district", Double.Type}, {"incumbent_status", type text}, {"party_raw", type text}, {"party_name", type text}, {"total_receipts", Double.Type}, {"total_disbursements", Double.Type}, {"cash_on_hand_bop", Double.Type}, {"cash_on_hand_end", Double.Type}, {"debts_owed_by", Double.Type}, {"individual_contributions", Double.Type}, {"other_committee_contributions", Double.Type}, {"party_committee_contributions", Double.Type}, {"coverage_end_date", type text}, {"status", type text}, {"party_key", type text}})
+			in
+			    #"Changed Type"

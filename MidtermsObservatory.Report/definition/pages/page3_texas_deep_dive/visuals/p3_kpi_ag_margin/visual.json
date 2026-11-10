@@ -1,0 +1,51 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "p3_kpi_ag_margin",
+  "position": {
+    "x": 520,
+    "y": 110,
+    "z": 2000,
+    "width": 235,
+    "height": 95,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "fact_results"
+                    }
+                  },
+                  "property": "Texas Dem Margin"
+                }
+              },
+              "queryRef": "Measure.Texas Dem Margin"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "title": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Texas AG Dem Margin'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

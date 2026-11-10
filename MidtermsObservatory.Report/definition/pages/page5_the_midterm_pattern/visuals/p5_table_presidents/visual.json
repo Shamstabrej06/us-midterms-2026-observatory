@@ -1,0 +1,90 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "p5_table_presidents",
+  "position": {
+    "x": 790,
+    "y": 220,
+    "z": 4000,
+    "width": 470,
+    "height": 480,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "dim_cycle"
+                    }
+                  },
+                  "property": "cycle"
+                }
+              },
+              "queryRef": "dim_cycle.cycle"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "dim_cycle"
+                    }
+                  },
+                  "property": "president"
+                }
+              },
+              "queryRef": "dim_cycle.president"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "dim_cycle"
+                    }
+                  },
+                  "property": "president_party"
+                }
+              },
+              "queryRef": "dim_cycle.president_party"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "dim_cycle"
+                    }
+                  },
+                  "property": "Presidents Party Net Change"
+                }
+              },
+              "queryRef": "dim_cycle.Presidents Party Net Change"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "title": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Midterm Summary Table'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

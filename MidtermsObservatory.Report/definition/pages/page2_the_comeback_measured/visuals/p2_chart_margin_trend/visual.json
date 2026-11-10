@@ -1,0 +1,68 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "p2_chart_margin_trend",
+  "position": {
+    "x": 20,
+    "y": 465,
+    "z": 3000,
+    "width": 600,
+    "height": 235,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "dim_cycle"
+                    }
+                  },
+                  "property": "cycle"
+                }
+              },
+              "queryRef": "dim_cycle.cycle"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "dim_cycle"
+                    }
+                  },
+                  "property": "House Vote Margin D minus R"
+                }
+              },
+              "queryRef": "dim_cycle.House Vote Margin D minus R"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "title": {
+              "expr": {
+                "Literal": {
+                  "Value": "'House Popular Vote Margin Trend (2018\u20132026)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

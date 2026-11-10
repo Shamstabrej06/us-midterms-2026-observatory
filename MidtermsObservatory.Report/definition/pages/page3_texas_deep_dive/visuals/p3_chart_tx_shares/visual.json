@@ -1,0 +1,81 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "p3_chart_tx_shares",
+  "position": {
+    "x": 640,
+    "y": 220,
+    "z": 3000,
+    "width": 620,
+    "height": 230,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "columnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "fact_texas_statewide"
+                    }
+                  },
+                  "property": "office"
+                }
+              },
+              "queryRef": "fact_texas_statewide.office"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "fact_texas_statewide"
+                    }
+                  },
+                  "property": "Texas Dem Pct"
+                }
+              },
+              "queryRef": "fact_texas_statewide.Texas Dem Pct"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "fact_texas_statewide"
+                    }
+                  },
+                  "property": "Texas Rep Pct"
+                }
+              },
+              "queryRef": "fact_texas_statewide.Texas Rep Pct"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "title": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Texas Democratic vs Republican Vote Share (2026)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

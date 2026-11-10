@@ -1,0 +1,51 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "p1_kpi_house_uncalled",
+  "position": {
+    "x": 330,
+    "y": 110,
+    "z": 2000,
+    "width": 140,
+    "height": 110,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "fact_results"
+                    }
+                  },
+                  "property": "House Seats Uncalled 2026"
+                }
+              },
+              "queryRef": "Measure.House Seats Uncalled 2026"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "title": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Uncalled Races'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

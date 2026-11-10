@@ -1,0 +1,353 @@
+table fact_results
+	lineageTag: 59bc63ac-93c2-51e1-a5b5-9f25e4f1f075
+
+	column race_id
+		dataType: string
+		lineageTag: 12096774-2c80-5daf-aa71-4015126fb0b2
+		summarizeBy: none
+		sourceColumn: race_id
+
+	column cycle
+		dataType: int64
+		formatString: 0
+		lineageTag: 97d415c8-396f-5dde-8697-40c60b36459b
+		summarizeBy: none
+		sourceColumn: cycle
+
+	column office_key
+		dataType: string
+		lineageTag: 3ae7d2b4-462d-5350-b30c-4d5890154acf
+		summarizeBy: none
+		sourceColumn: office_key
+
+	column geography_level
+		dataType: string
+		lineageTag: ca0ca0e1-6290-563b-aa5d-39f3fe3a56d1
+		summarizeBy: none
+		sourceColumn: geography_level
+
+	column state_fips
+		dataType: double
+		formatString: 0
+		lineageTag: 07d2fc5d-919f-5e61-a4d8-a81e82853531
+		summarizeBy: none
+		sourceColumn: state_fips
+
+	column state_abbr
+		dataType: string
+		lineageTag: 6055f376-7c85-5f15-81a9-1fc991e44369
+		summarizeBy: none
+		sourceColumn: state_abbr
+
+	column party_key
+		dataType: string
+		lineageTag: b3a5b528-5709-5316-8497-811511950c59
+		summarizeBy: none
+		sourceColumn: party_key
+
+	column party_name
+		dataType: string
+		lineageTag: 71fc5807-c539-5e93-bf0a-cba12bb449cc
+		summarizeBy: none
+		sourceColumn: party_name
+
+	column candidate
+		dataType: string
+		lineageTag: e8c0a3e9-a807-5f14-a24a-e1fe008c9348
+		summarizeBy: none
+		sourceColumn: candidate
+
+	column votes
+		dataType: double
+		formatString: #,0
+		lineageTag: 0fc4faf3-46d6-5063-bddd-38fea79bad3f
+		summarizeBy: none
+		sourceColumn: votes
+
+	column vote_share_pct
+		dataType: double
+		formatString: 0.0"%"
+		lineageTag: 5b4eca69-bb2e-5f91-b154-cee14c8c495b
+		summarizeBy: none
+		sourceColumn: vote_share_pct
+
+	column seats_before
+		dataType: double
+		formatString: 0
+		lineageTag: a7b0df42-854f-5d4c-99bf-1e44a6054b61
+		summarizeBy: none
+		sourceColumn: seats_before
+
+	column seats_after
+		dataType: double
+		formatString: 0
+		lineageTag: 5e9360da-fb57-5110-9c93-c45353b947a2
+		summarizeBy: none
+		sourceColumn: seats_after
+
+	column net_change
+		dataType: double
+		formatString: +0;-0;0
+		lineageTag: e8d82a4c-d63a-5845-9559-c2e482fb8f2f
+		summarizeBy: none
+		sourceColumn: net_change
+
+	column margin_pts
+		dataType: double
+		formatString: +0.0;-0.0;0.0
+		lineageTag: caf1d180-befa-57ed-bdb6-fb7ca10546c9
+		summarizeBy: none
+		sourceColumn: margin_pts
+
+	column winner_party
+		dataType: string
+		lineageTag: 31843910-9261-5569-a83d-96f893ffcc34
+		summarizeBy: none
+		sourceColumn: winner_party
+
+	column status
+		dataType: string
+		lineageTag: ef4319e6-5c52-55e1-8ebc-763943e8fa9c
+		summarizeBy: none
+		sourceColumn: status
+
+	measure 'House Seats D 2026' =
+			CALCULATE (
+			    SUM ( fact_results[seats_after] ),
+			    fact_results[office_key] = "HOU",
+			    fact_results[geography_level] = "national",
+			    fact_results[cycle] = 2026,
+			    fact_results[party_name] = "Democratic"
+			)
+		lineageTag: d33a92f6-1ca7-5199-a87f-1d481122c1bc
+
+	measure 'House Seats R 2026' =
+			CALCULATE (
+			    SUM ( fact_results[seats_after] ),
+			    fact_results[office_key] = "HOU",
+			    fact_results[geography_level] = "national",
+			    fact_results[cycle] = 2026,
+			    fact_results[party_name] = "Republican"
+			)
+		lineageTag: 2e040071-488f-5b59-b8fe-7afb1ccf7cbc
+
+	measure 'House Seats Uncalled 2026' =
+			435 - [House Seats D 2026] - [House Seats R 2026]
+		lineageTag: 4a233ca0-a9ac-5651-a26c-1eab40fae966
+
+	measure 'House Net Change D 2026' =
+			CALCULATE (
+			    SUM ( fact_results[net_change] ),
+			    fact_results[office_key] = "HOU",
+			    fact_results[geography_level] = "national",
+			    fact_results[cycle] = 2026,
+			    fact_results[party_name] = "Democratic"
+			)
+		lineageTag: 43f1fbb6-4177-59b6-9182-29f801659425
+
+	measure 'House Net Change R 2026' =
+			CALCULATE (
+			    SUM ( fact_results[net_change] ),
+			    fact_results[office_key] = "HOU",
+			    fact_results[geography_level] = "national",
+			    fact_results[cycle] = 2026,
+			    fact_results[party_name] = "Republican"
+			)
+		lineageTag: 5c591415-14ed-565c-bec0-35188cdff92e
+
+	measure 'House Popular Vote D 2026' =
+			CALCULATE (
+			    MAX ( fact_results[vote_share_pct] ),
+			    fact_results[office_key] = "HOU",
+			    fact_results[geography_level] = "national",
+			    fact_results[cycle] = 2026,
+			    fact_results[party_name] = "Democratic"
+			)
+		lineageTag: 23a75a0b-7966-5dc1-b27a-b9964c78333e
+
+	measure 'House Popular Vote R 2026' =
+			CALCULATE (
+			    MAX ( fact_results[vote_share_pct] ),
+			    fact_results[office_key] = "HOU",
+			    fact_results[geography_level] = "national",
+			    fact_results[cycle] = 2026,
+			    fact_results[party_name] = "Republican"
+			)
+		lineageTag: e01e7af4-261a-585d-9548-8d2f475897cb
+
+	measure 'House Popular Vote Margin 2026' =
+			[House Popular Vote D 2026] - [House Popular Vote R 2026]
+		lineageTag: 3eed7a9a-ec6d-50e0-a8ed-40af8e122ef2
+		formatString: 0.0"%"
+
+	measure 'Gov Wins D 2026' =
+			COUNTROWS (
+			    FILTER (
+			        fact_results,
+			        fact_results[cycle] = 2026
+			            && fact_results[office_key] = "GOV"
+			            && fact_results[winner_party] = "Democratic"
+			    )
+			)
+		lineageTag: 0b6e32af-b654-550e-afd3-cbfca478f0c1
+
+	measure 'Gov Wins R 2026' =
+			COUNTROWS (
+			    FILTER (
+			        fact_results,
+			        fact_results[cycle] = 2026
+			            && fact_results[office_key] = "GOV"
+			            && fact_results[winner_party] = "Republican"
+			    )
+			)
+		lineageTag: a68f16d5-a498-51af-88aa-9a97763974ac
+
+	measure 'Gov Races Uncalled 2026' =
+			COUNTROWS (
+			    FILTER (
+			        fact_results,
+			        fact_results[cycle] = 2026
+			            && fact_results[office_key] = "GOV"
+			            && ISBLANK ( fact_results[winner_party] )
+			    )
+			)
+		lineageTag: 52744fbb-f748-5ef0-90b6-eee7c6c59e16
+
+	measure 'House Seats D' =
+			CALCULATE (
+			    SUM ( fact_results[seats_after] ),
+			    fact_results[office_key] = "HOU",
+			    fact_results[geography_level] = "national",
+			    fact_results[party_name] = "Democratic"
+			)
+		lineageTag: 056fc04d-1620-5d23-8303-7e2404e862a1
+
+	measure 'House Seats R' =
+			CALCULATE (
+			    SUM ( fact_results[seats_after] ),
+			    fact_results[office_key] = "HOU",
+			    fact_results[geography_level] = "national",
+			    fact_results[party_name] = "Republican"
+			)
+		lineageTag: 305816e0-402a-535b-8dac-9f0586455434
+
+	measure 'House Net Change D' =
+			CALCULATE (
+			    SUM ( fact_results[net_change] ),
+			    fact_results[office_key] = "HOU",
+			    fact_results[geography_level] = "national",
+			    fact_results[party_name] = "Democratic"
+			)
+		lineageTag: 26c50987-8e58-5e61-8a67-3701abef1a04
+
+	measure 'Dem House Vote Share' =
+			CALCULATE (
+			    MAX ( fact_results[vote_share_pct] ),
+			    fact_results[office_key] = "HOU",
+			    fact_results[geography_level] = "national",
+			    fact_results[party_name] = "Democratic"
+			)
+		lineageTag: 0131d6d2-fe13-589e-976e-10425e0a822d
+		formatString: 0.0"%"
+
+	measure 'Rep House Vote Share' =
+			CALCULATE (
+			    MAX ( fact_results[vote_share_pct] ),
+			    fact_results[office_key] = "HOU",
+			    fact_results[geography_level] = "national",
+			    fact_results[party_name] = "Republican"
+			)
+		lineageTag: 5042550b-7cce-54b3-b5be-f1444df42e51
+		formatString: 0.0"%"
+
+	measure 'House Vote Margin D minus R' =
+			[Dem House Vote Share] - [Rep House Vote Share]
+		lineageTag: ed68510a-13aa-5042-9bc5-22c444a970ab
+		formatString: 0.0"%"
+
+	measure 'Dem Seats Change 2022 to 2026' =
+			CALCULATE (
+			    SUM ( fact_results[seats_after] ),
+			    fact_results[office_key] = "HOU",
+			    fact_results[geography_level] = "state",
+			    fact_results[cycle] = 2026,
+			    fact_results[party_name] = "Democratic"
+			)
+			    - CALCULATE (
+			        SUM ( fact_results[seats_after] ),
+			        fact_results[office_key] = "HOU",
+			        fact_results[geography_level] = "state",
+			        fact_results[cycle] = 2022,
+			        fact_results[party_name] = "Democratic"
+			    )
+		lineageTag: 8e3ec059-3b7f-537c-a51e-559456700575
+
+	measure 'Texas House Dem Seats' =
+			CALCULATE (
+			    SUM ( fact_results[seats_after] ),
+			    fact_results[office_key] = "HOU",
+			    fact_results[geography_level] = "state",
+			    fact_results[state_abbr] = "TX",
+			    fact_results[party_name] = "Democratic"
+			)
+		lineageTag: 802f020a-11bb-5600-9e7f-f9b3fc51a6fa
+
+	measure 'Texas House Rep Seats' =
+			CALCULATE (
+			    SUM ( fact_results[seats_after] ),
+			    fact_results[office_key] = "HOU",
+			    fact_results[geography_level] = "state",
+			    fact_results[state_abbr] = "TX",
+			    fact_results[party_name] = "Republican"
+			)
+		lineageTag: 46069f8d-86d1-5d68-bd91-63e5da7df794
+
+	measure 'Presidents Party Net Change' =
+			VAR PresParty =
+			    SELECTEDVALUE ( dim_cycle[president_party] )
+			RETURN
+			    CALCULATE (
+			        SUM ( fact_results[net_change] ),
+			        fact_results[office_key] = "HOU",
+			        fact_results[geography_level] = "national",
+			        fact_results[party_name] = PresParty
+			    )
+		lineageTag: 9ce63799-eea1-56b2-b8da-cd1ff8cdaa29
+
+	measure 'State Dem Seats 2026' =
+			CALCULATE (
+			    SUM ( fact_results[seats_after] ),
+			    fact_results[office_key] = "HOU",
+			    fact_results[geography_level] = "state",
+			    fact_results[cycle] = 2026,
+			    fact_results[party_name] = "Democratic"
+			)
+		lineageTag: 7b4b224f-0ef8-5265-9ca2-9ff3ad102687
+
+	measure 'State Rep Seats 2026' =
+			CALCULATE (
+			    SUM ( fact_results[seats_after] ),
+			    fact_results[office_key] = "HOU",
+			    fact_results[geography_level] = "state",
+			    fact_results[cycle] = 2026,
+			    fact_results[party_name] = "Republican"
+			)
+		lineageTag: d3cb1fe9-fa8e-5d27-ae5c-e9c63e8daaee
+
+	measure 'State Governor 2026' =
+			CALCULATE (
+			    MAX ( fact_results[winner_party] ),
+			    fact_results[office_key] = "GOV",
+			    fact_results[cycle] = 2026
+			)
+		lineageTag: 05e7b2ac-4180-5c44-8116-966b273ad17d
+
+	partition fact_results = m
+		mode: import
+		source =
+			let
+			    Source = Csv.Document(File.Contents(RepoFolder & "/powerbi/gold/fact_results.csv"),[Delimiter=",", Columns=17, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+			    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+			    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"race_id", type text}, {"cycle", Int64.Type}, {"office_key", type text}, {"geography_level", type text}, {"state_fips", Double.Type}, {"state_abbr", type text}, {"party_key", type text}, {"party_name", type text}, {"candidate", type text}, {"votes", Double.Type}, {"vote_share_pct", Double.Type}, {"seats_before", Double.Type}, {"seats_after", Double.Type}, {"net_change", Double.Type}, {"margin_pts", Double.Type}, {"winner_party", type text}, {"status", type text}})
+			in
+			    #"Changed Type"

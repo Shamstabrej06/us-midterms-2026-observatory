@@ -1,0 +1,51 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "p7_kpi_state_rep_seats",
+  "position": {
+    "x": 435,
+    "y": 110,
+    "z": 2000,
+    "width": 395,
+    "height": 95,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "fact_results"
+                    }
+                  },
+                  "property": "State Rep Seats 2026"
+                }
+              },
+              "queryRef": "Measure.State Rep Seats 2026"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "title": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Rep House Seats (2026)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,37 @@
+table dim_office
+	lineageTag: c3772726-a561-5784-a086-9d649df0c698
+
+	column office_key
+		dataType: string
+		lineageTag: 67d93c31-2d8d-5e0f-94ee-636c508d9f21
+		summarizeBy: none
+		sourceColumn: office_key
+
+	column office_name
+		dataType: string
+		lineageTag: 64a3f073-1aaf-5693-b040-ec33b1d18153
+		summarizeBy: none
+		sourceColumn: office_name
+
+	column chamber
+		dataType: string
+		lineageTag: a61f6e98-4cb7-5f9c-9c8e-903a08be361f
+		summarizeBy: none
+		sourceColumn: chamber
+
+	column seats_total
+		dataType: int64
+		formatString: 0
+		lineageTag: 14811315-aae5-5b30-8ba7-9b2a311a6047
+		summarizeBy: none
+		sourceColumn: seats_total
+
+	partition dim_office = m
+		mode: import
+		source =
+			let
+			    Source = Csv.Document(File.Contents(RepoFolder & "/powerbi/gold/dim_office.csv"),[Delimiter=",", Columns=4, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+			    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+			    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"office_key", type text}, {"office_name", type text}, {"chamber", type text}, {"seats_total", Int64.Type}})
+			in
+			    #"Changed Type"

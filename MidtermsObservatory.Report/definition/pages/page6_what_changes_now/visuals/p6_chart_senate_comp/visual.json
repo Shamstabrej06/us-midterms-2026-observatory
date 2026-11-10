@@ -1,0 +1,81 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "p6_chart_senate_comp",
+  "position": {
+    "x": 20,
+    "y": 220,
+    "z": 3000,
+    "width": 600,
+    "height": 230,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "columnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "fact_senate_composition"
+                    }
+                  },
+                  "property": "party_name"
+                }
+              },
+              "queryRef": "fact_senate_composition.party_name"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "fact_senate_composition"
+                    }
+                  },
+                  "property": "Senate Seats D 2026"
+                }
+              },
+              "queryRef": "fact_senate_composition.Senate Seats D 2026"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "fact_senate_composition"
+                    }
+                  },
+                  "property": "Senate Seats R 2026"
+                }
+              },
+              "queryRef": "fact_senate_composition.Senate Seats R 2026"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "title": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Senate Composition (119th Congress)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

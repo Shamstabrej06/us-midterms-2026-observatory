@@ -1,0 +1,51 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "p6_kpi_trifecta",
+  "position": {
+    "x": 440,
+    "y": 110,
+    "z": 2000,
+    "width": 195,
+    "height": 95,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "fact_results"
+                    }
+                  },
+                  "property": "Trifecta 2026"
+                }
+              },
+              "queryRef": "Measure.Trifecta 2026"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "title": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Trifecta Status (2026)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

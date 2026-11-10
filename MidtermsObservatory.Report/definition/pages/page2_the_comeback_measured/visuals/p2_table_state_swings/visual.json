@@ -1,0 +1,77 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "p2_table_state_swings",
+  "position": {
+    "x": 640,
+    "y": 465,
+    "z": 4000,
+    "width": 620,
+    "height": 235,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "dim_geography"
+                    }
+                  },
+                  "property": "state_name"
+                }
+              },
+              "queryRef": "dim_geography.state_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "dim_geography"
+                    }
+                  },
+                  "property": "region"
+                }
+              },
+              "queryRef": "dim_geography.region"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "dim_geography"
+                    }
+                  },
+                  "property": "Dem Seats Change 2022 to 2026"
+                }
+              },
+              "queryRef": "dim_geography.Dem Seats Change 2022 to 2026"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "title": {
+              "expr": {
+                "Literal": {
+                  "Value": "'State House Seat Changes (47 States)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

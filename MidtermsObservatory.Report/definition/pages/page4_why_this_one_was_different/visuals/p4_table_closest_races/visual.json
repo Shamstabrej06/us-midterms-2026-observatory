@@ -1,0 +1,77 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "p4_table_closest_races",
+  "position": {
+    "x": 640,
+    "y": 465,
+    "z": 4000,
+    "width": 620,
+    "height": 235,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "fact_house_closest_races"
+                    }
+                  },
+                  "property": "district"
+                }
+              },
+              "queryRef": "fact_house_closest_races.district"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "fact_house_closest_races"
+                    }
+                  },
+                  "property": "winner"
+                }
+              },
+              "queryRef": "fact_house_closest_races.winner"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "fact_house_closest_races"
+                    }
+                  },
+                  "property": "margin_band"
+                }
+              },
+              "queryRef": "fact_house_closest_races.margin_band"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "title": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Closest House Races (2026)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

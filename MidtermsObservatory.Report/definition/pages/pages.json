@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.1.0/schema.json",
+  "pageOrder": [
+    "page1_the_night",
+    "page2_the_comeback_measured",
+    "page3_texas_deep_dive",
+    "page4_why_this_one_was_different",
+    "page5_the_midterm_pattern",
+    "page6_what_changes_now",
+    "page7_state_detail"
+  ],
+  "activePageName": "page1_the_night"
+}

@@ -1,0 +1,51 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "p5_kpi_pres_net",
+  "position": {
+    "x": 20,
+    "y": 110,
+    "z": 2000,
+    "width": 395,
+    "height": 95,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "fact_results"
+                    }
+                  },
+                  "property": "Presidents Party Net Change"
+                }
+              },
+              "queryRef": "Measure.Presidents Party Net Change"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "title": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Presidents Party Net Loss 2026'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

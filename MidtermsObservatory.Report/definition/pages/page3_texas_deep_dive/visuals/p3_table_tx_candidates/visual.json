@@ -1,0 +1,90 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "p3_table_tx_candidates",
+  "position": {
+    "x": 640,
+    "y": 465,
+    "z": 4000,
+    "width": 620,
+    "height": 235,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "fact_texas_statewide"
+                    }
+                  },
+                  "property": "office"
+                }
+              },
+              "queryRef": "fact_texas_statewide.office"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "fact_texas_statewide"
+                    }
+                  },
+                  "property": "dem_candidate"
+                }
+              },
+              "queryRef": "fact_texas_statewide.dem_candidate"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "fact_texas_statewide"
+                    }
+                  },
+                  "property": "rep_candidate"
+                }
+              },
+              "queryRef": "fact_texas_statewide.rep_candidate"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "fact_texas_statewide"
+                    }
+                  },
+                  "property": "Texas Dem Margin"
+                }
+              },
+              "queryRef": "fact_texas_statewide.Texas Dem Margin"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "title": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Texas Statewide Election Summary'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

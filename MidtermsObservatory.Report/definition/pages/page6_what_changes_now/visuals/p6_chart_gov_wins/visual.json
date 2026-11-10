@@ -1,0 +1,81 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "p6_chart_gov_wins",
+  "position": {
+    "x": 640,
+    "y": 220,
+    "z": 3000,
+    "width": 620,
+    "height": 230,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "columnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "dim_party"
+                    }
+                  },
+                  "property": "party_name"
+                }
+              },
+              "queryRef": "dim_party.party_name"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "dim_party"
+                    }
+                  },
+                  "property": "Gov Wins D 2026"
+                }
+              },
+              "queryRef": "dim_party.Gov Wins D 2026"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "dim_party"
+                    }
+                  },
+                  "property": "Gov Wins R 2026"
+                }
+              },
+              "queryRef": "dim_party.Gov Wins R 2026"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "title": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Governors Won by Party (2026)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

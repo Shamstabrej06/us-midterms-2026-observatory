@@ -1,0 +1,77 @@
+table fact_senate_flips_2026
+	lineageTag: afa42d46-df59-5999-a85d-baeb96425736
+
+	column cycle
+		dataType: int64
+		formatString: 0
+		lineageTag: e9164ceb-7874-5c96-bea8-b3545898c484
+		summarizeBy: none
+		sourceColumn: cycle
+
+	column chamber
+		dataType: string
+		lineageTag: 03787f0c-ff8f-5d76-9ed3-a0e45bb57e4e
+		summarizeBy: none
+		sourceColumn: chamber
+
+	column state
+		dataType: string
+		lineageTag: 86e33002-3401-5d3c-a50f-b68c3234cc2c
+		summarizeBy: none
+		sourceColumn: state
+
+	column state_abbr
+		dataType: string
+		lineageTag: 54a92801-2fdf-5915-92a7-41817ba9a911
+		summarizeBy: none
+		sourceColumn: state_abbr
+
+	column incumbent
+		dataType: string
+		lineageTag: 43c2319f-986a-515c-b6ca-0217a0a046de
+		summarizeBy: none
+		sourceColumn: incumbent
+
+	column incumbent_party
+		dataType: string
+		lineageTag: bfe6d75e-5a10-5e95-8224-d343331af60b
+		summarizeBy: none
+		sourceColumn: incumbent_party
+
+	column winner
+		dataType: string
+		lineageTag: 66d1d95d-40b8-5555-9c1e-29a4d9d390cb
+		summarizeBy: none
+		sourceColumn: winner
+
+	column winner_party
+		dataType: string
+		lineageTag: f8d96e3c-b257-5366-9d21-e16f5351ee1f
+		summarizeBy: none
+		sourceColumn: winner_party
+
+	column result_text
+		dataType: string
+		lineageTag: 4078c31c-07f3-5d63-99cd-2d7c898a2ba3
+		summarizeBy: none
+		sourceColumn: result_text
+
+	column status
+		dataType: string
+		lineageTag: 5228f352-ca72-5f0a-93e4-07a632bbb756
+		summarizeBy: none
+		sourceColumn: status
+
+	measure 'Senate Flips 2026' =
+			COUNTROWS ( fact_senate_flips_2026 )
+		lineageTag: c6cd790a-6195-5918-b662-87d4d4b1ad74
+
+	partition fact_senate_flips_2026 = m
+		mode: import
+		source =
+			let
+			    Source = Csv.Document(File.Contents(RepoFolder & "/powerbi/gold/fact_senate_flips_2026.csv"),[Delimiter=",", Columns=10, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+			    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+			    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"cycle", Int64.Type}, {"chamber", type text}, {"state", type text}, {"state_abbr", type text}, {"incumbent", type text}, {"incumbent_party", type text}, {"winner", type text}, {"winner_party", type text}, {"result_text", type text}, {"status", type text}})
+			in
+			    #"Changed Type"

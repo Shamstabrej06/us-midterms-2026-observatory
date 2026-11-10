@@ -1,0 +1,39 @@
+relationship 58393687-1423-5317-aa8f-c7e9fa9f433f
+	fromColumn: fact_results.cycle
+	toColumn: dim_cycle.cycle
+
+relationship 0199c27b-acea-50ae-baaa-8ebfd13bd31f
+	fromColumn: fact_results.state_abbr
+	toColumn: dim_geography.state_abbr
+
+relationship 00b568b2-23ac-5858-b6a5-4adc9641c9b0
+	fromColumn: fact_results.office_key
+	toColumn: dim_office.office_key
+
+relationship c476192e-a569-5aa6-b19b-e8993357f70c
+	fromColumn: fact_results.party_key
+	toColumn: dim_party.party_key
+
+relationship c45d2791-0cd0-59e8-8af9-2c68274a39f2
+	fromColumn: fact_finance.cycle
+	toColumn: dim_cycle.cycle
+
+relationship c829684d-8c8f-5bf0-aa44-41836517c31b
+	fromColumn: fact_turnout.cycle
+	toColumn: dim_cycle.cycle
+
+relationship f730f787-4e20-5e58-8361-c78fb4dd8a66
+	fromColumn: fact_texas_statewide.cycle
+	toColumn: dim_cycle.cycle
+
+relationship cfc19b92-9f23-5ecc-8710-dc47d25cfdc8
+	fromColumn: fact_senate_composition.cycle
+	toColumn: dim_cycle.cycle
+
+relationship 44eb2a61-2b60-5853-ac34-148a4711418c
+	fromColumn: fact_senate_flips_2026.cycle
+	toColumn: dim_cycle.cycle
+
+relationship c0fbdaf1-8bb6-5c7c-ba55-a106ef3eb4ef
+	fromColumn: fact_house_closest_races.cycle
+	toColumn: dim_cycle.cycle

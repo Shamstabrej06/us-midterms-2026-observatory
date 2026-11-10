@@ -1,0 +1,24 @@
+table dim_party
+	lineageTag: e520d5d8-bc66-5c80-bd6b-400a9a7f4041
+
+	column party_key
+		dataType: string
+		lineageTag: 3a11b745-2f96-5ece-a6f5-1d9223f81ed4
+		summarizeBy: none
+		sourceColumn: party_key
+
+	column party_name
+		dataType: string
+		lineageTag: c9f79aa5-7d70-5cce-b502-905d77dbeeca
+		summarizeBy: none
+		sourceColumn: party_name
+
+	partition dim_party = m
+		mode: import
+		source =
+			let
+			    Source = Csv.Document(File.Contents(RepoFolder & "/powerbi/gold/dim_party.csv"),[Delimiter=",", Columns=2, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+			    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+			    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"party_key", type text}, {"party_name", type text}})
+			in
+			    #"Changed Type"

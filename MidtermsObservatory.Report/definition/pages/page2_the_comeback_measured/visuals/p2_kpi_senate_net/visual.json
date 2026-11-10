@@ -1,0 +1,51 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "p2_kpi_senate_net",
+  "position": {
+    "x": 965,
+    "y": 110,
+    "z": 2000,
+    "width": 295,
+    "height": 95,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "fact_results"
+                    }
+                  },
+                  "property": "Senate Net Change D 2026"
+                }
+              },
+              "queryRef": "Measure.Senate Net Change D 2026"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "title": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Senate Net Change D (2026)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

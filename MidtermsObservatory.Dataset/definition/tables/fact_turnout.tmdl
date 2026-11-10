@@ -1,0 +1,52 @@
+table fact_turnout
+	lineageTag: d363d479-6ed6-5b28-baec-d6a68d4a1fd2
+
+	column cycle
+		dataType: int64
+		formatString: 0
+		lineageTag: 14f358bc-5c95-524b-be90-1539304fe829
+		summarizeBy: none
+		sourceColumn: cycle
+
+	column geography_level
+		dataType: string
+		lineageTag: 9eb51cf7-0fa8-5e5d-a795-e376052793f9
+		summarizeBy: none
+		sourceColumn: geography_level
+
+	column state_abbr
+		dataType: string
+		lineageTag: 945caae3-4f33-52d2-9e65-344a9ac32f18
+		summarizeBy: none
+		sourceColumn: state_abbr
+
+	column turnout_rate_pct
+		dataType: double
+		formatString: 0.00"%"
+		lineageTag: 8b977bbd-7b80-56e1-b9cd-fbf674c51676
+		summarizeBy: none
+		sourceColumn: turnout_rate_pct
+
+	column status
+		dataType: string
+		lineageTag: 7a603ae9-0fc0-55f2-a273-d7e5fe7eaaf9
+		summarizeBy: none
+		sourceColumn: status
+
+	measure 'Turnout Rate' =
+			CALCULATE (
+			    MAX ( fact_turnout[turnout_rate_pct] ),
+			    fact_turnout[geography_level] = "national"
+			)
+		lineageTag: dc06bb6f-7e92-533b-b489-179f6fea6f46
+		formatString: 0.00"%"
+
+	partition fact_turnout = m
+		mode: import
+		source =
+			let
+			    Source = Csv.Document(File.Contents(RepoFolder & "/powerbi/gold/fact_turnout.csv"),[Delimiter=",", Columns=5, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+			    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+			    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"cycle", Int64.Type}, {"geography_level", type text}, {"state_abbr", type text}, {"turnout_rate_pct", Double.Type}, {"status", type text}})
+			in
+			    #"Changed Type"

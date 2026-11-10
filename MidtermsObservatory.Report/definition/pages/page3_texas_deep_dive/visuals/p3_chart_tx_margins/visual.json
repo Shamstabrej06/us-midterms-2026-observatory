@@ -1,0 +1,68 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "p3_chart_tx_margins",
+  "position": {
+    "x": 20,
+    "y": 220,
+    "z": 3000,
+    "width": 600,
+    "height": 230,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "barChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "fact_texas_statewide"
+                    }
+                  },
+                  "property": "office"
+                }
+              },
+              "queryRef": "fact_texas_statewide.office"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "fact_texas_statewide"
+                    }
+                  },
+                  "property": "Texas Dem Margin"
+                }
+              },
+              "queryRef": "fact_texas_statewide.Texas Dem Margin"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "title": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Texas Statewide Margins (2026)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

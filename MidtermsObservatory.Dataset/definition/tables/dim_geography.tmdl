@@ -1,0 +1,55 @@
+table dim_geography
+	lineageTag: 30da3b4b-5c69-5ba6-a148-a498a8fd7bd5
+
+	column state_fips
+		dataType: int64
+		formatString: 0
+		lineageTag: a182ec6e-830b-5d1f-927a-c97d9b43cc85
+		summarizeBy: none
+		sourceColumn: state_fips
+
+	column state_abbr
+		dataType: string
+		lineageTag: e13dcbaa-994b-5954-aa11-0750df1c8406
+		summarizeBy: none
+		sourceColumn: state_abbr
+
+	column state_name
+		dataType: string
+		lineageTag: 39eb158b-c335-5c11-bf1b-f391283f8c1f
+		summarizeBy: none
+		sourceColumn: state_name
+		dataCategory: StateOrProvince
+
+	column region
+		dataType: string
+		lineageTag: 9cd33538-8b58-5b63-b7e9-ad53ff1d4fee
+		summarizeBy: none
+		sourceColumn: region
+
+	column division
+		dataType: string
+		lineageTag: 0bb01f92-eff1-5902-b9b4-9062b0cb0a68
+		summarizeBy: none
+		sourceColumn: division
+
+	column population_2024
+		dataType: double
+		formatString: #,0
+		lineageTag: 7ded7c43-7d12-5030-bd3d-f8d6ef9972a0
+		summarizeBy: none
+		sourceColumn: population_2024
+
+	measure 'State Name' =
+			SELECTEDVALUE ( dim_geography[state_name] )
+		lineageTag: c2728a1f-4914-5883-b600-0ff5cd33ccf4
+
+	partition dim_geography = m
+		mode: import
+		source =
+			let
+			    Source = Csv.Document(File.Contents(RepoFolder & "/powerbi/gold/dim_geography.csv"),[Delimiter=",", Columns=6, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+			    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+			    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"state_fips", Int64.Type}, {"state_abbr", type text}, {"state_name", type text}, {"region", type text}, {"division", type text}, {"population_2024", Double.Type}})
+			in
+			    #"Changed Type"

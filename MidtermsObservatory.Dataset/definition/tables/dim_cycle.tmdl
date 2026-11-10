@@ -1,0 +1,83 @@
+table dim_cycle
+	lineageTag: 45bb2382-a602-546c-9cc3-f193af4f454a
+
+	column cycle
+		dataType: int64
+		formatString: 0
+		lineageTag: efab244e-c1ee-57eb-b802-da2b4a862774
+		summarizeBy: none
+		sourceColumn: cycle
+
+	column congress
+		dataType: int64
+		formatString: 0
+		lineageTag: b5e609ce-15ad-5419-adb4-16ffe4554e7b
+		summarizeBy: none
+		sourceColumn: congress
+
+	column election_type
+		dataType: string
+		lineageTag: 4a09996a-9a57-5498-850a-ffa4ec8607c9
+		summarizeBy: none
+		sourceColumn: election_type
+
+	column president
+		dataType: string
+		lineageTag: 8982cf33-0bbd-51d7-917f-c254925c4618
+		summarizeBy: none
+		sourceColumn: president
+
+	column president_party
+		dataType: string
+		lineageTag: ff900028-98ec-517c-97c9-e65f9a9ffadb
+		summarizeBy: none
+		sourceColumn: president_party
+
+	column senate_majority
+		dataType: string
+		lineageTag: 65f5b482-b774-5ead-858d-6529ee364e32
+		summarizeBy: none
+		sourceColumn: senate_majority
+
+	column house_majority
+		dataType: string
+		lineageTag: 951129a3-6685-50c2-a06e-ad1088cbcb3a
+		summarizeBy: none
+		sourceColumn: house_majority
+
+	column trifecta
+		dataType: boolean
+		lineageTag: 327eba0b-85d9-538f-9445-56b70a125c5c
+		summarizeBy: none
+		sourceColumn: trifecta
+
+	measure 'House Majority 2026' =
+			CALCULATE (
+			    MAX ( dim_cycle[house_majority] ),
+			    dim_cycle[cycle] = 2026
+			)
+		lineageTag: 32dbdbaa-2b83-5146-bc79-dbb90c8eb811
+
+	measure 'Senate Majority 2026' =
+			CALCULATE (
+			    MAX ( dim_cycle[senate_majority] ),
+			    dim_cycle[cycle] = 2026
+			)
+		lineageTag: 92b95f4b-502c-5e15-816d-d6f0cfa1ff80
+
+	measure 'Trifecta 2026' =
+			CALCULATE (
+			    MAX ( dim_cycle[trifecta] ),
+			    dim_cycle[cycle] = 2026
+			)
+		lineageTag: 1cde4865-2e0c-521d-b82b-3e32dffe02e0
+
+	partition dim_cycle = m
+		mode: import
+		source =
+			let
+			    Source = Csv.Document(File.Contents(RepoFolder & "/powerbi/gold/dim_cycle.csv"),[Delimiter=",", Columns=8, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+			    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+			    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"cycle", Int64.Type}, {"congress", Int64.Type}, {"election_type", type text}, {"president", type text}, {"president_party", type text}, {"senate_majority", type text}, {"house_majority", type text}, {"trifecta", type logical}})
+			in
+			    #"Changed Type"

@@ -1,0 +1,90 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "p6_table_flips",
+  "position": {
+    "x": 20,
+    "y": 465,
+    "z": 4000,
+    "width": 1240,
+    "height": 235,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "fact_senate_flips_2026"
+                    }
+                  },
+                  "property": "state"
+                }
+              },
+              "queryRef": "fact_senate_flips_2026.state"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "fact_senate_flips_2026"
+                    }
+                  },
+                  "property": "incumbent"
+                }
+              },
+              "queryRef": "fact_senate_flips_2026.incumbent"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "fact_senate_flips_2026"
+                    }
+                  },
+                  "property": "winner"
+                }
+              },
+              "queryRef": "fact_senate_flips_2026.winner"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "fact_senate_flips_2026"
+                    }
+                  },
+                  "property": "result_text"
+                }
+              },
+              "queryRef": "fact_senate_flips_2026.result_text"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "title": {
+              "expr": {
+                "Literal": {
+                  "Value": "'All 6 Senate Seat Flips (2026)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

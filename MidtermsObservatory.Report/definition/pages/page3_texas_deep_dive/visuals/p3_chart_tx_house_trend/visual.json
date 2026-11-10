@@ -1,0 +1,81 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "p3_chart_tx_house_trend",
+  "position": {
+    "x": 20,
+    "y": 465,
+    "z": 3000,
+    "width": 600,
+    "height": 235,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "columnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "dim_cycle"
+                    }
+                  },
+                  "property": "cycle"
+                }
+              },
+              "queryRef": "dim_cycle.cycle"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "dim_cycle"
+                    }
+                  },
+                  "property": "Texas House Dem Seats"
+                }
+              },
+              "queryRef": "dim_cycle.Texas House Dem Seats"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "dim_cycle"
+                    }
+                  },
+                  "property": "Texas House Rep Seats"
+                }
+              },
+              "queryRef": "dim_cycle.Texas House Rep Seats"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "title": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Texas US House Delegation by Party (2018\u20132026)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

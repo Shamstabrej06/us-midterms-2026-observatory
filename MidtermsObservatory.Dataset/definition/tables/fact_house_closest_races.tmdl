@@ -1,0 +1,57 @@
+table fact_house_closest_races
+	lineageTag: dd9fe471-4e4b-5934-9c1a-fb0f380a3593
+
+	column cycle
+		dataType: int64
+		formatString: 0
+		lineageTag: df53e04a-3ad5-59ea-93ba-8d0cd35cb2ac
+		summarizeBy: none
+		sourceColumn: cycle
+
+	column district
+		dataType: string
+		lineageTag: cd2649ed-fe8b-583b-bd55-159f04e07639
+		summarizeBy: none
+		sourceColumn: district
+
+	column winner
+		dataType: string
+		lineageTag: b8108985-b4cb-5ce7-931a-89afccbf4473
+		summarizeBy: none
+		sourceColumn: winner
+
+	column margin_pts
+		dataType: double
+		formatString: 0.0
+		lineageTag: 7b2d665b-b70a-5271-9f48-76974c7feef9
+		summarizeBy: none
+		sourceColumn: margin_pts
+
+	column margin_band
+		dataType: string
+		lineageTag: 68509921-8252-51b9-85f9-f40b409b1a61
+		summarizeBy: none
+		sourceColumn: margin_band
+
+	measure 'Races Under 5 Pts' =
+			COUNTROWS (
+			    FILTER (
+			        fact_house_closest_races,
+			        fact_house_closest_races[margin_pts] < 5
+			    )
+			)
+		lineageTag: 5dbd6bff-a3d2-5081-9b50-23643913627f
+
+	measure 'Races Under 10 Pts' =
+			COUNTROWS ( fact_house_closest_races )
+		lineageTag: 4539219d-60dc-5719-abca-37da994b39ac
+
+	partition fact_house_closest_races = m
+		mode: import
+		source =
+			let
+			    Source = Csv.Document(File.Contents(RepoFolder & "/powerbi/gold/fact_house_closest_races.csv"),[Delimiter=",", Columns=5, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+			    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+			    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"cycle", Int64.Type}, {"district", type text}, {"winner", type text}, {"margin_pts", Double.Type}, {"margin_band", type text}})
+			in
+			    #"Changed Type"

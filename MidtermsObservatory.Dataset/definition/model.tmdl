@@ -1,0 +1,21 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	discourageImplicitMeasures
+
+ref table dim_cycle
+ref table dim_geography
+ref table dim_office
+ref table dim_party
+ref table fact_finance
+ref table fact_house_closest_races
+ref table fact_results
+ref table fact_senate_composition
+ref table fact_senate_flips_2026
+ref table fact_texas_statewide
+ref table fact_turnout
+
+ref expression RepoFolder
+
+ref cultureInfo en-US

@@ -1,0 +1,81 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "p1_chart_house_balance",
+  "position": {
+    "x": 20,
+    "y": 240,
+    "z": 3000,
+    "width": 600,
+    "height": 450,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "columnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "dim_cycle"
+                    }
+                  },
+                  "property": "cycle"
+                }
+              },
+              "queryRef": "dim_cycle.cycle"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "dim_cycle"
+                    }
+                  },
+                  "property": "House Seats D 2026"
+                }
+              },
+              "queryRef": "dim_cycle.House Seats D 2026"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "dim_cycle"
+                    }
+                  },
+                  "property": "House Seats R 2026"
+                }
+              },
+              "queryRef": "dim_cycle.House Seats R 2026"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "title": {
+              "expr": {
+                "Literal": {
+                  "Value": "'House Seat Balance (2026)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "p2_chart_vote_share",
+  "position": {
+    "x": 640,
+    "y": 220,
+    "z": 3000,
+    "width": 620,
+    "height": 230,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "dim_cycle"
+                    }
+                  },
+                  "property": "cycle"
+                }
+              },
+              "queryRef": "dim_cycle.cycle"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "dim_cycle"
+                    }
+                  },
+                  "property": "Dem House Vote Share"
+                }
+              },
+              "queryRef": "dim_cycle.Dem House Vote Share"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "dim_cycle"
+                    }
+                  },
+                  "property": "Rep House Vote Share"
+                }
+              },
+              "queryRef": "dim_cycle.Rep House Vote Share"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "title": {
+              "expr": {
+                "Literal": {
+                  "Value": "'National House Vote Share % (2018\u20132026)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

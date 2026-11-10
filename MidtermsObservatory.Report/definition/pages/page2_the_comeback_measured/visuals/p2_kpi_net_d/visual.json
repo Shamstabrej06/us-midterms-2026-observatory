@@ -1,0 +1,51 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "p2_kpi_net_d",
+  "position": {
+    "x": 20,
+    "y": 110,
+    "z": 2000,
+    "width": 290,
+    "height": 95,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "fact_results"
+                    }
+                  },
+                  "property": "House Net Change D 2026"
+                }
+              },
+              "queryRef": "Measure.House Net Change D 2026"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "title": {
+              "expr": {
+                "Literal": {
+                  "Value": "'House Net Change D (2026)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

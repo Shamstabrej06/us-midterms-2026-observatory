@@ -1,0 +1,51 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "p4_kpi_under_5",
+  "position": {
+    "x": 520,
+    "y": 110,
+    "z": 2000,
+    "width": 235,
+    "height": 95,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "fact_results"
+                    }
+                  },
+                  "property": "Races Under 5 Pts"
+                }
+              },
+              "queryRef": "Measure.Races Under 5 Pts"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "title": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Races Under 5 Pts'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

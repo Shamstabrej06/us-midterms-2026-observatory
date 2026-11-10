@@ -1,0 +1,114 @@
+table fact_texas_statewide
+	lineageTag: 0d7056a7-dabc-5a99-8f4d-82a82236ef45
+
+	column cycle
+		dataType: int64
+		formatString: 0
+		lineageTag: 54072e35-3ca6-5312-87ba-b9bfea79f2ed
+		summarizeBy: none
+		sourceColumn: cycle
+
+	column state
+		dataType: string
+		lineageTag: 3d93df96-0fed-58b7-9be6-39130d521f92
+		summarizeBy: none
+		sourceColumn: state
+
+	column office
+		dataType: string
+		lineageTag: 90c76b85-21ed-5803-930d-8f337c93f699
+		summarizeBy: none
+		sourceColumn: office
+
+	column dem_candidate
+		dataType: string
+		lineageTag: 891a250b-7135-568d-b9e7-58d5b3af43e4
+		summarizeBy: none
+		sourceColumn: dem_candidate
+
+	column dem_votes
+		dataType: double
+		formatString: #,0
+		lineageTag: 036431dd-5858-5031-b482-8cc91835a25d
+		summarizeBy: none
+		sourceColumn: dem_votes
+
+	column dem_pct
+		dataType: double
+		formatString: 0.0"%"
+		lineageTag: a3492022-8e3f-5d63-98da-05cec565e031
+		summarizeBy: none
+		sourceColumn: dem_pct
+
+	column rep_candidate
+		dataType: string
+		lineageTag: 761c6f7e-5656-56f7-89ae-5996315a52a6
+		summarizeBy: none
+		sourceColumn: rep_candidate
+
+	column rep_votes
+		dataType: double
+		formatString: #,0
+		lineageTag: cfd96909-5594-5aa6-95a0-5760ad27b23a
+		summarizeBy: none
+		sourceColumn: rep_votes
+
+	column rep_pct
+		dataType: double
+		formatString: 0.0"%"
+		lineageTag: 0c614c2a-6dff-5f49-b7b8-d207eaa01f55
+		summarizeBy: none
+		sourceColumn: rep_pct
+
+	column margin_pts
+		dataType: double
+		formatString: +0.0;-0.0;0.0
+		lineageTag: 0c52304d-8c16-5e40-b546-742d8f3babbe
+		summarizeBy: none
+		sourceColumn: margin_pts
+
+	column winner_party
+		dataType: string
+		lineageTag: d9dbe9b4-090f-5023-a3ff-55de7d07f005
+		summarizeBy: none
+		sourceColumn: winner_party
+
+	column status
+		dataType: string
+		lineageTag: a1373137-b138-5bd2-bc00-00f834ed5607
+		summarizeBy: none
+		sourceColumn: status
+
+	measure 'Texas Dem Margin' =
+			CALCULATE (
+			    MAX ( fact_texas_statewide[margin_pts] ),
+			    fact_texas_statewide[state] = "Texas"
+			)
+		lineageTag: b4213688-3fe4-5350-b50d-ab8d09972f15
+		formatString: 0.0"%"
+
+	measure 'Texas Dem Pct' =
+			CALCULATE (
+			    MAX ( fact_texas_statewide[dem_pct] ),
+			    fact_texas_statewide[state] = "Texas"
+			)
+		lineageTag: d3b66e51-d438-54fe-b32e-e5867de44b51
+		formatString: 0.0"%"
+
+	measure 'Texas Rep Pct' =
+			CALCULATE (
+			    MAX ( fact_texas_statewide[rep_pct] ),
+			    fact_texas_statewide[state] = "Texas"
+			)
+		lineageTag: 2e6a0651-e2de-53e9-baff-e3cd8d6d07f3
+		formatString: 0.0"%"
+
+	partition fact_texas_statewide = m
+		mode: import
+		source =
+			let
+			    Source = Csv.Document(File.Contents(RepoFolder & "/powerbi/gold/fact_texas_statewide.csv"),[Delimiter=",", Columns=12, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+			    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+			    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"cycle", Int64.Type}, {"state", type text}, {"office", type text}, {"dem_candidate", type text}, {"dem_votes", Double.Type}, {"dem_pct", Double.Type}, {"rep_candidate", type text}, {"rep_votes", Double.Type}, {"rep_pct", Double.Type}, {"margin_pts", Double.Type}, {"winner_party", type text}, {"status", type text}})
+			in
+			    #"Changed Type"

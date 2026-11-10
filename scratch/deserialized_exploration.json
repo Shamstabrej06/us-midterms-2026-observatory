@@ -1,0 +1,4388 @@
+{
+  "version": {
+    "filePath": "version.json",
+    "content": {
+      "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/versionMetadata/1.0.0/schema.json",
+      "version": "2.0.0"
+    }
+  },
+  "report": {
+    "filePath": "report.json",
+    "content": {
+      "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.0.0/schema.json",
+      "themeCollection": {
+        "baseTheme": {
+          "name": "CY24SU10",
+          "reportVersionAtImport": {
+            "visual": "2.1.0",
+            "report": "3.0.0",
+            "page": "2.0.0"
+          },
+          "type": "SharedResources"
+        },
+        "customTheme": {
+          "name": "theme.json",
+          "reportVersionAtImport": {
+            "visual": "2.1.0",
+            "report": "3.0.0",
+            "page": "2.0.0"
+          },
+          "type": "RegisteredResources"
+        }
+      },
+      "resourcePackages": [
+        {
+          "name": "SharedResources",
+          "type": "SharedResources",
+          "items": [
+            {
+              "name": "CY24SU10",
+              "path": "BaseThemes/CY24SU10.json",
+              "type": "BaseTheme"
+            }
+          ]
+        },
+        {
+          "name": "RegisteredResources",
+          "type": "RegisteredResources",
+          "items": [
+            {
+              "name": "theme.json",
+              "path": "theme.json",
+              "type": "CustomTheme"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "reportExtensions": null,
+  "pages": {
+    "pagesMetadata": {
+      "filePath": "pages/pages.json",
+      "content": {
+        "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.1.0/schema.json",
+        "pageOrder": [
+          "page1_the_night",
+          "page2_the_comeback_measured",
+          "page3_texas_deep_dive",
+          "page4_why_this_one_was_different",
+          "page5_the_midterm_pattern",
+          "page6_what_changes_now",
+          "page7_state_detail"
+        ],
+        "activePageName": "page1_the_night"
+      }
+    },
+    "pages": [
+      {
+        "visualContainers": [
+          {
+            "filePath": "visuals/p1_chart_house_balance/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p1_chart_house_balance",
+              "position": {
+                "x": 20,
+                "y": 240,
+                "z": 3000,
+                "width": 600,
+                "height": 450,
+                "tabOrder": 3000
+              },
+              "visual": {
+                "visualType": "columnChart",
+                "query": {
+                  "queryState": {
+                    "Category": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_cycle"
+                                }
+                              },
+                              "property": "cycle"
+                            }
+                          },
+                          "queryRef": "dim_cycle.cycle"
+                        }
+                      ]
+                    },
+                    "Y": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_cycle"
+                                }
+                              },
+                              "property": "House Seats D 2026"
+                            }
+                          },
+                          "queryRef": "dim_cycle.House Seats D 2026"
+                        },
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_cycle"
+                                }
+                              },
+                              "property": "House Seats R 2026"
+                            }
+                          },
+                          "queryRef": "dim_cycle.House Seats R 2026"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'House Seat Balance (2026)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p1_headline/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p1_headline",
+              "position": {
+                "x": 20,
+                "y": 15,
+                "z": 1000,
+                "width": 1240,
+                "height": 45,
+                "tabOrder": 1000
+              },
+              "visual": {
+                "visualType": "textbox",
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "paragraphs": [
+                          {
+                            "textRuns": [
+                              {
+                                "value": "Democrats took the House, the Senate and 22 governor races in 2026 — with 19 House races still uncalled.",
+                                "textStyle": {
+                                  "fontFamily": "Segoe UI Semibold",
+                                  "fontSize": "15pt",
+                                  "color": "#2F3337"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p1_how_to_read/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p1_how_to_read",
+              "position": {
+                "x": 20,
+                "y": 65,
+                "z": 1000,
+                "width": 1240,
+                "height": 30,
+                "tabOrder": 1000
+              },
+              "visual": {
+                "visualType": "textbox",
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "paragraphs": [
+                          {
+                            "textRuns": [
+                              {
+                                "value": "Card numbers labeled (preliminary) reflect counts as of election night. Uncalled races remain in recount or canvass.",
+                                "textStyle": {
+                                  "fontFamily": "Segoe UI",
+                                  "fontSize": "10pt",
+                                  "color": "#2F3337"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p1_kpi_gov_d/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p1_kpi_gov_d",
+              "position": {
+                "x": 795,
+                "y": 110,
+                "z": 2000,
+                "width": 140,
+                "height": 110,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "card",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_results"
+                                }
+                              },
+                              "property": "Gov Wins D 2026"
+                            }
+                          },
+                          "queryRef": "Measure.Gov Wins D 2026"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Governor Races Won (D)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p1_kpi_house_d/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p1_kpi_house_d",
+              "position": {
+                "x": 20,
+                "y": 110,
+                "z": 2000,
+                "width": 140,
+                "height": 110,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "card",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_results"
+                                }
+                              },
+                              "property": "House Seats D 2026"
+                            }
+                          },
+                          "queryRef": "Measure.House Seats D 2026"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'House Seats (D)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p1_kpi_house_r/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p1_kpi_house_r",
+              "position": {
+                "x": 175,
+                "y": 110,
+                "z": 2000,
+                "width": 140,
+                "height": 110,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "card",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_results"
+                                }
+                              },
+                              "property": "House Seats R 2026"
+                            }
+                          },
+                          "queryRef": "Measure.House Seats R 2026"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'House Seats (R)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p1_kpi_house_uncalled/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p1_kpi_house_uncalled",
+              "position": {
+                "x": 330,
+                "y": 110,
+                "z": 2000,
+                "width": 140,
+                "height": 110,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "card",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_results"
+                                }
+                              },
+                              "property": "House Seats Uncalled 2026"
+                            }
+                          },
+                          "queryRef": "Measure.House Seats Uncalled 2026"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Uncalled Races'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p1_kpi_net_d/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p1_kpi_net_d",
+              "position": {
+                "x": 950,
+                "y": 110,
+                "z": 2000,
+                "width": 140,
+                "height": 110,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "card",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_results"
+                                }
+                              },
+                              "property": "House Net Change D 2026"
+                            }
+                          },
+                          "queryRef": "Measure.House Net Change D 2026"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Net House Change (D)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p1_kpi_pop_margin/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p1_kpi_pop_margin",
+              "position": {
+                "x": 1105,
+                "y": 110,
+                "z": 2000,
+                "width": 155,
+                "height": 110,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "card",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_results"
+                                }
+                              },
+                              "property": "House Popular Vote Margin 2026"
+                            }
+                          },
+                          "queryRef": "Measure.House Popular Vote Margin 2026"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Popular Vote Margin'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p1_kpi_senate_d/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p1_kpi_senate_d",
+              "position": {
+                "x": 485,
+                "y": 110,
+                "z": 2000,
+                "width": 140,
+                "height": 110,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "card",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_results"
+                                }
+                              },
+                              "property": "Senate Seats D 2026"
+                            }
+                          },
+                          "queryRef": "Measure.Senate Seats D 2026"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Senate Seats (D+I)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p1_kpi_senate_r/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p1_kpi_senate_r",
+              "position": {
+                "x": 640,
+                "y": 110,
+                "z": 2000,
+                "width": 140,
+                "height": 110,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "card",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_results"
+                                }
+                              },
+                              "property": "Senate Seats R 2026"
+                            }
+                          },
+                          "queryRef": "Measure.Senate Seats R 2026"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Senate Seats (R)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p1_table_senate_flips/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p1_table_senate_flips",
+              "position": {
+                "x": 640,
+                "y": 240,
+                "z": 4000,
+                "width": 620,
+                "height": 450,
+                "tabOrder": 4000
+              },
+              "visual": {
+                "visualType": "tableEx",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_senate_flips_2026"
+                                }
+                              },
+                              "property": "state"
+                            }
+                          },
+                          "queryRef": "fact_senate_flips_2026.state"
+                        },
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_senate_flips_2026"
+                                }
+                              },
+                              "property": "incumbent"
+                            }
+                          },
+                          "queryRef": "fact_senate_flips_2026.incumbent"
+                        },
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_senate_flips_2026"
+                                }
+                              },
+                              "property": "winner"
+                            }
+                          },
+                          "queryRef": "fact_senate_flips_2026.winner"
+                        },
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_senate_flips_2026"
+                                }
+                              },
+                              "property": "result_text"
+                            }
+                          },
+                          "queryRef": "fact_senate_flips_2026.result_text"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Key Senate Flips (2026)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "filePath": "page1_the_night/page.json",
+        "content": {
+          "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+          "name": "page1_the_night",
+          "displayName": "The Night",
+          "displayOption": "FitToPage",
+          "height": 720,
+          "width": 1280
+        }
+      },
+      {
+        "visualContainers": [
+          {
+            "filePath": "visuals/p2_chart_house_trend/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p2_chart_house_trend",
+              "position": {
+                "x": 20,
+                "y": 220,
+                "z": 3000,
+                "width": 600,
+                "height": 230,
+                "tabOrder": 3000
+              },
+              "visual": {
+                "visualType": "columnChart",
+                "query": {
+                  "queryState": {
+                    "Category": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_cycle"
+                                }
+                              },
+                              "property": "cycle"
+                            }
+                          },
+                          "queryRef": "dim_cycle.cycle"
+                        }
+                      ]
+                    },
+                    "Y": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_cycle"
+                                }
+                              },
+                              "property": "House Seats D"
+                            }
+                          },
+                          "queryRef": "dim_cycle.House Seats D"
+                        },
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_cycle"
+                                }
+                              },
+                              "property": "House Seats R"
+                            }
+                          },
+                          "queryRef": "dim_cycle.House Seats R"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'House Seats by Party (2018–2026)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p2_chart_margin_trend/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p2_chart_margin_trend",
+              "position": {
+                "x": 20,
+                "y": 465,
+                "z": 3000,
+                "width": 600,
+                "height": 235,
+                "tabOrder": 3000
+              },
+              "visual": {
+                "visualType": "lineChart",
+                "query": {
+                  "queryState": {
+                    "Category": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_cycle"
+                                }
+                              },
+                              "property": "cycle"
+                            }
+                          },
+                          "queryRef": "dim_cycle.cycle"
+                        }
+                      ]
+                    },
+                    "Y": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_cycle"
+                                }
+                              },
+                              "property": "House Vote Margin D minus R"
+                            }
+                          },
+                          "queryRef": "dim_cycle.House Vote Margin D minus R"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'House Popular Vote Margin Trend (2018–2026)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p2_chart_vote_share/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p2_chart_vote_share",
+              "position": {
+                "x": 640,
+                "y": 220,
+                "z": 3000,
+                "width": 620,
+                "height": 230,
+                "tabOrder": 3000
+              },
+              "visual": {
+                "visualType": "lineChart",
+                "query": {
+                  "queryState": {
+                    "Category": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_cycle"
+                                }
+                              },
+                              "property": "cycle"
+                            }
+                          },
+                          "queryRef": "dim_cycle.cycle"
+                        }
+                      ]
+                    },
+                    "Y": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_cycle"
+                                }
+                              },
+                              "property": "Dem House Vote Share"
+                            }
+                          },
+                          "queryRef": "dim_cycle.Dem House Vote Share"
+                        },
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_cycle"
+                                }
+                              },
+                              "property": "Rep House Vote Share"
+                            }
+                          },
+                          "queryRef": "dim_cycle.Rep House Vote Share"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'National House Vote Share % (2018–2026)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p2_headline/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p2_headline",
+              "position": {
+                "x": 20,
+                "y": 15,
+                "z": 1000,
+                "width": 1240,
+                "height": 45,
+                "tabOrder": 1000
+              },
+              "visual": {
+                "visualType": "textbox",
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "paragraphs": [
+                          {
+                            "textRuns": [
+                              {
+                                "value": "A 40-seat House swing and 8-seat Senate gain reversed the 2024 red wave across 47 states.",
+                                "textStyle": {
+                                  "fontFamily": "Segoe UI Semibold",
+                                  "fontSize": "15pt",
+                                  "color": "#2F3337"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p2_how_to_read/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p2_how_to_read",
+              "position": {
+                "x": 20,
+                "y": 65,
+                "z": 1000,
+                "width": 1240,
+                "height": 30,
+                "tabOrder": 1000
+              },
+              "visual": {
+                "visualType": "textbox",
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "paragraphs": [
+                          {
+                            "textRuns": [
+                              {
+                                "value": "AK, LA, NC have no 2026 split in source data and appear blank on the map.",
+                                "textStyle": {
+                                  "fontFamily": "Segoe UI",
+                                  "fontSize": "10pt",
+                                  "color": "#2F3337"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p2_kpi_net_d/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p2_kpi_net_d",
+              "position": {
+                "x": 20,
+                "y": 110,
+                "z": 2000,
+                "width": 290,
+                "height": 95,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "card",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_results"
+                                }
+                              },
+                              "property": "House Net Change D 2026"
+                            }
+                          },
+                          "queryRef": "Measure.House Net Change D 2026"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'House Net Change D (2026)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p2_kpi_pop_margin/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p2_kpi_pop_margin",
+              "position": {
+                "x": 650,
+                "y": 110,
+                "z": 2000,
+                "width": 290,
+                "height": 95,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "card",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_results"
+                                }
+                              },
+                              "property": "House Popular Vote Margin 2026"
+                            }
+                          },
+                          "queryRef": "Measure.House Popular Vote Margin 2026"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'House Popular Vote Margin (2026)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p2_kpi_seat_change/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p2_kpi_seat_change",
+              "position": {
+                "x": 335,
+                "y": 110,
+                "z": 2000,
+                "width": 290,
+                "height": 95,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "card",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_results"
+                                }
+                              },
+                              "property": "Dem Seats Change 2022 to 2026"
+                            }
+                          },
+                          "queryRef": "Measure.Dem Seats Change 2022 to 2026"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dem Seat Change (2022 vs 2026)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p2_kpi_senate_net/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p2_kpi_senate_net",
+              "position": {
+                "x": 965,
+                "y": 110,
+                "z": 2000,
+                "width": 295,
+                "height": 95,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "card",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_results"
+                                }
+                              },
+                              "property": "Senate Net Change D 2026"
+                            }
+                          },
+                          "queryRef": "Measure.Senate Net Change D 2026"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Senate Net Change D (2026)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p2_table_state_swings/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p2_table_state_swings",
+              "position": {
+                "x": 640,
+                "y": 465,
+                "z": 4000,
+                "width": 620,
+                "height": 235,
+                "tabOrder": 4000
+              },
+              "visual": {
+                "visualType": "tableEx",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_geography"
+                                }
+                              },
+                              "property": "state_name"
+                            }
+                          },
+                          "queryRef": "dim_geography.state_name"
+                        },
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_geography"
+                                }
+                              },
+                              "property": "region"
+                            }
+                          },
+                          "queryRef": "dim_geography.region"
+                        },
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_geography"
+                                }
+                              },
+                              "property": "Dem Seats Change 2022 to 2026"
+                            }
+                          },
+                          "queryRef": "dim_geography.Dem Seats Change 2022 to 2026"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'State House Seat Changes (47 States)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "filePath": "page2_the_comeback_measured/page.json",
+        "content": {
+          "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+          "name": "page2_the_comeback_measured",
+          "displayName": "The Comeback, Measured",
+          "displayOption": "FitToPage",
+          "height": 720,
+          "width": 1280
+        }
+      },
+      {
+        "visualContainers": [
+          {
+            "filePath": "visuals/p3_chart_tx_house_trend/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p3_chart_tx_house_trend",
+              "position": {
+                "x": 20,
+                "y": 465,
+                "z": 3000,
+                "width": 600,
+                "height": 235,
+                "tabOrder": 3000
+              },
+              "visual": {
+                "visualType": "columnChart",
+                "query": {
+                  "queryState": {
+                    "Category": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_cycle"
+                                }
+                              },
+                              "property": "cycle"
+                            }
+                          },
+                          "queryRef": "dim_cycle.cycle"
+                        }
+                      ]
+                    },
+                    "Y": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_cycle"
+                                }
+                              },
+                              "property": "Texas House Dem Seats"
+                            }
+                          },
+                          "queryRef": "dim_cycle.Texas House Dem Seats"
+                        },
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_cycle"
+                                }
+                              },
+                              "property": "Texas House Rep Seats"
+                            }
+                          },
+                          "queryRef": "dim_cycle.Texas House Rep Seats"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Texas US House Delegation by Party (2018–2026)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p3_chart_tx_margins/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p3_chart_tx_margins",
+              "position": {
+                "x": 20,
+                "y": 220,
+                "z": 3000,
+                "width": 600,
+                "height": 230,
+                "tabOrder": 3000
+              },
+              "visual": {
+                "visualType": "barChart",
+                "query": {
+                  "queryState": {
+                    "Category": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_texas_statewide"
+                                }
+                              },
+                              "property": "office"
+                            }
+                          },
+                          "queryRef": "fact_texas_statewide.office"
+                        }
+                      ]
+                    },
+                    "Y": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_texas_statewide"
+                                }
+                              },
+                              "property": "Texas Dem Margin"
+                            }
+                          },
+                          "queryRef": "fact_texas_statewide.Texas Dem Margin"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Texas Statewide Margins (2026)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p3_chart_tx_shares/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p3_chart_tx_shares",
+              "position": {
+                "x": 640,
+                "y": 220,
+                "z": 3000,
+                "width": 620,
+                "height": 230,
+                "tabOrder": 3000
+              },
+              "visual": {
+                "visualType": "columnChart",
+                "query": {
+                  "queryState": {
+                    "Category": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_texas_statewide"
+                                }
+                              },
+                              "property": "office"
+                            }
+                          },
+                          "queryRef": "fact_texas_statewide.office"
+                        }
+                      ]
+                    },
+                    "Y": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_texas_statewide"
+                                }
+                              },
+                              "property": "Texas Dem Pct"
+                            }
+                          },
+                          "queryRef": "fact_texas_statewide.Texas Dem Pct"
+                        },
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_texas_statewide"
+                                }
+                              },
+                              "property": "Texas Rep Pct"
+                            }
+                          },
+                          "queryRef": "fact_texas_statewide.Texas Rep Pct"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Texas Democratic vs Republican Vote Share (2026)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p3_headline/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p3_headline",
+              "position": {
+                "x": 20,
+                "y": 15,
+                "z": 1000,
+                "width": 1240,
+                "height": 45,
+                "tabOrder": 1000
+              },
+              "visual": {
+                "visualType": "textbox",
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "paragraphs": [
+                          {
+                            "textRuns": [
+                              {
+                                "value": "Democrats swept Texas statewide races (Gov +7.1, Sen +12.1, AG +6.5) and gained 14 House seats.",
+                                "textStyle": {
+                                  "fontFamily": "Segoe UI Semibold",
+                                  "fontSize": "15pt",
+                                  "color": "#2F3337"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p3_how_to_read/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p3_how_to_read",
+              "position": {
+                "x": 20,
+                "y": 65,
+                "z": 1000,
+                "width": 1240,
+                "height": 30,
+                "tabOrder": 1000
+              },
+              "visual": {
+                "visualType": "textbox",
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "paragraphs": [
+                          {
+                            "textRuns": [
+                              {
+                                "value": "Margins reflect statewide general election certified totals, with 2026 preliminary.",
+                                "textStyle": {
+                                  "fontFamily": "Segoe UI",
+                                  "fontSize": "10pt",
+                                  "color": "#2F3337"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p3_kpi_ag_margin/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p3_kpi_ag_margin",
+              "position": {
+                "x": 520,
+                "y": 110,
+                "z": 2000,
+                "width": 235,
+                "height": 95,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "card",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_results"
+                                }
+                              },
+                              "property": "Texas Dem Margin"
+                            }
+                          },
+                          "queryRef": "Measure.Texas Dem Margin"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Texas AG Dem Margin'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p3_kpi_gov_margin/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p3_kpi_gov_margin",
+              "position": {
+                "x": 20,
+                "y": 110,
+                "z": 2000,
+                "width": 235,
+                "height": 95,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "card",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_results"
+                                }
+                              },
+                              "property": "Texas Dem Margin"
+                            }
+                          },
+                          "queryRef": "Measure.Texas Dem Margin"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Texas Gov Dem Margin'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p3_kpi_sen_margin/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p3_kpi_sen_margin",
+              "position": {
+                "x": 270,
+                "y": 110,
+                "z": 2000,
+                "width": 235,
+                "height": 95,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "card",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_results"
+                                }
+                              },
+                              "property": "Texas Dem Margin"
+                            }
+                          },
+                          "queryRef": "Measure.Texas Dem Margin"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Texas Senate Dem Margin'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p3_kpi_tx_house_d/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p3_kpi_tx_house_d",
+              "position": {
+                "x": 770,
+                "y": 110,
+                "z": 2000,
+                "width": 235,
+                "height": 95,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "card",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_results"
+                                }
+                              },
+                              "property": "Texas House Dem Seats"
+                            }
+                          },
+                          "queryRef": "Measure.Texas House Dem Seats"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Texas House Dem Seats'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p3_kpi_tx_net_gain/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p3_kpi_tx_net_gain",
+              "position": {
+                "x": 1020,
+                "y": 110,
+                "z": 2000,
+                "width": 240,
+                "height": 95,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "card",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_results"
+                                }
+                              },
+                              "property": "Texas House Dem Seats"
+                            }
+                          },
+                          "queryRef": "Measure.Texas House Dem Seats"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Texas House Net Dem Gain'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p3_table_tx_candidates/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p3_table_tx_candidates",
+              "position": {
+                "x": 640,
+                "y": 465,
+                "z": 4000,
+                "width": 620,
+                "height": 235,
+                "tabOrder": 4000
+              },
+              "visual": {
+                "visualType": "tableEx",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_texas_statewide"
+                                }
+                              },
+                              "property": "office"
+                            }
+                          },
+                          "queryRef": "fact_texas_statewide.office"
+                        },
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_texas_statewide"
+                                }
+                              },
+                              "property": "dem_candidate"
+                            }
+                          },
+                          "queryRef": "fact_texas_statewide.dem_candidate"
+                        },
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_texas_statewide"
+                                }
+                              },
+                              "property": "rep_candidate"
+                            }
+                          },
+                          "queryRef": "fact_texas_statewide.rep_candidate"
+                        },
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_texas_statewide"
+                                }
+                              },
+                              "property": "Texas Dem Margin"
+                            }
+                          },
+                          "queryRef": "fact_texas_statewide.Texas Dem Margin"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Texas Statewide Election Summary'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "filePath": "page3_texas_deep_dive/page.json",
+        "content": {
+          "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+          "name": "page3_texas_deep_dive",
+          "displayName": "Texas Deep-Dive",
+          "displayOption": "FitToPage",
+          "height": 720,
+          "width": 1280
+        }
+      },
+      {
+        "visualContainers": [
+          {
+            "filePath": "visuals/p4_chart_receipts_chamber/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p4_chart_receipts_chamber",
+              "position": {
+                "x": 640,
+                "y": 220,
+                "z": 3000,
+                "width": 620,
+                "height": 230,
+                "tabOrder": 3000
+              },
+              "visual": {
+                "visualType": "columnChart",
+                "query": {
+                  "queryState": {
+                    "Category": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_cycle"
+                                }
+                              },
+                              "property": "cycle"
+                            }
+                          },
+                          "queryRef": "dim_cycle.cycle"
+                        }
+                      ]
+                    },
+                    "Y": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_cycle"
+                                }
+                              },
+                              "property": "House Receipts"
+                            }
+                          },
+                          "queryRef": "dim_cycle.House Receipts"
+                        },
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_cycle"
+                                }
+                              },
+                              "property": "Senate Receipts"
+                            }
+                          },
+                          "queryRef": "dim_cycle.Senate Receipts"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Receipts by Chamber (House vs Senate)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p4_chart_receipts_trend/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p4_chart_receipts_trend",
+              "position": {
+                "x": 20,
+                "y": 220,
+                "z": 3000,
+                "width": 600,
+                "height": 230,
+                "tabOrder": 3000
+              },
+              "visual": {
+                "visualType": "columnChart",
+                "query": {
+                  "queryState": {
+                    "Category": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_cycle"
+                                }
+                              },
+                              "property": "cycle"
+                            }
+                          },
+                          "queryRef": "dim_cycle.cycle"
+                        }
+                      ]
+                    },
+                    "Y": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_cycle"
+                                }
+                              },
+                              "property": "Total Receipts"
+                            }
+                          },
+                          "queryRef": "dim_cycle.Total Receipts"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Total Campaign Receipts by Cycle (2018–2026)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p4_chart_turnout_trend/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p4_chart_turnout_trend",
+              "position": {
+                "x": 20,
+                "y": 465,
+                "z": 3000,
+                "width": 600,
+                "height": 235,
+                "tabOrder": 3000
+              },
+              "visual": {
+                "visualType": "lineChart",
+                "query": {
+                  "queryState": {
+                    "Category": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_turnout"
+                                }
+                              },
+                              "property": "cycle"
+                            }
+                          },
+                          "queryRef": "fact_turnout.cycle"
+                        }
+                      ]
+                    },
+                    "Y": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_turnout"
+                                }
+                              },
+                              "property": "Turnout Rate"
+                            }
+                          },
+                          "queryRef": "fact_turnout.Turnout Rate"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'VEPM Midterm Turnout Rate (2018–2022)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p4_headline/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p4_headline",
+              "position": {
+                "x": 20,
+                "y": 15,
+                "z": 1000,
+                "width": 1240,
+                "height": 45,
+                "tabOrder": 1000
+              },
+              "visual": {
+                "visualType": "textbox",
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "paragraphs": [
+                          {
+                            "textRuns": [
+                              {
+                                "value": "Record campaign receipts ($4.24B) met high midterm turnout and narrowed margins in 74 competitive House races.",
+                                "textStyle": {
+                                  "fontFamily": "Segoe UI Semibold",
+                                  "fontSize": "15pt",
+                                  "color": "#2F3337"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p4_how_to_read/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p4_how_to_read",
+              "position": {
+                "x": 20,
+                "y": 65,
+                "z": 1000,
+                "width": 1240,
+                "height": 30,
+                "tabOrder": 1000
+              },
+              "visual": {
+                "visualType": "textbox",
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "paragraphs": [
+                          {
+                            "textRuns": [
+                              {
+                                "value": "Turnout data ends at 2022; official 2026 VEPM turnout is not yet published.",
+                                "textStyle": {
+                                  "fontFamily": "Segoe UI",
+                                  "fontSize": "10pt",
+                                  "color": "#2F3337"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p4_kpi_top_spender/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p4_kpi_top_spender",
+              "position": {
+                "x": 270,
+                "y": 110,
+                "z": 2000,
+                "width": 235,
+                "height": 95,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "textbox",
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "paragraphs": [
+                          {
+                            "textRuns": [
+                              {
+                                "value": "Top-Spender Win Rate\n",
+                                "textStyle": {
+                                  "fontFamily": "Segoe UI",
+                                  "fontSize": "10pt",
+                                  "color": "#605E5C"
+                                }
+                              },
+                              {
+                                "value": "87.4%\n",
+                                "textStyle": {
+                                  "fontFamily": "Segoe UI Semibold",
+                                  "fontSize": "22pt",
+                                  "color": "#0C2340"
+                                }
+                              },
+                              {
+                                "value": "(findings.md)",
+                                "textStyle": {
+                                  "fontFamily": "Segoe UI",
+                                  "fontSize": "9pt",
+                                  "color": "#8A8886"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p4_kpi_total_receipts/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p4_kpi_total_receipts",
+              "position": {
+                "x": 20,
+                "y": 110,
+                "z": 2000,
+                "width": 235,
+                "height": 95,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "card",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_results"
+                                }
+                              },
+                              "property": "Total Receipts"
+                            }
+                          },
+                          "queryRef": "Measure.Total Receipts"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Total Receipts (2026)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p4_kpi_turnout_2026/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p4_kpi_turnout_2026",
+              "position": {
+                "x": 1020,
+                "y": 110,
+                "z": 2000,
+                "width": 240,
+                "height": 95,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "textbox",
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "paragraphs": [
+                          {
+                            "textRuns": [
+                              {
+                                "value": "Turnout Rate 2026\n",
+                                "textStyle": {
+                                  "fontFamily": "Segoe UI",
+                                  "fontSize": "10pt",
+                                  "color": "#605E5C"
+                                }
+                              },
+                              {
+                                "value": "not yet published\n",
+                                "textStyle": {
+                                  "fontFamily": "Segoe UI Semibold",
+                                  "fontSize": "22pt",
+                                  "color": "#0C2340"
+                                }
+                              },
+                              {
+                                "value": "(VEPM pending)",
+                                "textStyle": {
+                                  "fontFamily": "Segoe UI",
+                                  "fontSize": "9pt",
+                                  "color": "#8A8886"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p4_kpi_under_10/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p4_kpi_under_10",
+              "position": {
+                "x": 770,
+                "y": 110,
+                "z": 2000,
+                "width": 235,
+                "height": 95,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "card",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_results"
+                                }
+                              },
+                              "property": "Races Under 10 Pts"
+                            }
+                          },
+                          "queryRef": "Measure.Races Under 10 Pts"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Races Under 10 Pts'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p4_kpi_under_5/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p4_kpi_under_5",
+              "position": {
+                "x": 520,
+                "y": 110,
+                "z": 2000,
+                "width": 235,
+                "height": 95,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "card",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_results"
+                                }
+                              },
+                              "property": "Races Under 5 Pts"
+                            }
+                          },
+                          "queryRef": "Measure.Races Under 5 Pts"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Races Under 5 Pts'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p4_table_closest_races/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p4_table_closest_races",
+              "position": {
+                "x": 640,
+                "y": 465,
+                "z": 4000,
+                "width": 620,
+                "height": 235,
+                "tabOrder": 4000
+              },
+              "visual": {
+                "visualType": "tableEx",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_house_closest_races"
+                                }
+                              },
+                              "property": "district"
+                            }
+                          },
+                          "queryRef": "fact_house_closest_races.district"
+                        },
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_house_closest_races"
+                                }
+                              },
+                              "property": "winner"
+                            }
+                          },
+                          "queryRef": "fact_house_closest_races.winner"
+                        },
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_house_closest_races"
+                                }
+                              },
+                              "property": "margin_band"
+                            }
+                          },
+                          "queryRef": "fact_house_closest_races.margin_band"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Closest House Races (2026)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "filePath": "page4_why_this_one_was_different/page.json",
+        "content": {
+          "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+          "name": "page4_why_this_one_was_different",
+          "displayName": "Why This One Was Different",
+          "displayOption": "FitToPage",
+          "height": 720,
+          "width": 1280
+        }
+      },
+      {
+        "visualContainers": [
+          {
+            "filePath": "visuals/p5_chart_pres_loss/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p5_chart_pres_loss",
+              "position": {
+                "x": 20,
+                "y": 220,
+                "z": 3000,
+                "width": 750,
+                "height": 480,
+                "tabOrder": 3000
+              },
+              "visual": {
+                "visualType": "columnChart",
+                "query": {
+                  "queryState": {
+                    "Category": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_cycle"
+                                }
+                              },
+                              "property": "cycle"
+                            }
+                          },
+                          "queryRef": "dim_cycle.cycle"
+                        }
+                      ]
+                    },
+                    "Y": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_cycle"
+                                }
+                              },
+                              "property": "Presidents Party Net Change"
+                            }
+                          },
+                          "queryRef": "dim_cycle.Presidents Party Net Change"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'President's Party Net Seat Change Across Midterms (1974–2026)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p5_headline/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p5_headline",
+              "position": {
+                "x": 20,
+                "y": 15,
+                "z": 1000,
+                "width": 1240,
+                "height": 45,
+                "tabOrder": 1000
+              },
+              "visual": {
+                "visualType": "textbox",
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "paragraphs": [
+                          {
+                            "textRuns": [
+                              {
+                                "value": "Midterms reliably penalize the president's party (-56 seats in 2026, the steepest penalty since 2010).",
+                                "textStyle": {
+                                  "fontFamily": "Segoe UI Semibold",
+                                  "fontSize": "15pt",
+                                  "color": "#2F3337"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p5_how_to_read/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p5_how_to_read",
+              "position": {
+                "x": 20,
+                "y": 65,
+                "z": 1000,
+                "width": 1240,
+                "height": 30,
+                "tabOrder": 1000
+              },
+              "visual": {
+                "visualType": "textbox",
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "paragraphs": [
+                          {
+                            "textRuns": [
+                              {
+                                "value": "Negative values indicate seat losses for the party holding the White House.",
+                                "textStyle": {
+                                  "fontFamily": "Segoe UI",
+                                  "fontSize": "10pt",
+                                  "color": "#2F3337"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p5_kpi_hist_avg/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p5_kpi_hist_avg",
+              "position": {
+                "x": 850,
+                "y": 110,
+                "z": 2000,
+                "width": 410,
+                "height": 95,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "textbox",
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "paragraphs": [
+                          {
+                            "textRuns": [
+                              {
+                                "value": "Historical Average Loss\n",
+                                "textStyle": {
+                                  "fontFamily": "Segoe UI",
+                                  "fontSize": "10pt",
+                                  "color": "#605E5C"
+                                }
+                              },
+                              {
+                                "value": "-28 seats\n",
+                                "textStyle": {
+                                  "fontFamily": "Segoe UI Semibold",
+                                  "fontSize": "22pt",
+                                  "color": "#0C2340"
+                                }
+                              },
+                              {
+                                "value": "(1974–2022 midterms)",
+                                "textStyle": {
+                                  "fontFamily": "Segoe UI",
+                                  "fontSize": "9pt",
+                                  "color": "#8A8886"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p5_kpi_pres_net/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p5_kpi_pres_net",
+              "position": {
+                "x": 20,
+                "y": 110,
+                "z": 2000,
+                "width": 395,
+                "height": 95,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "card",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_results"
+                                }
+                              },
+                              "property": "Presidents Party Net Change"
+                            }
+                          },
+                          "queryRef": "Measure.Presidents Party Net Change"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Presidents Party Net Loss 2026'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p5_kpi_worst_since/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p5_kpi_worst_since",
+              "position": {
+                "x": 435,
+                "y": 110,
+                "z": 2000,
+                "width": 395,
+                "height": 95,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "textbox",
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "paragraphs": [
+                          {
+                            "textRuns": [
+                              {
+                                "value": "Steepest Loss Since\n",
+                                "textStyle": {
+                                  "fontFamily": "Segoe UI",
+                                  "fontSize": "10pt",
+                                  "color": "#605E5C"
+                                }
+                              },
+                              {
+                                "value": "2010\n",
+                                "textStyle": {
+                                  "fontFamily": "Segoe UI Semibold",
+                                  "fontSize": "22pt",
+                                  "color": "#0C2340"
+                                }
+                              },
+                              {
+                                "value": "(-63 seats in 2010)",
+                                "textStyle": {
+                                  "fontFamily": "Segoe UI",
+                                  "fontSize": "9pt",
+                                  "color": "#8A8886"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p5_table_presidents/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p5_table_presidents",
+              "position": {
+                "x": 790,
+                "y": 220,
+                "z": 4000,
+                "width": 470,
+                "height": 480,
+                "tabOrder": 4000
+              },
+              "visual": {
+                "visualType": "tableEx",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_cycle"
+                                }
+                              },
+                              "property": "cycle"
+                            }
+                          },
+                          "queryRef": "dim_cycle.cycle"
+                        },
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_cycle"
+                                }
+                              },
+                              "property": "president"
+                            }
+                          },
+                          "queryRef": "dim_cycle.president"
+                        },
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_cycle"
+                                }
+                              },
+                              "property": "president_party"
+                            }
+                          },
+                          "queryRef": "dim_cycle.president_party"
+                        },
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_cycle"
+                                }
+                              },
+                              "property": "Presidents Party Net Change"
+                            }
+                          },
+                          "queryRef": "dim_cycle.Presidents Party Net Change"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Midterm Summary Table'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "filePath": "page5_the_midterm_pattern/page.json",
+        "content": {
+          "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+          "name": "page5_the_midterm_pattern",
+          "displayName": "The Midterm Pattern",
+          "displayOption": "FitToPage",
+          "height": 720,
+          "width": 1280
+        }
+      },
+      {
+        "visualContainers": [
+          {
+            "filePath": "visuals/p6_chart_gov_wins/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p6_chart_gov_wins",
+              "position": {
+                "x": 640,
+                "y": 220,
+                "z": 3000,
+                "width": 620,
+                "height": 230,
+                "tabOrder": 3000
+              },
+              "visual": {
+                "visualType": "columnChart",
+                "query": {
+                  "queryState": {
+                    "Category": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_party"
+                                }
+                              },
+                              "property": "party_name"
+                            }
+                          },
+                          "queryRef": "dim_party.party_name"
+                        }
+                      ]
+                    },
+                    "Y": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_party"
+                                }
+                              },
+                              "property": "Gov Wins D 2026"
+                            }
+                          },
+                          "queryRef": "dim_party.Gov Wins D 2026"
+                        },
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_party"
+                                }
+                              },
+                              "property": "Gov Wins R 2026"
+                            }
+                          },
+                          "queryRef": "dim_party.Gov Wins R 2026"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Governors Won by Party (2026)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p6_chart_senate_comp/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p6_chart_senate_comp",
+              "position": {
+                "x": 20,
+                "y": 220,
+                "z": 3000,
+                "width": 600,
+                "height": 230,
+                "tabOrder": 3000
+              },
+              "visual": {
+                "visualType": "columnChart",
+                "query": {
+                  "queryState": {
+                    "Category": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_senate_composition"
+                                }
+                              },
+                              "property": "party_name"
+                            }
+                          },
+                          "queryRef": "fact_senate_composition.party_name"
+                        }
+                      ]
+                    },
+                    "Y": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_senate_composition"
+                                }
+                              },
+                              "property": "Senate Seats D 2026"
+                            }
+                          },
+                          "queryRef": "fact_senate_composition.Senate Seats D 2026"
+                        },
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_senate_composition"
+                                }
+                              },
+                              "property": "Senate Seats R 2026"
+                            }
+                          },
+                          "queryRef": "fact_senate_composition.Senate Seats R 2026"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Senate Composition (119th Congress)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p6_headline/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p6_headline",
+              "position": {
+                "x": 20,
+                "y": 15,
+                "z": 1000,
+                "width": 1240,
+                "height": 45,
+                "tabOrder": 1000
+              },
+              "visual": {
+                "visualType": "textbox",
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "paragraphs": [
+                          {
+                            "textRuns": [
+                              {
+                                "value": "Divided government returns as Democrats gain trifecta-breaking control of both congressional chambers.",
+                                "textStyle": {
+                                  "fontFamily": "Segoe UI Semibold",
+                                  "fontSize": "15pt",
+                                  "color": "#2F3337"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p6_how_to_read/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p6_how_to_read",
+              "position": {
+                "x": 20,
+                "y": 65,
+                "z": 1000,
+                "width": 1240,
+                "height": 30,
+                "tabOrder": 1000
+              },
+              "visual": {
+                "visualType": "textbox",
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "paragraphs": [
+                          {
+                            "textRuns": [
+                              {
+                                "value": "Trifecta is broken when the presidency and both chambers of Congress are not held by the same party.",
+                                "textStyle": {
+                                  "fontFamily": "Segoe UI",
+                                  "fontSize": "10pt",
+                                  "color": "#2F3337"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p6_kpi_gov_net/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p6_kpi_gov_net",
+              "position": {
+                "x": 1070,
+                "y": 110,
+                "z": 2000,
+                "width": 190,
+                "height": 95,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "textbox",
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "paragraphs": [
+                          {
+                            "textRuns": [
+                              {
+                                "value": "Net Governor Change\n",
+                                "textStyle": {
+                                  "fontFamily": "Segoe UI",
+                                  "fontSize": "10pt",
+                                  "color": "#605E5C"
+                                }
+                              },
+                              {
+                                "value": "+3 net D\n",
+                                "textStyle": {
+                                  "fontFamily": "Segoe UI Semibold",
+                                  "fontSize": "22pt",
+                                  "color": "#0C2340"
+                                }
+                              },
+                              {
+                                "value": "(22 D won)",
+                                "textStyle": {
+                                  "fontFamily": "Segoe UI",
+                                  "fontSize": "9pt",
+                                  "color": "#8A8886"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p6_kpi_house_maj/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p6_kpi_house_maj",
+              "position": {
+                "x": 20,
+                "y": 110,
+                "z": 2000,
+                "width": 195,
+                "height": 95,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "card",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_results"
+                                }
+                              },
+                              "property": "House Majority 2026"
+                            }
+                          },
+                          "queryRef": "Measure.House Majority 2026"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'House Majority (2026)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p6_kpi_senate_maj/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p6_kpi_senate_maj",
+              "position": {
+                "x": 230,
+                "y": 110,
+                "z": 2000,
+                "width": 195,
+                "height": 95,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "card",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_results"
+                                }
+                              },
+                              "property": "Senate Majority 2026"
+                            }
+                          },
+                          "queryRef": "Measure.Senate Majority 2026"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Senate Majority (2026)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p6_kpi_sen_flips/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p6_kpi_sen_flips",
+              "position": {
+                "x": 650,
+                "y": 110,
+                "z": 2000,
+                "width": 195,
+                "height": 95,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "card",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_results"
+                                }
+                              },
+                              "property": "Senate Flips 2026"
+                            }
+                          },
+                          "queryRef": "Measure.Senate Flips 2026"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Senate Flips (2026)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p6_kpi_split_outcomes/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p6_kpi_split_outcomes",
+              "position": {
+                "x": 860,
+                "y": 110,
+                "z": 2000,
+                "width": 195,
+                "height": 95,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "textbox",
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "paragraphs": [
+                          {
+                            "textRuns": [
+                              {
+                                "value": "Split-Outcome States\n",
+                                "textStyle": {
+                                  "fontFamily": "Segoe UI",
+                                  "fontSize": "10pt",
+                                  "color": "#605E5C"
+                                }
+                              },
+                              {
+                                "value": "4 states\n",
+                                "textStyle": {
+                                  "fontFamily": "Segoe UI Semibold",
+                                  "fontSize": "22pt",
+                                  "color": "#0C2340"
+                                }
+                              },
+                              {
+                                "value": "(Gov vs Senate split)",
+                                "textStyle": {
+                                  "fontFamily": "Segoe UI",
+                                  "fontSize": "9pt",
+                                  "color": "#8A8886"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p6_kpi_trifecta/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p6_kpi_trifecta",
+              "position": {
+                "x": 440,
+                "y": 110,
+                "z": 2000,
+                "width": 195,
+                "height": 95,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "card",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_results"
+                                }
+                              },
+                              "property": "Trifecta 2026"
+                            }
+                          },
+                          "queryRef": "Measure.Trifecta 2026"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Trifecta Status (2026)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p6_table_flips/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p6_table_flips",
+              "position": {
+                "x": 20,
+                "y": 465,
+                "z": 4000,
+                "width": 1240,
+                "height": 235,
+                "tabOrder": 4000
+              },
+              "visual": {
+                "visualType": "tableEx",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_senate_flips_2026"
+                                }
+                              },
+                              "property": "state"
+                            }
+                          },
+                          "queryRef": "fact_senate_flips_2026.state"
+                        },
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_senate_flips_2026"
+                                }
+                              },
+                              "property": "incumbent"
+                            }
+                          },
+                          "queryRef": "fact_senate_flips_2026.incumbent"
+                        },
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_senate_flips_2026"
+                                }
+                              },
+                              "property": "winner"
+                            }
+                          },
+                          "queryRef": "fact_senate_flips_2026.winner"
+                        },
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_senate_flips_2026"
+                                }
+                              },
+                              "property": "result_text"
+                            }
+                          },
+                          "queryRef": "fact_senate_flips_2026.result_text"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'All 6 Senate Seat Flips (2026)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "filePath": "page6_what_changes_now/page.json",
+        "content": {
+          "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+          "name": "page6_what_changes_now",
+          "displayName": "What Changes Now",
+          "displayOption": "FitToPage",
+          "height": 720,
+          "width": 1280
+        }
+      },
+      {
+        "visualContainers": [
+          {
+            "filePath": "visuals/p7_chart_state_trend/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p7_chart_state_trend",
+              "position": {
+                "x": 20,
+                "y": 220,
+                "z": 3000,
+                "width": 600,
+                "height": 480,
+                "tabOrder": 3000
+              },
+              "visual": {
+                "visualType": "columnChart",
+                "query": {
+                  "queryState": {
+                    "Category": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_cycle"
+                                }
+                              },
+                              "property": "cycle"
+                            }
+                          },
+                          "queryRef": "dim_cycle.cycle"
+                        }
+                      ]
+                    },
+                    "Y": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_cycle"
+                                }
+                              },
+                              "property": "House Seats D"
+                            }
+                          },
+                          "queryRef": "dim_cycle.House Seats D"
+                        },
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "dim_cycle"
+                                }
+                              },
+                              "property": "House Seats R"
+                            }
+                          },
+                          "queryRef": "dim_cycle.House Seats R"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Historical House Seats for Selected State (2018–2026)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p7_how_to_read/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p7_how_to_read",
+              "position": {
+                "x": 20,
+                "y": 60,
+                "z": 1000,
+                "width": 600,
+                "height": 35,
+                "tabOrder": 1000
+              },
+              "visual": {
+                "visualType": "textbox",
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "paragraphs": [
+                          {
+                            "textRuns": [
+                              {
+                                "value": "Drill-through target page filtered by selected state from Page 2 map or table.",
+                                "textStyle": {
+                                  "fontFamily": "Segoe UI",
+                                  "fontSize": "10pt",
+                                  "color": "#2F3337"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p7_kpi_state_dem_seats/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p7_kpi_state_dem_seats",
+              "position": {
+                "x": 20,
+                "y": 110,
+                "z": 2000,
+                "width": 395,
+                "height": 95,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "card",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_results"
+                                }
+                              },
+                              "property": "State Dem Seats 2026"
+                            }
+                          },
+                          "queryRef": "Measure.State Dem Seats 2026"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dem House Seats (2026)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p7_kpi_state_gov/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p7_kpi_state_gov",
+              "position": {
+                "x": 850,
+                "y": 110,
+                "z": 2000,
+                "width": 410,
+                "height": 95,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "card",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_results"
+                                }
+                              },
+                              "property": "State Governor 2026"
+                            }
+                          },
+                          "queryRef": "Measure.State Governor 2026"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Governor Race Result (2026)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p7_kpi_state_name/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p7_kpi_state_name",
+              "position": {
+                "x": 640,
+                "y": 15,
+                "z": 2000,
+                "width": 620,
+                "height": 80,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "card",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_results"
+                                }
+                              },
+                              "property": "State Name"
+                            }
+                          },
+                          "queryRef": "Measure.State Name"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Selected State'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p7_kpi_state_rep_seats/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p7_kpi_state_rep_seats",
+              "position": {
+                "x": 435,
+                "y": 110,
+                "z": 2000,
+                "width": 395,
+                "height": 95,
+                "tabOrder": 2000
+              },
+              "visual": {
+                "visualType": "card",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_results"
+                                }
+                              },
+                              "property": "State Rep Seats 2026"
+                            }
+                          },
+                          "queryRef": "Measure.State Rep Seats 2026"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Rep House Seats (2026)'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p7_table_state_results/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p7_table_state_results",
+              "position": {
+                "x": 640,
+                "y": 220,
+                "z": 4000,
+                "width": 620,
+                "height": 480,
+                "tabOrder": 4000
+              },
+              "visual": {
+                "visualType": "tableEx",
+                "query": {
+                  "queryState": {
+                    "Values": {
+                      "projections": [
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_results"
+                                }
+                              },
+                              "property": "office_key"
+                            }
+                          },
+                          "queryRef": "fact_results.office_key"
+                        },
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_results"
+                                }
+                              },
+                              "property": "candidate"
+                            }
+                          },
+                          "queryRef": "fact_results.candidate"
+                        },
+                        {
+                          "field": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_results"
+                                }
+                              },
+                              "property": "party_name"
+                            }
+                          },
+                          "queryRef": "fact_results.party_name"
+                        },
+                        {
+                          "field": {
+                            "Measure": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "entity": "fact_results"
+                                }
+                              },
+                              "property": "Dem House Vote Share"
+                            }
+                          },
+                          "queryRef": "fact_results.Dem House Vote Share"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "title": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'2026 State Race Results'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "filePath": "visuals/p7_title/visual.json",
+            "content": {
+              "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+              "name": "p7_title",
+              "position": {
+                "x": 20,
+                "y": 15,
+                "z": 1000,
+                "width": 600,
+                "height": 40,
+                "tabOrder": 1000
+              },
+              "visual": {
+                "visualType": "textbox",
+                "objects": {
+                  "general": [
+                    {
+                      "properties": {
+                        "paragraphs": [
+                          {
+                            "textRuns": [
+                              {
+                                "value": "State Detail Drill-Through",
+                                "textStyle": {
+                                  "fontFamily": "Segoe UI Semibold",
+                                  "fontSize": "16pt",
+                                  "color": "#2F3337"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "filePath": "page7_state_detail/page.json",
+        "content": {
+          "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+          "name": "page7_state_detail",
+          "displayName": "State Detail",
+          "displayOption": "FitToPage",
+          "height": 720,
+          "width": 1280,
+          "visibility": "HiddenInViewMode",
+          "pageBinding": {
+            "name": "drillthrough_state",
+            "drillthrough": {
+              "fields": [
+                {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "entity": "dim_geography"
+                      }
+                    },
+                    "property": "state_abbr"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
+  },
+  "bookmarks": null
+}

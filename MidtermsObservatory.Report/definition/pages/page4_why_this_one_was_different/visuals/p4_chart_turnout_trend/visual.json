@@ -1,0 +1,68 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "p4_chart_turnout_trend",
+  "position": {
+    "x": 20,
+    "y": 465,
+    "z": 3000,
+    "width": 600,
+    "height": 235,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "fact_turnout"
+                    }
+                  },
+                  "property": "cycle"
+                }
+              },
+              "queryRef": "fact_turnout.cycle"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "entity": "fact_turnout"
+                    }
+                  },
+                  "property": "Turnout Rate"
+                }
+              },
+              "queryRef": "fact_turnout.Turnout Rate"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "title": {
+              "expr": {
+                "Literal": {
+                  "Value": "'VEPM Midterm Turnout Rate (2018\u20132022)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,98 @@
+table fact_senate_composition
+	lineageTag: 40d82866-7f5b-5332-8569-adbcc04ad5dd
+
+	column cycle
+		dataType: int64
+		formatString: 0
+		lineageTag: 362d0d58-607e-508e-b15f-7b5df876f1fd
+		summarizeBy: none
+		sourceColumn: cycle
+
+	column congress
+		dataType: int64
+		formatString: 0
+		lineageTag: c9112b33-ff89-5488-b759-8559b32f7959
+		summarizeBy: none
+		sourceColumn: congress
+
+	column party_name
+		dataType: string
+		lineageTag: bd3b3829-6508-52a7-afa5-78916558d180
+		summarizeBy: none
+		sourceColumn: party_name
+
+	column seats_before
+		dataType: double
+		formatString: 0
+		lineageTag: f0a983e7-d115-5836-9638-df7f14fb774f
+		summarizeBy: none
+		sourceColumn: seats_before
+
+	column seats_after
+		dataType: int64
+		formatString: 0
+		lineageTag: 35afac21-1c1e-517b-8145-89e37a981bde
+		summarizeBy: none
+		sourceColumn: seats_after
+
+	column net_change
+		dataType: double
+		formatString: +0;-0;0
+		lineageTag: be3b13e8-e5c0-5c71-bcbc-a0d2a01c0bf7
+		summarizeBy: none
+		sourceColumn: net_change
+
+	column status
+		dataType: string
+		lineageTag: f82719fa-7df4-5334-bca8-ef2a3336348d
+		summarizeBy: none
+		sourceColumn: status
+
+	measure 'Senate Seats D 2026' =
+			CALCULATE (
+			    SUM ( fact_senate_composition[seats_after] ),
+			    fact_senate_composition[cycle] = 2026,
+			    fact_senate_composition[party_name] = "Democratic"
+			)
+		lineageTag: 5aae1502-42a1-5128-97f1-5706b4ba0d65
+
+	measure 'Senate Seats R 2026' =
+			CALCULATE (
+			    SUM ( fact_senate_composition[seats_after] ),
+			    fact_senate_composition[cycle] = 2026,
+			    fact_senate_composition[party_name] = "Republican"
+			)
+		lineageTag: 3eb627c9-45a9-59ee-919f-072877aed822
+
+	measure 'Senate Seats I 2026' =
+			CALCULATE (
+			    SUM ( fact_senate_composition[seats_after] ),
+			    fact_senate_composition[cycle] = 2026,
+			    fact_senate_composition[party_name] = "Independent"
+			)
+		lineageTag: 31d5e89a-cd56-5ced-889d-328f6d5516bd
+
+	measure 'Senate Net Change D 2026' =
+			CALCULATE (
+			    SUM ( fact_senate_composition[net_change] ),
+			    fact_senate_composition[cycle] = 2026,
+			    fact_senate_composition[party_name] = "Democratic"
+			)
+		lineageTag: 6d162cb7-0dc6-58fc-a89d-59e801df111c
+
+	measure 'Senate Net Change D' =
+			CALCULATE (
+			    SUM ( fact_senate_composition[net_change] ),
+			    fact_senate_composition[party_name] = "Democratic"
+			)
+		lineageTag: 8763aeda-c0b9-5d79-9ae5-fd56bcbbb8d7
+
+	partition fact_senate_composition = m
+		mode: import
+		source =
+			let
+			    Source = Csv.Document(File.Contents(RepoFolder & "/powerbi/gold/fact_senate_composition.csv"),[Delimiter=",", Columns=7, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+			    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+			    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"cycle", Int64.Type}, {"congress", Int64.Type}, {"party_name", type text}, {"seats_before", Double.Type}, {"seats_after", Int64.Type}, {"net_change", Double.Type}, {"status", type text}})
+			in
+			    #"Changed Type"

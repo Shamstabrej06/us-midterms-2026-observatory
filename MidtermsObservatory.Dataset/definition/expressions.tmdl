@@ -1,0 +1,2 @@
+expression RepoFolder = "C:\Users\shams\us-midterms-2026-observatory" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: d0c80ef4-94a2-5069-b515-4f28b4fb4985
