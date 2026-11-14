@@ -11,6 +11,7 @@ patterns of US midterm elections.**
 > snapshot (coverage to 2026-10-14). All 2026 numbers below are
 > labelled preliminary and will move as races are called and filings
 > arrive.
+> **Live dashboard:** [Open the 7-page Power BI report](https://app.powerbi.com/view?r=eyJrIjoiZTE5NDE4NzgtNWI0Yy00YTQzLWEyNmYtMTNmNWFjNGUwYTJlIiwidCI6IjFmZDQyZDE3LTQxYzAtNGJiYy1iNjc0LTY1NDI4YjhmOTg2MiJ9)
 
 ## Headline findings
 
@@ -131,7 +132,6 @@ us-midterms-2026-observatory/
 │   ├── data_inventory.md     # what each file contains, quality problems on first inspection
 │   ├── data_dictionary.md    # every gold table and column, grain, source
 │   ├── findings.md           # the findings pack: tables + plain-language explainers
-│   └── linkedin_and_portfolio.md
 ├── outputs/
 │   ├── midterms.db           # SQLite gold layer (11 tables)
 │   ├── gold/                 # gold CSVs (also copied to powerbi/gold/)
@@ -139,7 +139,7 @@ us-midterms-2026-observatory/
 ├── powerbi/
 │   ├── gold/                 # import-ready gold CSVs
 │   ├── dax_measures.md       # every DAX measure, grouped by dashboard page
-│   ├── build_guide.md        # page-by-page assembly for the 6-page dashboard
+│   ├── build_guide.md        # page-by-page assembly for the 7-page dashboard
 │   └── theme.json            # muted blue / muted red / grey theme
 └── src/
     ├── 01_acquire.py
