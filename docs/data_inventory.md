@@ -1,7 +1,9 @@
 # Data inventory
 
-First inspection of every acquired file, 2026-11-09. Row counts are the
-counts the pipeline must reproduce (checked in `src/02_bronze_to_silver.py`).
+First inspection of every acquired file, 2026-11-09; refreshed
+2026-11-14 (all files re-downloaded — the 2026 figures below describe
+the refreshed files). Row counts are the counts the pipeline must
+reproduce (checked in `src/02_bronze_to_silver.py`).
 
 ## MEDSL — president (state-level)
 
@@ -41,7 +43,7 @@ version, party_simplified`.
 ## FEC — candidate summaries (weball)
 
 `weball18.txt` 3,687 rows; `weball22.txt` 4,153 rows; `weball26.txt`
-4,370 rows. Pipe-delimited, no header, 30 fields per row.
+4,372 rows. Pipe-delimited, no header, 30 fields per row.
 
 - The 2022 zip first downloaded truncated (175,355 bytes, bad central
   directory); re-downloaded cleanly (190,724 bytes, 4,153 rows).
@@ -70,25 +72,22 @@ handled per-cycle in `src/01_acquire.py`.
   subset is counted from the margin column (43 in 2018, 37 in 2022).
 - The 2026 page has **no closest-races table** and its results table's
   seat columns are still blank; seats and popular vote come from the
-  infobox (19 races uncalled, 95.6% declared as of Nov 6, 2026).
-- The 2026 summary table's vote totals (48.3M D / 40.9M R) exclude 98
-  districts with 95% or less reporting and disagree with the infobox
-  (64.0M D / 49.0M R). The infobox is used as the primary figure and
-  the discrepancy is recorded here.
+  infobox (9 races uncalled, 426 of 435 decided).
+- The 2026 summary table's vote totals exclude districts with 95% or
+  less reporting and disagree with the infobox. The infobox is used
+  as the primary figure and the discrepancy is recorded here.
 - Seats-by-state tables (table index 5) exist on all four recent pages:
   50 states × 4 cycles = 200 rows.
 
 ## Wikipedia — 2026 Senate and governor pages
 
 - Senate composition table (table index 3): before D45/I2/R53; 35 seats
-  up (13 D, 22 R); overall result row D20/R13 general + D1/R1 special.
-  The retiring + running sub-rows sum to 31, not 33 — two races' outcomes
-  appear only in the overall result row (footnote [f][g] on the running
-  row). The infobox gives the final composition as a range (D 52–54),
-  i.e. 2 races remain uncalled. The pipeline uses the overall result
-  row (D 53 / R 45 / I 2) and records the range.
-- Governor infobox: 36 states up (18 D-held, 18 R-held); D won 22, R won
-  12, 2 uncalled; seats after D 28–30 / R 20–22 (range).
+  up (13 D, 22 R); the page now publishes an overall Result row (total
+  34) that already includes the special elections — the pipeline uses
+  it alone. 1 race remains uncalled (Alaska). The pipeline uses the
+  overall result row (D 53 / R 44 / I 2).
+- Governor infobox: 36 states up (18 D-held, 18 R-held); D won 23, R won
+  12, 1 uncalled (Minnesota); seats after D 29–30 / R 20–21 (range).
 
 ## Wikipedia — party divisions (control table)
 
@@ -123,7 +122,7 @@ party 2, Others, Vacancies), House (same), President, Trifecta.
   the v1.4 series supplies those years. State-level 2022 VEP rates:
   50 states + DC (51 rows).
 - No state-level 2026 turnout has been published by the Election Lab
-  as of 2026-11-09, so the state-level 2026-vs-2022 turnout comparison
+  as of 2026-11-14, so the state-level 2026-vs-2022 turnout comparison
   is dropped.
 
 ## Census — county population estimates

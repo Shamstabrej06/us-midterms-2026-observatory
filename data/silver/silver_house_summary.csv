@@ -11,9 +11,9 @@ cycle,party,seats_before,seats_after,popular_pct,popular_votes,net_change,seats_
 2010,Democratic,257,193,44.9,38980192,-64,,certified
 2014,Republican,234,247,51.2,40081282,13,,certified
 2014,Democratic,201,188,45.5,35624357,-13,,certified
-2018,Democratic,194,235,53.4,60572245,41,,certified
-2018,Republican,241,199,44.8,50861970,-42,,certified
+2018,Democratic,194,235,53.4,60319623,41,,certified
+2018,Republican,241,199,44.8,50467181,-42,,certified
 2022,Republican,213,222,50.01,54227992,9,,certified
 2022,Democratic,222,213,47.29,51280463,-9,,certified
-2026,Democratic,214,254,55.8,64014623,40,19.0,preliminary
-2026,Republican,218,162,42.7,48995107,-56,19.0,preliminary
+2026,Democratic,214,257,56.2,66522807,43,9.0,preliminary
+2026,Republican,218,169,42.3,50049400,-49,9.0,preliminary

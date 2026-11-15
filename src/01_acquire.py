@@ -230,13 +230,22 @@ def parse_senate_2026():
                                 num(r.iloc[3]), num(r.iloc[4])))
         if "replaced by" in text and "Democrat" in text:
             flips += int(num(r.iloc[5]) or 0)
-    # Result rows in order: retiring (11), running (20), special (2),
-    # overall general (33). General = the largest-total row; special = the
-    # row with total 2. NOTE: retiring+running sub-rows sum to 31, not 33 —
-    # two races' outcomes appear only in the overall row (footnote [f][g]
-    # on the running row); the composition arithmetic uses the overall row.
-    gen = max(result_rows, key=lambda x: x[0])
-    spec = [x for x in result_rows if x[0] == 2][0]
+    # Result rows in order: retiring (11), running (21), special (2),
+    # and — since the page now publishes one — an OVERALL Result row whose
+    # total equals the sum of the other Result rows (34 on 2026-11-14).
+    # The overall row already INCLUDES the special elections, so adding the
+    # special row on top of it double-counts (that bug read D 54 / 101 seats
+    # on the first fresh run). Rule: if a Result row's total equals the sum
+    # of the other Result rows, it is the overall — use it alone. Otherwise
+    # fall back to the largest row (general) plus the 2-seat special row.
+    totals = [x[0] for x in result_rows]
+    overall = [x for x in result_rows if x[0] is not None and x[0] == sum(t for t in totals if t is not None) - x[0]]
+    if overall:
+        gen = overall[0]
+        spec = (0, 0, 0, 0)  # overall row already includes the specials
+    else:
+        gen = max(result_rows, key=lambda x: x[0] or 0)
+        spec = [x for x in result_rows if x[0] == 2][0]
     gen_result = (gen[1], gen[2], gen[3])
     spec_result = (spec[1], spec[2], spec[3])
     assert before and not_up and up and gen_result and spec_result, \
@@ -420,7 +429,7 @@ def parse_medsl_census():
     pres = pres[pres["year"].isin([2016, 2020, 2024])].copy()
     pres.to_csv(SAMPLE / "president_state.csv", index=False)
     log(f"president_state.csv: {len(pres)} rows (2016/2020/2024, state-level)")
-    sen = pd.read_csv(RAW / "1976-2024-senate-state.tab")
+    sen = pd.read_csv(RAW / "1976-2024-senate-state.tab", sep="\t")
     # stage is 'gen' in older years and 'GEN' in 2022/2024; runoffs excluded
     sen = sen[(sen["year"] >= 2014) & (sen["stage"].str.upper() == "GEN")].copy()
     sen.to_csv(SAMPLE / "senate_state.csv", index=False)

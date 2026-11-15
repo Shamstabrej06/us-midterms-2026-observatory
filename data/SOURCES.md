@@ -1,7 +1,9 @@
 # Data sources
 
-All files retrieved **2026-11-09** by the build (see `src/01_acquire.py`).
-Full raw files live in `data/raw/` and are **excluded from git** (see
+All files retrieved **2026-11-14** by the build (see `src/01_acquire.py`).
+Refreshed 2026-11-14: every source re-downloaded; five files added
+(2022 governor page, 2014/2018/2022 Texas governor pages, 2026 Texas
+Attorney General page). Full raw files live in `data/raw/` and are **excluded from git** (see
 `.gitignore`); the committed extracts in `data/sample/` are derived from
 them by `src/01_acquire.py` and are all the pipeline needs to run.
 
@@ -14,7 +16,7 @@ not be downloaded and a substitute is documented.
 | File | Source | Size | Rows | Status |
 |---|---|---|---|---|
 | `1976-2024-president.csv` | doi:10.7910/DVN/42MVDX — U.S. President 1976–2024 (state-level) | 514,108 B | 4,823 | certified |
-| `1976-2024-senate-state.tab` | doi:10.7910/DVN/PEJ5QU — U.S. Senate statewide 1976–2024 | 530,501 B | 3,945 | certified |
+| `1976-2024-senate-state.tab` | doi:10.7910/DVN/PEJ5QU — U.S. Senate statewide 1976–2024 | 632,787 B | 3,945 | certified |
 
 Terms: MEDSL data is released for public research use; cite the Dataverse
 DOI. The president file is **state-level, not county-level** (no county
@@ -51,9 +53,14 @@ the findings traces to a named table on one of these pages; the parser
 | `wiki14house.html` | 2014 United States House of Representatives elections | 2,849,234 B | certified |
 | `wiki18house.html` | 2018 United States House of Representatives elections | 3,052,278 B | certified |
 | `wiki22house.html` | 2022 United States House of Representatives elections | 3,331,269 B | certified |
-| `wiki26.html` | 2026 United States House of Representatives elections | 3,619,553 B | **preliminary** — 19 races uncalled; 95.6% of votes declared as of Nov 6, 2026, 11:15 PM EST; popular-vote totals are the page's infobox snapshot |
-| `wiki26sen.html` | 2026 United States Senate elections | 2,370,308 B | **preliminary** — page infobox gives the final composition as a range (D 52–54) because 2 races remain uncalled |
-| `wiki26gov.html` | 2026 United States gubernatorial elections | 2,144,900 B | **preliminary** — 2 of 36 state races uncalled; seats-after given as a range (D 28–30) |
+| `wiki26.html` | 2026 United States House of Representatives elections | 3,620,542 B | **preliminary** — 9 races uncalled; 426 of 435 decided; popular-vote totals are the page's infobox snapshot |
+| `wiki26sen.html` | 2026 United States Senate elections | 2,485,446 B | **preliminary** — 1 race uncalled (Alaska) |
+| `wiki26gov.html` | 2026 United States gubernatorial elections | 2,313,544 B | **preliminary** — 1 of 36 state races uncalled (Minnesota); seats-after D 29–30 |
+| `wiki22gov.html` | 2022 United States gubernatorial elections | 2,620,060 B | certified |
+| `wiki2014txgov.html` | 2014 Texas gubernatorial election | 851,782 B | certified |
+| `wiki2018txgov.html` | 2018 Texas gubernatorial election | 2,783,228 B | certified |
+| `wiki2022txgov.html` | 2022 Texas gubernatorial election | 2,895,281 B | certified |
+| `wiki26txag.html` | 2026 Texas Attorney General election | 1,049,508 B | **preliminary** |
 | `wiki_control.html` | Party divisions of United States Congresses | 768,037 B | reference table (transcribed by the parser; see inventory) |
 | `wiki26elex.html` | 2026 United States elections (overview) | 2,239,541 B | context only |
 | `wiki_midterm.html` | United States midterm election | 457,521 B | context only |
@@ -68,7 +75,7 @@ Statistics; AP via Google for 2026 vote totals).
 |---|---|---|---|---|
 | `weball18.zip` | https://www.fec.gov/files/bulk-downloads/2018/weball18.zip | 171,196 B | 3,687 | certified (final cycle) |
 | `weball22.zip` | https://www.fec.gov/files/bulk-downloads/2022/weball22.zip | 190,724 B | 4,153 | certified (final cycle) |
-| `weball26.zip` | https://www.fec.gov/files/bulk-downloads/2026/weball26.zip | 199,974 B | 4,370 | **preliminary** — filings continue; latest coverage end date in file is 2026-10-14 |
+| `weball26.zip` | https://www.fec.gov/files/bulk-downloads/2026/weball26.zip | 199,977 B | 4,372 | **preliminary** — filings continue; latest coverage end date in file is 2026-10-14 |
 
 The candidate summary ("weball") file has no header row. Column order was
 verified against the FEC API (`api.open.fec.gov`, DEMO_KEY) for two
@@ -96,7 +103,7 @@ noncitizens and ineligible felons, plus eligible overseas citizens). The
 v1.2 file's national rows for 1994 and 1996 are blank; the v1.4 long
 series (1789–2024) supplies those years (1994: 41.1%, 1998: 38.1%).
 The 2026 VEP rate has not been published by the Election Lab as of
-2026-11-09. The only 2026 turnout figure found is the Wikipedia 2026
+2026-11-14. The only 2026 turnout figure found is the Wikipedia 2026
 House infobox's "125 million (estimated)" total ballots — reported as an
 estimate, with no VEP denominator, so no 2026 VEP rate is computed.
 

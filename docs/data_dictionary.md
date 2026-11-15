@@ -95,7 +95,7 @@ For the national House popular vote and Texas races, it is the share of
 Row counts by office: HOU 418 (18 national + 400 state), SEN 416
 (208 races × 2), PRE 306 (153 state-years × 2), GOV 72, ATG 2.
 
-## fact_finance — 12,210 rows
+## fact_finance — 12,212 rows
 
 One row per candidate-cycle, from the FEC candidate summary files.
 
@@ -176,7 +176,7 @@ the gold layer held Senate votes but no Senate seat counts.
 | status | text | certified / preliminary (2026 only) | Source status |
 
 Rows: 103rd–119th Congresses, Democratic and Republican (34 rows),
-plus the 120th Congress (2026): Democratic 53, Republican 45,
+plus the 120th Congress (2026): Democratic 53, Republican 44,
 Independent 2 (3 rows, preliminary).
 
 Convention — read before using `net_change`: it is the change in the
@@ -193,14 +193,12 @@ LOW end of the range — the parse rule from Part 1 (e.g. the 115th
 Senate is recorded as Republican 50, the low end of "50–52"). The
 2026 rows are exact and unaffected.
 
-## fact_senate_flips_2026 — 6 rows (promoted from silver, src/03c)
+## fact_senate_flips_2026 — 8 rows (promoted from silver, src/03c)
 
 The flipped 2026 Senate seats named on the Wikipedia results table.
 Columns: cycle, chamber, state, state_abbr, incumbent,
 incumbent_party, winner, winner_party, result_text, status. All
-preliminary. The 7th R→D flip recorded in the composition table is
-not named here — the page does not identify it individually (see
-docs/findings.md).
+preliminary. All 8 R→D flips are named here (see docs/findings.md).
 
 ## fact_house_closest_races — 163 rows (promoted from silver, src/03c)
 
@@ -223,7 +221,7 @@ dim_geography ─┘      (via state_abbr)
 dim_cycle ────► fact_turnout (national + state 2022)
 fact_texas_statewide (standalone, Texas offices)
 fact_senate_composition (standalone, Congress-party)
-fact_senate_flips_2026 (standalone, 6 flipped seats)
+fact_senate_flips_2026 (standalone, 8 flipped seats)
 fact_house_closest_races (standalone, district margins 2018/2022)
 ```
 

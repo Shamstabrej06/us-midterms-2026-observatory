@@ -284,12 +284,24 @@ def _gov_winner(row):
 
 
 def silver_governors():
+    # NOTE (refresh 2026-11-14): the 2026 results table moved from index 3
+    # to 4 (the page gained a summary table) and renamed Governor/Party to
+    # Previous Governor/Previous Party, so the table is found by shape and
+    # columns instead of a fixed index.
+    def _gov_table(fname, state_col):
+        for t in pd.read_html(RAW / fname):
+            cols = [str(c).strip() for c in t.columns]
+            if len(t) == 36 and "Status" in cols and state_col in cols:
+                t.columns = cols
+                return t.rename(columns={"Previous Governor": "Governor",
+                                         "Previous Party": "Party"})
+        raise ValueError(f"governors results table not found in {fname}")
+
     frames = []
-    for cycle, fname, idx, state_col in [
-            (2022, "wiki22gov.html", 3, "States"),
-            (2026, "wiki26gov.html", 3, "State")]:
-        t = pd.read_html(RAW / fname)[idx]
-        t.columns = [str(c).strip() for c in t.columns]
+    for cycle, fname, state_col in [
+            (2022, "wiki22gov.html", "States"),
+            (2026, "wiki26gov.html", "State")]:
+        t = _gov_table(fname, state_col)
         for _, r in t.iterrows():
             state = str(r[state_col]).strip()
             if state not in STATE_FIPS:
@@ -321,33 +333,47 @@ def silver_governors():
 
 # ------------------------------------------------------------------ Senate flips
 def silver_senate_flips():
-    t = pd.read_html(RAW / "wiki26sen.html")[14]
-    t.columns = [" | ".join(str(c) for c in col).strip() for col in t.columns]
+    # NOTE (refresh 2026-11-14): the flipped seats live in TWO tables now —
+    # [14] the general-election results (7 gains) and [13] the two special
+    # elections (Ohio: Husted lost to Brown — the 8th flip). Both are read.
+    # The Candidates header carries a footnote number that changes as the
+    # page is edited, so that column is found by prefix, not exact string.
     rows = []
-    for _, r in t.iterrows():
-        state = str(r["Constituency | State"]).strip()
-        result = str(r["Results | Results"])
-        if "Democratic gain" not in result:
-            continue
-        cands = [c.strip(" ▌") for c in str(r["Candidates | Candidates"]).split("▌")]
-        cands = [c for c in cands if c]
-        # first listed candidate is the winner on this page
-        winner = cands[0] if cands else None
-        winner_party = None
-        m = re.match(r"(.+?)\s*\((.+?)\)\s*$", winner or "")
-        if m:
-            winner, winner_party = m.group(1).strip(), m.group(2).strip()
-        rows.append({"cycle": 2026, "chamber": "Senate", "state": state,
-                     "state_abbr": STATE_FIPS.get(state, (None, None))[0],
-                     "incumbent": str(r["Incumbent | Senator"]).strip(),
-                     "incumbent_party": std_party(r["Incumbent | Party"]),
-                     "winner": winner, "winner_party": std_party(winner_party),
-                     "result_text": result.strip()[:160],
-                     "status": "preliminary"})
+    for idx in (14, 13):
+        t = pd.read_html(RAW / "wiki26sen.html")[idx]
+        t.columns = [" | ".join(str(c) for c in col).strip() for col in t.columns]
+        cand_col = next(c for c in t.columns if c.startswith("Candidates"))
+        res_col = ("Results | Results" if "Results | Results" in t.columns
+                   else "Status | Status")
+        for _, r in t.iterrows():
+            state = str(r["Constituency | State"]).strip()
+            result = str(r[res_col])
+            if "Democratic gain" not in result:
+                continue
+            cands = [c.strip(" ▌") for c in str(r[cand_col]).split("▌")]
+            cands = [c for c in cands if c]
+            # first listed candidate is the winner on this page
+            winner = cands[0] if cands else None
+            winner_party = None
+            # NOTE (refresh 2026-11-14): special-election candidate cells
+            # carry a trailing vote share ("Annie Andrews (Democratic)
+            # 51.1%"), so the party paren is matched anywhere in the
+            # string, not only at the end.
+            m = re.match(r"(.+?)\s*\((Democratic|Republican|Independent|Libertarian|Green|DFL|Other)\)",
+                         winner or "")
+            if m:
+                winner, winner_party = m.group(1).strip(), m.group(2).strip()
+            rows.append({"cycle": 2026, "chamber": "Senate", "state": state,
+                         "state_abbr": STATE_FIPS.get(state, (None, None))[0],
+                         "incumbent": str(r["Incumbent | Senator"]).strip(),
+                         "incumbent_party": std_party(r["Incumbent | Party"]),
+                         "winner": winner, "winner_party": std_party(winner_party),
+                         "result_text": result.strip()[:160],
+                         "status": "preliminary"})
     f = pd.DataFrame(rows)
     f.to_csv(SILVER / "silver_senate_flips_2026.csv", index=False)
     log(f"silver_senate_flips_2026.csv: {len(f)} named flips "
-        f"(composition table records 7 R->D flips in total)")
+        f"(composition table records 8 R->D flips in total; all 8 now named)")
     return f
 
 

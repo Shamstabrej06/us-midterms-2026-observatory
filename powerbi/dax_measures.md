@@ -174,10 +174,10 @@ COUNTROWS (
 )
 ```
 
-Expected values (check the cards against these): House D 254, R 162,
-uncalled 19; House net D +40, R −56; House popular vote D 55.8%,
-R 42.7%, margin +13.1 pts; Senate D 53, R 45, I 2, net D +8;
-Governors D 22, R 12, uncalled 2.
+Expected values (check the cards against these): House D 257, R 169,
+uncalled 9; House net D +43, R −49; House popular vote D 56.2%,
+R 42.3%, margin +13.9 pts; Senate D 53, R 44, I 2, net D +8;
+Governors D 23, R 12, uncalled 1.
 
 ## Page 2 — The Comeback, Measured
 
@@ -256,13 +256,13 @@ CALCULATE (
 
 Use `[Dem Seats Change 2022 to 2026]` in the state map on this page
 (`dim_geography[state_abbr]` as the location). Alaska, Louisiana and
-North Carolina will be blank — they have no 2026 seat split in the
+Minnesota will be blank — they have no 2026 seat split in the
 source table. Do not fill them in; the map's footnote says so.
 
 Expected values: 2018 — D seats 235, net D +41, vote D 53.4%;
-2022 — D seats 213, net D −9, vote D 47.29%; 2026 — D seats 254,
-net D +40, vote D 55.8%, margin +13.1 pts. State swing: California
-+8, New York +5, Iowa +3, Ohio +3, Maine −1.
+2022 — D seats 213, net D −9, vote D 47.29%; 2026 — D seats 257,
+net D +43, vote D 56.2%, margin +13.9 pts. State swing: California
++8, New York +5, North Carolina +4, Iowa +3, Ohio +3, Maine −1.
 
 ## Page 3 — Texas Deep-Dive
 
@@ -386,7 +386,7 @@ COUNTROWS ( fact_finance )
 Expected values: turnout 2014 36.70%, 2018 50.05%, 2022 46.12%,
 2026 blank. Competitiveness — 2018: 89 under 10 (43 under 5);
 2022: 74 under 10 (37 under 5). Money (combined House + Senate) —
-2018 $3,125,950,077; 2022 $4,139,563,155; 2026 $4,199,069,691
+2018 $3,125,950,077; 2022 $4,139,563,155; 2026 $4,186,738,510
 (preliminary, coverage to 2026-10-14).
 
 ## Page 5 — The Midterm Pattern
@@ -427,7 +427,7 @@ Congresses, not the election-night flip count (2006: +5 not +6;
 
 Expected values (House, president's party): 1994 D −54, 1998 D +5,
 2002 R +8, 2006 R −30, 2010 D −64, 2014 D −13, 2018 R −42,
-2022 D −9, 2026 R −56. The pattern held in 7 of 9 midterms.
+2022 D −9, 2026 R −49. The pattern held in 7 of 9 midterms.
 
 ## Page 6 — What Changes Now
 
@@ -464,8 +464,7 @@ Senate Flips 2026 =
 COUNTROWS ( fact_senate_flips_2026 )
 ```
 
-Expected value: 6 named flips (the 7th is counted in the Senate
-composition but not named on the source page — see findings.md).
+Expected value: 8 named flips (see findings.md).
 The flips table visual uses `fact_senate_flips_2026` columns
 directly: state, winner, winner_party, incumbent, incumbent_party.
 
@@ -517,8 +516,8 @@ the card's text, and add the source note underneath.
 
 | Card text | Value | Source |
 |---|---|---|
-| Top-spender win rate, Senate 2026 | **29 of 31 races (93.5%)** | `docs/findings.md` → Money; `outputs/Findings_Scorecard.xlsx` → Money. Method: top FEC spender among the candidates listed for each race. 2018: 29/35 (82.9%). 2022: 28/35 (80.0%). The two 2026 misses: Minnesota (Tafoya outspent Flanagan) and Montana (Bodnar outspent Alme). |
-| Split-ticket states 2026 | **4 states** | `docs/findings.md` → Split outcomes. 2022: 7 states. The 4: Georgia, New Hampshire, Texas, Vermont. Use **Home → Enter data** to build the 4-row table for this page (columns: state, governor party, House delegation majority) with the values from the scorecard's "Split outcomes" sheet. |
+| Top-spender win rate, Senate 2026 | **15 of 17 races (88.2%)** | `docs/findings.md` → Money; `outputs/Findings_Scorecard.xlsx` → Money. Method: top FEC spender among the candidates listed for each race. 2018: 29/35 (82.9%). 2022: 28/35 (80.0%). The two 2026 misses: Mississippi (Cindy Hyde-Smith outspent Scott Colom) and Montana (Seth Bodnar outspent Kurt Alme). |
+| Split-ticket states 2026 | **5 states** | `docs/findings.md` → Split outcomes. 2022: 7 states. The 5: Georgia, Kansas, New Hampshire, Texas, Vermont. Use **Home → Enter data** to build the 5-row table for this page (columns: state, governor party, House delegation majority) with the values from the scorecard's "Split outcomes" sheet. |
 
 ## Measures NOT to build
 

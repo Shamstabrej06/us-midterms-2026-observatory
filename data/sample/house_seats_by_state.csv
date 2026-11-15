@@ -171,7 +171,7 @@ cycle,state,total_seats,dem_seats,dem_change,rep_seats,rep_change
 2026,Maryland,8.0,7.0,,1.0,
 2026,Massachusetts,9.0,9.0,,0.0,
 2026,Michigan,13.0,9.0,3.0,4.0,3.0
-2026,Minnesota,8.0,5.0,1.0,3.0,1.0
+2026,Minnesota,8.0,,,,
 2026,Mississippi,4.0,1.0,,3.0,
 2026,Missouri,8.0,3.0,1.0,5.0,1.0
 2026,Montana,2.0,1.0,1.0,1.0,1.0
@@ -181,7 +181,7 @@ cycle,state,total_seats,dem_seats,dem_change,rep_seats,rep_change
 2026,New Jersey,12.0,11.0,2.0,1.0,2.0
 2026,New Mexico,3.0,3.0,,0.0,
 2026,New York,26.0,20.0,1.0,6.0,1.0
-2026,North Carolina,14.0,,,,
+2026,North Carolina,14.0,11.0,7.0,3.0,7.0
 2026,North Dakota,1.0,0.0,,1.0,
 2026,Ohio,15.0,8.0,3.0,7.0,3.0
 2026,Oklahoma,5.0,0.0,,5.0,

@@ -5,13 +5,11 @@ show them — with computed, sourced data — what happened, how it
 happened, and why this cycle broke or confirmed the historical
 patterns of US midterm elections.**
 
-> **Status: 2026 figures are preliminary.** 19 House races and 2
-> governor races were still uncalled, the Senate composition is given
-> as a range on the source page, and the FEC file is a mid-cycle
-> snapshot (coverage to 2026-10-14). All 2026 numbers below are
-> labelled preliminary and will move as races are called and filings
-> arrive.
-> **Live dashboard:** [Open the 7-page Power BI report](https://app.powerbi.com/view?r=eyJrIjoiZTE5NDE4NzgtNWI0Yy00YTQzLWEyNmYtMTNmNWFjNGUwYTJlIiwidCI6IjFmZDQyZDE3LTQxYzAtNGJiYy1iNjc0LTY1NDI4YjhmOTg2MiJ9)
+> **Status: 2026 figures are preliminary.** 9 House races, 1 Senate
+> race (Alaska) and 1 governor race (Minnesota) were still uncalled,
+> and the FEC file is a mid-cycle snapshot (coverage to 2026-10-14).
+> All 2026 numbers below are labelled preliminary and will move as
+> races are called and filings arrive.
 
 ## Headline findings
 
@@ -19,26 +17,26 @@ All numbers are computed by the pipeline in `src/` from the gold
 layer (`outputs/midterms.db`). Full tables and explainers:
 [`docs/findings.md`](docs/findings.md).
 
-- **House (preliminary):** Democrats won **254 seats** (from 214
-  before), Republicans **162** (from 218) — net **Democrats +40,
-  Republicans −56**, with 19 races uncalled. Popular vote:
-  Democrats **64,014,623 (55.8%)**, Republicans 48,995,107 (42.7%),
-  margin **D +13.1 points** — the highest Democratic House
+- **House (preliminary):** Democrats won **257 seats** (from 214
+  before), Republicans **169** (from 218) — net **Democrats +43,
+  Republicans −49**, with 9 races uncalled. Popular vote:
+  Democrats **66,522,807 (56.2%)**, Republicans 50,049,400 (42.3%),
+  margin **D +13.9 points** — the highest Democratic House
   popular-vote share in the 1994–2026 series.
-- **Senate (preliminary):** Democrats **53**, Republicans **45**,
-  Independents **2** — net **Democrats +8, Republicans −8**. Seven
+- **Senate (preliminary):** Democrats **53**, Republicans **44**,
+  Independents **2** — net **Democrats +8, Republicans −9**. Eight
   seats flipped Republican → Democratic; none flipped the other way.
-- **Governors (preliminary):** Democrats won **22 of 36** races,
-  Republicans 12, 2 uncalled. Seats after: Democrats 28–30,
-  Republicans 20–22. Net: Democrats +4 to +6.
+- **Governors (preliminary):** Democrats won **23 of 36** races,
+  Republicans 12, 1 uncalled (Minnesota). Seats after: Democrats 29–30,
+  Republicans 20–21. Net: Democrats +5 to +6.
 - **The midterm pattern:** the president's party lost House seats in
   **7 of 9** midterms from 1994 to 2026. Exceptions: 1998 (Democrats
-  +5) and 2002 (Republicans +8). 2026 — Republicans −56 under
+  +5) and 2002 (Republicans +8). 2026 — Republicans −49 under
   President Trump — confirms the pattern and is the second-largest
   loss in the series after 2010 (Democrats −64).
 - **The comeback, measured:** in 2018 Democrats gained 41 House
   seats with 53.4% of the vote; in 2022 they lost 9 seats with
-  47.29%. In 2026 they gained **40 seats with 55.8%** of the vote.
+  47.29%. In 2026 they gained **43 seats with 56.2%** of the vote.
 - **Turnout:** national VEP turnout 2018 **50.05%**, 2022 **46.12%**.
   The 2026 rate is **not yet published** — no comparison is possible
   yet.
@@ -47,12 +45,12 @@ layer (`outputs/midterms.db`). Full tables and explainers:
   computable yet (no district-margin source published).
 - **Money:** total House + Senate candidate receipts — 2018:
   **$3,125,950,077**; 2022: **$4,139,563,155**; 2026:
-  **$4,199,069,691** (preliminary). The top spender won 29 of 35
-  Senate races in 2018 (82.9%), 28 of 35 in 2022 (80.0%) and 29 of
-  31 in 2026 (93.5%).
+  **$4,186,738,510** (preliminary). The top spender won 29 of 35
+  Senate races in 2018 (82.9%), 28 of 35 in 2022 (80.0%) and 15 of
+  17 in 2026 (88.2%).
 - **Split outcomes:** states whose governor and House-delegation
-  majority went to different parties — 2022: **7**; 2026: **4**
-  (Georgia, New Hampshire, Texas, Vermont).
+  majority went to different parties — 2022: **7**; 2026: **5**
+  (Georgia, Kansas, New Hampshire, Texas, Vermont).
 - **Texas:** Democrats won all three statewide races on the 2026
   ballot — Governor **D +7.1** (Hinojosa 52.8% beat Abbott 45.7%),
   Senate **D +12.1** (Talarico 55.1% beat Paxton 43.0%), Attorney
@@ -97,7 +95,7 @@ dim_geography ─┘
 dim_cycle ────► fact_turnout (national + state 2022)
 fact_texas_statewide (standalone, Texas offices)
 fact_senate_composition (standalone, Congress-party)
-fact_senate_flips_2026 (standalone, 6 flipped seats)
+fact_senate_flips_2026 (standalone, 8 flipped seats)
 fact_house_closest_races (standalone, district margins 2018/2022)
 ```
 
@@ -132,6 +130,7 @@ us-midterms-2026-observatory/
 │   ├── data_inventory.md     # what each file contains, quality problems on first inspection
 │   ├── data_dictionary.md    # every gold table and column, grain, source
 │   ├── findings.md           # the findings pack: tables + plain-language explainers
+│   └── linkedin_and_portfolio.md
 ├── outputs/
 │   ├── midterms.db           # SQLite gold layer (11 tables)
 │   ├── gold/                 # gold CSVs (also copied to powerbi/gold/)
@@ -182,13 +181,13 @@ The scripts run end-to-end on the committed extracts in
 
 | Data | Source | Retrieved |
 |---|---|---|
-| President (state-level) 1976–2024 | MIT Election Data and Science Lab, doi:10.7910/DVN/42MVDX | 2026-11-09 |
-| Senate (statewide) 1976–2024 | MIT Election Data and Science Lab, doi:10.7910/DVN/PEJ5QU | 2026-11-09 |
-| House / Senate / governor results 1994–2026 | Wikipedia election results tables (see `data/SOURCES.md` for the page list) | 2026-11-09 |
-| Candidate finance 2018 / 2022 / 2026 | FEC bulk data, candidate summaries (weball) | 2026-11-09 |
-| Party control 1994–2026 | Wikipedia, "Party divisions of United States Congresses" | 2026-11-09 |
-| Turnout (VEP) 1994–2022 | UF Election Lab, US VEP Turnout Rates v1.4 | 2026-11-09 |
-| County population 2024 | US Census Bureau, Vintage 2024 population estimates | 2026-11-09 |
+| President (state-level) 1976–2024 | MIT Election Data and Science Lab, doi:10.7910/DVN/42MVDX | 2026-11-14 |
+| Senate (statewide) 1976–2024 | MIT Election Data and Science Lab, doi:10.7910/DVN/PEJ5QU | 2026-11-14 |
+| House / Senate / governor results 1994–2026 | Wikipedia election results tables (see `data/SOURCES.md` for the page list) | 2026-11-14 |
+| Candidate finance 2018 / 2022 / 2026 | FEC bulk data, candidate summaries (weball) | 2026-11-14 |
+| Party control 1994–2026 | Wikipedia, "Party divisions of United States Congresses" | 2026-11-14 |
+| Turnout (VEP) 1994–2022 | UF Election Lab, US VEP Turnout Rates v1.4 | 2026-11-14 |
+| County population 2024 | US Census Bureau, Vintage 2024 population estimates | 2026-11-14 |
 
 Full per-source detail (exact URL, file size, row count,
 certified-vs-preliminary status, licence/terms note) is in
@@ -203,11 +202,11 @@ fields were dropped.
 ## Methods & limitations (read before citing a number)
 
 - **Preliminary 2026 figures.** The 2026 House, Senate and governor
-  numbers come from Wikipedia results pages retrieved 2026-11-09,
-  when 19 House races and 2 governor races were uncalled and the
-  Senate composition was given as a range (D 52–54). The FEC 2026
-  file covers filings to 2026-10-14 only. Every 2026 figure in this
-  repo is labelled preliminary and will change.
+  numbers come from Wikipedia results pages retrieved 2026-11-14,
+  when 9 House races, 1 Senate race (Alaska) and 1 governor race
+  (Minnesota) were uncalled. The FEC 2026 file covers filings to
+  2026-10-14 only. Every 2026 figure in this repo is labelled
+  preliminary and will change.
 - **District boundary changes.** See the redistricting caveat above.
   State-level seat changes 2022 → 2026 partly reflect the
   California and Texas mid-decade redraws, not only votes.
@@ -225,10 +224,10 @@ fields were dropped.
   competitiveness, the 15 closest 2026 races, flipped House seats
   and a House top-spender win rate are all dropped, not guessed.
 - **Per-state 2026 House seats.** The per-state table covers 47 of
-  50 states — Alaska, Louisiana and North Carolina have no 2026
-  seat split in the source table — so no state-level net total is
-  reported. The 47 known states sum to 248 Democratic seats against
-  the national infobox total of 254.
+  50 states — Alaska, Louisiana and Minnesota have no 2026 seat
+  split in the source table — so no state-level net total is
+  reported. The 47 known states sum to 254 Democratic seats against
+  the national infobox total of 257.
 - **Senate composition convention.** `fact_senate_composition`
   records the change in chamber composition between Congresses,
   which includes special elections and party switches — not the

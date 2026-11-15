@@ -11,12 +11,12 @@ HOU-NAT-2010,2010,HOU,national,,,REP,Republican,,44829751.0,51.7,178.0,242.0,64.
 HOU-NAT-2010,2010,HOU,national,,,DEM,Democratic,,38980192.0,44.9,257.0,193.0,-64.0,,,certified
 HOU-NAT-2014,2014,HOU,national,,,REP,Republican,,40081282.0,51.2,234.0,247.0,13.0,,,certified
 HOU-NAT-2014,2014,HOU,national,,,DEM,Democratic,,35624357.0,45.5,201.0,188.0,-13.0,,,certified
-HOU-NAT-2018,2018,HOU,national,,,DEM,Democratic,,60572245.0,53.4,194.0,235.0,41.0,,,certified
-HOU-NAT-2018,2018,HOU,national,,,REP,Republican,,50861970.0,44.8,241.0,199.0,-42.0,,,certified
+HOU-NAT-2018,2018,HOU,national,,,DEM,Democratic,,60319623.0,53.4,194.0,235.0,41.0,,,certified
+HOU-NAT-2018,2018,HOU,national,,,REP,Republican,,50467181.0,44.8,241.0,199.0,-42.0,,,certified
 HOU-NAT-2022,2022,HOU,national,,,REP,Republican,,54227992.0,50.01,213.0,222.0,9.0,,,certified
 HOU-NAT-2022,2022,HOU,national,,,DEM,Democratic,,51280463.0,47.29,222.0,213.0,-9.0,,,certified
-HOU-NAT-2026,2026,HOU,national,,,DEM,Democratic,,64014623.0,55.8,214.0,254.0,40.0,,,preliminary
-HOU-NAT-2026,2026,HOU,national,,,REP,Republican,,48995107.0,42.7,218.0,162.0,-56.0,,,preliminary
+HOU-NAT-2026,2026,HOU,national,,,DEM,Democratic,,66522807.0,56.2,214.0,257.0,43.0,,,preliminary
+HOU-NAT-2026,2026,HOU,national,,,REP,Republican,,50049400.0,42.3,218.0,169.0,-49.0,,,preliminary
 HOU-AL-2014,2014,HOU,state,1.0,AL,DEM,Democratic,,,,,1.0,,,,certified
 HOU-AL-2014,2014,HOU,state,1.0,AL,REP,Republican,,,,,6.0,,,,certified
 HOU-AK-2014,2014,HOU,state,2.0,AK,DEM,Democratic,,,,,0.0,,,,certified
@@ -361,8 +361,8 @@ HOU-MA-2026,2026,HOU,state,25.0,MA,DEM,Democratic,,,,,9.0,,,,preliminary
 HOU-MA-2026,2026,HOU,state,25.0,MA,REP,Republican,,,,,0.0,,,,preliminary
 HOU-MI-2026,2026,HOU,state,26.0,MI,DEM,Democratic,,,,,9.0,3.0,,,preliminary
 HOU-MI-2026,2026,HOU,state,26.0,MI,REP,Republican,,,,,4.0,3.0,,,preliminary
-HOU-MN-2026,2026,HOU,state,27.0,MN,DEM,Democratic,,,,,5.0,1.0,,,preliminary
-HOU-MN-2026,2026,HOU,state,27.0,MN,REP,Republican,,,,,3.0,1.0,,,preliminary
+HOU-MN-2026,2026,HOU,state,27.0,MN,DEM,Democratic,,,,,,,,,preliminary
+HOU-MN-2026,2026,HOU,state,27.0,MN,REP,Republican,,,,,,,,,preliminary
 HOU-MS-2026,2026,HOU,state,28.0,MS,DEM,Democratic,,,,,1.0,,,,preliminary
 HOU-MS-2026,2026,HOU,state,28.0,MS,REP,Republican,,,,,3.0,,,,preliminary
 HOU-MO-2026,2026,HOU,state,29.0,MO,DEM,Democratic,,,,,3.0,1.0,,,preliminary
@@ -381,8 +381,8 @@ HOU-NM-2026,2026,HOU,state,35.0,NM,DEM,Democratic,,,,,3.0,,,,preliminary
 HOU-NM-2026,2026,HOU,state,35.0,NM,REP,Republican,,,,,0.0,,,,preliminary
 HOU-NY-2026,2026,HOU,state,36.0,NY,DEM,Democratic,,,,,20.0,1.0,,,preliminary
 HOU-NY-2026,2026,HOU,state,36.0,NY,REP,Republican,,,,,6.0,1.0,,,preliminary
-HOU-NC-2026,2026,HOU,state,37.0,NC,DEM,Democratic,,,,,,,,,preliminary
-HOU-NC-2026,2026,HOU,state,37.0,NC,REP,Republican,,,,,,,,,preliminary
+HOU-NC-2026,2026,HOU,state,37.0,NC,DEM,Democratic,,,,,11.0,7.0,,,preliminary
+HOU-NC-2026,2026,HOU,state,37.0,NC,REP,Republican,,,,,3.0,7.0,,,preliminary
 HOU-ND-2026,2026,HOU,state,38.0,ND,DEM,Democratic,,,,,0.0,,,,preliminary
 HOU-ND-2026,2026,HOU,state,38.0,ND,REP,Republican,,,,,1.0,,,,preliminary
 HOU-OH-2026,2026,HOU,state,39.0,OH,DEM,Democratic,,,,,8.0,3.0,,,preliminary
@@ -1176,7 +1176,7 @@ GOV-VT-2022,2022,GOV,state,50.0,VT,REP,Republican,,,,,,,47.0,Republican,certifie
 GOV-WI-2022,2022,GOV,state,55.0,WI,DEM,Democratic,,,,,,,3.4,Democratic,certified
 GOV-WY-2022,2022,GOV,state,56.0,WY,REP,Republican,,,,,,,58.3,Republican,certified
 GOV-AL-2026,2026,GOV,state,1.0,AL,REP,Republican,,,,,,,4.0,Republican,preliminary
-GOV-AK-2026,2026,GOV,state,2.0,AK,,,,,,,,,,,preliminary
+GOV-AK-2026,2026,GOV,state,2.0,AK,DEM,Democratic,,,,,,,21.5,Democratic,preliminary
 GOV-AZ-2026,2026,GOV,state,4.0,AZ,DEM,Democratic,,,,,,,12.6,Democratic,preliminary
 GOV-AR-2026,2026,GOV,state,5.0,AR,REP,Republican,,,,,,,15.3,Republican,preliminary
 GOV-CA-2026,2026,GOV,state,6.0,CA,DEM,Democratic,,,,,,,29.2,Democratic,preliminary
@@ -1184,16 +1184,16 @@ GOV-CO-2026,2026,GOV,state,8.0,CO,DEM,Democratic,,,,,,,27.3,Democratic,prelimina
 GOV-CT-2026,2026,GOV,state,9.0,CT,DEM,Democratic,,,,,,,18.6,Democratic,preliminary
 GOV-FL-2026,2026,GOV,state,12.0,FL,REP,Republican,,,,,,,1.3,Republican,preliminary
 GOV-GA-2026,2026,GOV,state,13.0,GA,DEM,Democratic,,,,,,,8.6,Democratic,preliminary
-GOV-HI-2026,2026,GOV,state,15.0,HI,DEM,Democratic,,,,,,,45.2,Democratic,preliminary
+GOV-HI-2026,2026,GOV,state,15.0,HI,DEM,Democratic,,,,,,,44.4,Democratic,preliminary
 GOV-ID-2026,2026,GOV,state,16.0,ID,REP,Republican,,,,,,,24.8,Republican,preliminary
 GOV-IL-2026,2026,GOV,state,17.0,IL,DEM,Democratic,,,,,,,23.0,Democratic,preliminary
 GOV-IA-2026,2026,GOV,state,19.0,IA,DEM,Democratic,,,,,,,11.0,Democratic,preliminary
-GOV-KS-2026,2026,GOV,state,20.0,KS,,,,,,,,,,,preliminary
+GOV-KS-2026,2026,GOV,state,20.0,KS,DEM,Democratic,,,,,,,0.6,Democratic,preliminary
 GOV-ME-2026,2026,GOV,state,23.0,ME,DEM,Democratic,,,,,,,17.1,Democratic,preliminary
 GOV-MD-2026,2026,GOV,state,24.0,MD,DEM,Democratic,,,,,,,29.6,Democratic,preliminary
 GOV-MA-2026,2026,GOV,state,25.0,MA,DEM,Democratic,,,,,,,27.7,Democratic,preliminary
 GOV-MI-2026,2026,GOV,state,26.0,MI,DEM,Democratic,,,,,,,10.7,Democratic,preliminary
-GOV-MN-2026,2026,GOV,state,27.0,MN,DEM,Democratic,,,,,,,12.9,Democratic,preliminary
+GOV-MN-2026,2026,GOV,state,27.0,MN,,,,,,,,,,,preliminary
 GOV-NE-2026,2026,GOV,state,31.0,NE,REP,Republican,,,,,,,8.6,Republican,preliminary
 GOV-NV-2026,2026,GOV,state,32.0,NV,DEM,Democratic,,,,,,,7.3,Democratic,preliminary
 GOV-NH-2026,2026,GOV,state,33.0,NH,REP,Republican,,,,,,,4.3,Republican,preliminary
@@ -1210,6 +1210,6 @@ GOV-TN-2026,2026,GOV,state,47.0,TN,REP,Republican,,,,,,,2.5,Republican,prelimina
 GOV-TX-2026,2026,GOV,state,48.0,TX,DEM,Democratic,,,,,,,7.1,Democratic,preliminary
 GOV-VT-2026,2026,GOV,state,50.0,VT,REP,Republican,,,,,,,7.0,Republican,preliminary
 GOV-WI-2026,2026,GOV,state,55.0,WI,DEM,Democratic,,,,,,,8.0,Democratic,preliminary
-GOV-WY-2026,2026,GOV,state,56.0,WY,REP,Republican,,,,,,,51.8,Republican,preliminary
+GOV-WY-2026,2026,GOV,state,56.0,WY,REP,Republican,,,,,,,51.4,Republican,preliminary
 ATG-TX-2026,2026,ATG,state,48.0,TX,DEM,Democratic,Nathan Johnson,5133762.0,52.4,,,,6.5,Democratic,preliminary
 ATG-TX-2026,2026,ATG,state,48.0,TX,REP,Republican,Mayes Middleton,4502859.0,45.9,,,,-6.5,Democratic,preliminary

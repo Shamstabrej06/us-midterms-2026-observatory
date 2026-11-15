@@ -36,7 +36,7 @@ cycle,state,state_abbr,state_fips,incumbent,incumbent_party,winner_party,outcome
 2022,Wisconsin,WI,55,Tony Evers,Democratic,Democratic,hold,3.4,certified
 2022,Wyoming,WY,56,Mark Gordon,Republican,Republican,hold,58.3,certified
 2026,Alabama,AL,1,Kay Ivey,Republican,Republican,hold,4.0,preliminary
-2026,Alaska,AK,2,Mike Dunleavy,Republican,,uncalled,,preliminary
+2026,Alaska,AK,2,Mike Dunleavy,Republican,Democratic,gain,21.5,preliminary
 2026,Arizona,AZ,4,Katie Hobbs,Democratic,Democratic,hold,12.6,preliminary
 2026,Arkansas,AR,5,Sarah Huckabee Sanders,Republican,Republican,hold,15.3,preliminary
 2026,California,CA,6,Gavin Newsom,Democratic,Democratic,hold,29.2,preliminary
@@ -44,16 +44,16 @@ cycle,state,state_abbr,state_fips,incumbent,incumbent_party,winner_party,outcome
 2026,Connecticut,CT,9,Ned Lamont,Democratic,Democratic,hold,18.6,preliminary
 2026,Florida,FL,12,Ron DeSantis,Republican,Republican,hold,1.3,preliminary
 2026,Georgia,GA,13,Brian Kemp,Republican,Democratic,gain,8.6,preliminary
-2026,Hawaii,HI,15,Josh Green,Democratic,Democratic,hold,45.2,preliminary
+2026,Hawaii,HI,15,Josh Green,Democratic,Democratic,hold,44.4,preliminary
 2026,Idaho,ID,16,Brad Little,Republican,Republican,hold,24.8,preliminary
 2026,Illinois,IL,17,JB Pritzker,Democratic,Democratic,hold,23.0,preliminary
 2026,Iowa,IA,19,Kim Reynolds,Republican,Democratic,gain,11.0,preliminary
-2026,Kansas,KS,20,Laura Kelly,Democratic,,uncalled,,preliminary
+2026,Kansas,KS,20,Laura Kelly,Democratic,Democratic,hold,0.6,preliminary
 2026,Maine,ME,23,Janet Mills,Democratic,Democratic,hold,17.1,preliminary
 2026,Maryland,MD,24,Wes Moore,Democratic,Democratic,hold,29.6,preliminary
 2026,Massachusetts,MA,25,Maura Healey,Democratic,Democratic,hold,27.7,preliminary
 2026,Michigan,MI,26,Gretchen Whitmer,Democratic,Democratic,hold,10.7,preliminary
-2026,Minnesota,MN,27,Tim Walz,Democratic,Democratic,hold,12.9,preliminary
+2026,Minnesota,MN,27,Tim Walz,Democratic,,uncalled,,preliminary
 2026,Nebraska,NE,31,Jim Pillen,Republican,Republican,hold,8.6,preliminary
 2026,Nevada,NV,32,Joe Lombardo,Republican,Democratic,gain,7.3,preliminary
 2026,New Hampshire,NH,33,Kelly Ayotte,Republican,Republican,hold,4.3,preliminary
@@ -70,4 +70,4 @@ cycle,state,state_abbr,state_fips,incumbent,incumbent_party,winner_party,outcome
 2026,Texas,TX,48,Greg Abbott,Republican,Democratic,gain,7.1,preliminary
 2026,Vermont,VT,50,Phil Scott,Republican,Republican,hold,7.0,preliminary
 2026,Wisconsin,WI,55,Tony Evers,Democratic,Democratic,hold,8.0,preliminary
-2026,Wyoming,WY,56,Mark Gordon,Republican,Republican,hold,51.8,preliminary
+2026,Wyoming,WY,56,Mark Gordon,Republican,Republican,hold,51.4,preliminary

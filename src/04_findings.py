@@ -112,15 +112,19 @@ def senate_top_spender_rate(cycle):
     # state, so primary losers (e.g. Krishnamoorthi in IL) and senators
     # not up for re-election (e.g. Thune in SD) do not count as the
     # race's top spender.
+    # NOTE (refresh 2026-11-14): the Candidates column header now carries a
+    # footnote number (Candidates[57]), which changes as the page is edited,
+    # so the column is found by name prefix, not by exact string.
     t = pd.read_html(RAW / "wiki26sen.html")[14]
     t.columns = [" | ".join(str(c) for c in col).strip() for col in t.columns]
+    cand_col = next(c for c in t.columns if c.startswith("Candidates"))
     win = {}
     race_cands = {}
     for _, r in t.iterrows():
         st = str(r["Constituency | State"]).strip()
         res = str(r["Results | Results"])
         cands = [re.sub(r"\[\d+\]", "", c).strip(" ▌")
-                 for c in str(r["Candidates | Candidates"]).split("▌")]
+                 for c in str(r[cand_col]).split("▌")]
         cands = [c for c in cands if c]
         race_cands[st] = cands
         if "Democratic gain" in res or "Democratic hold" in res:
@@ -134,10 +138,12 @@ def senate_top_spender_rate(cycle):
         else:
             continue  # uncalled / no outcome stated
         for c in cands:
-            m = re.match(r"(.+?)\s*\((.+?)\)\s*$", c)
-            if m and (m.group(2).strip() in ("Democratic", "Republican", "DFL")
-                      and ((wp == "Democratic" and m.group(2).strip() in ("Democratic", "DFL"))
-                           or (wp == "Republican" and m.group(2).strip() == "Republican"))):
+            # NOTE (refresh 2026-11-14): some candidate cells carry a
+            # trailing vote share ("Name (Democratic) 51.1%"), so the party
+            # paren is matched anywhere in the string, not only at the end.
+            m = re.match(r"(.+?)\s*\((Democratic|Republican|DFL)\)", c)
+            if m and ((wp == "Democratic" and m.group(2) in ("Democratic", "DFL"))
+                      or (wp == "Republican" and m.group(2) == "Republican")):
                 win[st] = m.group(1).strip()
                 break
     tot = hit = 0
@@ -242,7 +248,7 @@ def main():
                   .reset_index())
     seat_swing = seat_swing[["state_abbr", 2022, 2026]].copy()
     seat_swing["change"] = seat_swing[2026] - seat_swing[2022]
-    # Three states (AK, LA, NC) have no 2026 seat split in the source
+    # Three states (AK, LA, MN) have no 2026 seat split in the source
     # table (NaN) — they are kept in the sheet but excluded from any
     # ranking or net, because a net over a partial table is misleading.
     seat_swing_known = seat_swing.dropna(subset=[2026]).sort_values("change", ascending=False)
@@ -300,20 +306,20 @@ def main():
          "rep_net_change": int(h26.loc["Republican", "net_change"]),
          "dem_popular_pct": float(h26.loc["Democratic", "vote_share_pct"]),
          "rep_popular_pct": float(h26.loc["Republican", "vote_share_pct"]),
-         "status": "PRELIMINARY — 19 races uncalled"},
+         "status": "PRELIMINARY — 9 races uncalled"},
         {"chamber": "Senate", "cycle": 2026,
          "dem_seats": int(sen_comp[sen_comp["party"] == "Democratic"]["seats_after"].iloc[0]),
          "rep_seats": int(sen_comp[sen_comp["party"] == "Republican"]["seats_after"].iloc[0]),
          "dem_net_change": int(sen_comp[sen_comp["party"] == "Democratic"]["net_change"].iloc[0]),
          "rep_net_change": int(sen_comp[sen_comp["party"] == "Republican"]["net_change"].iloc[0]),
          "dem_popular_pct": None, "rep_popular_pct": None,
-         "status": "PRELIMINARY — final composition given as a range (D 52–54)"},
-        {"chamber": "Governors", "cycle": 2026, "dem_seats": 22, "rep_seats": 12,
+         "status": "PRELIMINARY — 1 race uncalled (Alaska)"},
+        {"chamber": "Governors", "cycle": 2026, "dem_seats": 23, "rep_seats": 12,
          "dem_net_change": None, "rep_net_change": None,
          "dem_popular_pct": None, "rep_popular_pct": None,
-         "status": "PRELIMINARY — 2 of 36 races uncalled; seats after D 28–30"},
-    ]), "Source: Wikipedia 2026 House/Senate/governor pages, retrieved 2026-11-09. "
-          "House seats won: D 254, R 162 (19 uncalled). Senate: D 53, R 45, I 2.")
+         "status": "PRELIMINARY — 1 of 36 races uncalled (Minnesota); seats after D 29–30"},
+    ]), "Source: Wikipedia 2026 House/Senate/governor pages, retrieved 2026-11-14. "
+          "House seats won: D 257, R 169 (9 uncalled). Senate: D 53, R 44, I 2, 1 uncalled (Alaska).")
     sheet("Midterm pattern", pattern,
           "President's-party net House seat change, every midterm 1994–2026. "
           "Source: Wikipedia House results tables (fact_results, national rows).")
@@ -332,9 +338,9 @@ def main():
         "rate: Senate races only — House district winners are not in the obtained sources.")
     sheet("Geography seats", seat_swing.rename(columns={2022: "dem_seats_2022", 2026: "dem_seats_2026"}),
           "Democratic House seats by state, 2022 → 2026. Alaska, Louisiana "
-          "and North Carolina have no 2026 seat split in the source table "
+          "and Minnesota have no 2026 seat split in the source table "
           "(blank) — no state-level net is reported. The 47 known states sum "
-          "to 248 Democratic seats vs the national infobox total of 254; the "
+          "to 254 Democratic seats vs the national infobox total of 257; the "
           "per-state table is a lagging snapshot of the results table. Seat "
           "changes partly reflect mid-decade redistricting (see findings.md). "
           "County-level shift: dropped — no county vote data obtainable.")
@@ -343,8 +349,8 @@ def main():
           "(MEDSL, state-level). All 50 states + DC moved toward Republicans.")
     sheet("Split outcomes", split_df[split_df["split"]],
           "States where the governor's party differs from the House delegation's "
-          "majority party. 2022: 7 states; 2026: 4 states (Alaska and Kansas "
-          "excluded in 2026 — governor races uncalled).")
+          "majority party. 2022: 7 states; 2026: 5 states (Minnesota excluded "
+          "in 2026 — governor race uncalled).")
     sheet("Texas", tx[["cycle", "office", "dem_candidate", "dem_pct",
                        "rep_candidate", "rep_pct", "margin_pts", "winner_party", "status"]],
           "Texas statewide two-party margins. Governor 2014–2026, Senate "
@@ -352,9 +358,8 @@ def main():
           "Democratic minus Republican in points (positive = Democratic lead).")
     sheet("Senate flips 2026", flips[["state", "incumbent", "incumbent_party",
                                       "winner", "winner_party"]],
-          "Flipped 2026 Senate seats named on the Wikipedia results table (6 of "
-          "the 7 R→D flips the composition table records; the 7th is not "
-          "individually identified on the page).")
+          "Flipped 2026 Senate seats named on the Wikipedia results table (all "
+          "8 R→D flips named).")
     sheet("Closest races", closest.sort_values(["cycle", "margin_pts"]).groupby("cycle").head(15)[
         ["cycle", "district", "winner", "margin_pts"]],
         "The 15 closest House races of 2018 and of 2022. The 15 closest of 2026 "
@@ -372,7 +377,7 @@ def main():
 def build_markdown(v):
     h26 = v["h26"]; pattern = v["pattern"]; tn = v["tn"]; comp = v["comp"]
     money_df = v["money_df"]; top_rates = v["top_rates"]
-    seat_swing = v["seat_swing"]; pres_shift = v["pres_shift"]
+    seat_swing = v["seat_swing"]; seat_swing_known = v["seat_swing_known"]; pres_shift = v["pres_shift"]
     split_df = v["split_df"]; tx = v["tx"]; flips = v["flips"]
     closest = v["closest"]; tx_gov = v["tx_gov"]; tx_sen = v["tx_sen"]
     tx_pre = v["tx_pre"]; tx_del = v["tx_del"]; sen_comp = v["sen_comp"]
@@ -412,6 +417,50 @@ def build_markdown(v):
         f"{int(r['cycle'])}: {r['winner_party']} by {abs(r['margin_pts']):.1f} pts"
         for _, r in tx_pre.iterrows())
 
+    # Fresh 2026 counts, computed from the data (not hardcoded): House
+    # uncalled races, governor wins/uncalled, states missing a 2026 seat
+    # split, the gain ranking, split-state sets, and the top-spender misses.
+    def _and_list(items):
+        items = list(items)
+        if len(items) == 1:
+            return items[0]
+        return ", ".join(items[:-1]) + " and " + items[-1]
+
+    house_uncalled = int(435 - d26["seats_after"] - r26["seats_after"])
+    g26 = gov[gov["cycle"] == 2026]
+    gov_d_wins = int((g26["winner_party"] == "Democratic").sum())
+    gov_r_wins = int((g26["winner_party"] == "Republican").sum())
+    gov_uncalled = sorted(g26[g26["winner_party"].isna()]["state"].tolist())
+    hs_silver = pd.read_csv(ROOT / "data" / "silver" / "silver_house_seats_by_state.csv")
+    missing_split = sorted(hs_silver[(hs_silver["cycle"] == 2026)
+                                     & hs_silver["dem_seats"].isna()]["state"].tolist())
+    known_d_sum = int(seat_swing_known[2026].sum())
+    # Governors seats-after range: 14 states were not up in 2026 (D 6, R 8,
+    # from the 2023/2024/2025 election results); the 2026 table's Previous
+    # Party counts are R 18, D 17, DFL 1 (Minnesota, Democratic), so D held
+    # 24 before the election. D after = 6 + 23 wins + (Minnesota 0/1).
+    gov_seats_after = "Democrats +5 to +6 (seats after D 29–30, R 20–21)"
+    gain_rank = ("the largest Democratic midterm gain in the nine-cycle series"
+                 if int(d26["net_change"]) > int(p18["net_change"])
+                 else "the second-largest Democratic midterm gain in the nine-cycle series, after 2018")
+    split22_states = set(split_df[(split_df["cycle"] == 2022) & (split_df["split"])]["state"])
+    split26_states = set(split_df[(split_df["cycle"] == 2026) & (split_df["split"])]["state"])
+    split_both = sorted(split22_states & split26_states)
+    split_new26 = sorted(split26_states - split22_states)
+    other_new = [s for s in split_new26 if s != "Texas"]
+    tx26_row = hs_silver[(hs_silver["cycle"] == 2026) & (hs_silver["state"] == "Texas")].iloc[0]
+    # FEC candidate names arrive as "LAST, FIRST" in capitals; render them
+    # as proper names in the prose ("HYDE-SMITH, CINDY" -> "Cindy Hyde-Smith").
+    def _fec_name(n):
+        n = n.strip()
+        if "," in n:
+            last, first = [p.strip() for p in n.split(",", 1)]
+            return f"{first.title()} {last.title()}"
+        return n.title()
+
+    miss26_txt = "; ".join(f"{st} ({_fec_name(top)} outspent the winner {win})"
+                           for st, _, top, win in t26[2])
+
     L = []
     A = L.append
     A("# Findings — US Midterms Observatory 2026\n")
@@ -423,24 +472,23 @@ def build_markdown(v):
     A("## What happened\n")
     A("| Chamber | 2026 outcome | Net change vs 2024 |")
     A("|---|---|---|")
-    A(f"| House | Democrats {int(d26['seats_after'])} seats, Republicans {int(r26['seats_after'])} (19 races uncalled) | Democrats {int(d26['net_change']):+d}, Republicans {int(r26['net_change']):+d} |")
+    A(f"| House | Democrats {int(d26['seats_after'])} seats, Republicans {int(r26['seats_after'])} ({house_uncalled} races uncalled) | Democrats {int(d26['net_change']):+d}, Republicans {int(r26['net_change']):+d} |")
     A(f"| Senate | Democrats {int(sen_comp[sen_comp['party']=='Democratic']['seats_after'].iloc[0])}, Republicans {int(sen_comp[sen_comp['party']=='Republican']['seats_after'].iloc[0])}, Independents 2 | Democrats {int(sen_comp[sen_comp['party']=='Democratic']['net_change'].iloc[0]):+d}, Republicans {int(sen_comp[sen_comp['party']=='Republican']['net_change'].iloc[0]):+d} |")
-    A("| Governors | Democrats won 22 of 36 races, Republicans 12, 2 uncalled | Democrats +4 to +6 (seats after D 28–30, R 20–22) |")
+    A(f"| Governors | Democrats won {gov_d_wins} of 36 races, Republicans {gov_r_wins}, {len(gov_uncalled)} uncalled ({_and_list(gov_uncalled)}) | {gov_seats_after} |")
     A("")
     A(f"The 2026 midterms gave Democrats control of the House with "
       f"{int(d26['seats_after'])} seats to the Republicans' {int(r26['seats_after'])}, "
-      f"a net gain of {int(d26['net_change'])} seats, with 19 races still uncalled. "
+      f"a net gain of {int(d26['net_change'])} seats, with {house_uncalled} races still uncalled. "
       f"Democrats also took the Senate, moving from 45 seats to "
       f"{int(sen_comp[sen_comp['party']=='Democratic']['seats_after'].iloc[0])}, a net gain of "
-      f"{int(sen_comp[sen_comp['party']=='Democratic']['net_change'].iloc[0])}, and won 22 of 36 "
+      f"{int(sen_comp[sen_comp['party']=='Democratic']['net_change'].iloc[0])}, and won {gov_d_wins} of 36 "
       f"governor races. The House popular vote went to Democrats by "
       f"{float(d26['vote_share_pct']):.1f}% to {float(r26['vote_share_pct']):.1f}%, a margin of "
       f"{float(d26['vote_share_pct'])-float(r26['vote_share_pct']):+.1f} points. "
       f"Compared with the previous three midterms, the scale stands out: in 2014 "
       f"Republicans gained 13 House seats, in 2018 Democrats gained 41, and in "
       f"2022 Republicans gained 9 — the 2026 Democratic gain of "
-      f"{int(d26['net_change'])} is the second-largest Democratic midterm gain "
-      f"in the nine-cycle series, after 2018, and the popular-vote margin is "
+      f"{int(d26['net_change'])} is {gain_rank}, and the popular-vote margin is "
       f"the widest in the series. All 2026 figures remain preliminary until "
       f"the remaining races are called and certified.\n")
     A("## The comeback, measured\n")
@@ -483,7 +531,8 @@ def build_markdown(v):
       "The two exceptions are 1998, when Democrats gained 5 seats under "
       "President Clinton, and 2002, when Republicans gained 8 under President "
       "George W. Bush. The losses range from 9 seats (Democrats, 2022) to 64 "
-      "seats (Democrats, 2010). The 2026 result — Republicans losing 56 seats "
+      "seats (Democrats, 2010). The 2026 result — Republicans losing "
+      f"{-int(r26['net_change'])} seats "
       "under President Trump — confirms the pattern, and is the second-largest "
       "loss in the series after 2010. The pattern is a description of what "
       "happened in these nine elections, not a law: two of nine cycles broke "
@@ -500,7 +549,7 @@ def build_markdown(v):
       "figures, with 2022 at 46.12%. The 2018 figure is the highest midterm "
       "turnout in the series and the 2014 figure the lowest. No 2026 VEP "
       "turnout rate has been published by the UF Election Lab as of "
-      "2026-11-09, so no comparison for 2026 is possible yet; the only "
+      "2026-11-14, so no comparison for 2026 is possible yet; the only "
       "figure available is Wikipedia's estimate of 125 million total ballots "
       "cast, which has no published VEP denominator and therefore no rate. "
       "State-level 2026 turnout is likewise unpublished, so the planned "
@@ -540,11 +589,10 @@ def build_markdown(v):
       f"cycle. The top spender won {t18[0]} of {t18[1]} Senate races in 2018 "
       f"({t18[0]/t18[1]:.1%}), {t22[0]} of {t22[1]} in 2022 ({t22[0]/t22[1]:.1%}), "
       f"and {t26[0]} of {t26[1]} in 2026 ({t26[0]/t26[1]:.1%}). The 2026 rate is "
-      f"higher than the two previous cycles, but it rests on {t26[1]} decided "
-      f"races (two Senate races are uncalled) and on a preliminary FEC file. "
-      f"The two 2026 races where the top spender lost were Minnesota, where "
-      f"Republican Michele Tafoya outspent the winner Peggy Flanagan, and "
-      f"Montana, where independent Seth Bodnar outspent the winner Kurt Alme. "
+      f"higher than the two previous cycles, but it rests on {t26[1]} races "
+      f"with matched FEC data, and on a preliminary FEC file; one Senate race "
+      f"(Alaska) is still uncalled. The 2026 races where the top spender lost "
+      f"were {miss26_txt}. "
       f"A House version of this metric is not computable from the obtained "
       f"sources (no district-winner table).\n")
     A("## Geography\n")
@@ -554,10 +602,10 @@ def build_markdown(v):
       f"(+5) account for 13 Democratic seats gained since 2022, with Iowa and "
       f"Ohio each adding 3 and seven states adding 2 each; only one state, "
       f"{top_loss['state_abbr']}, saw Democrats lose a net seat. Second, the "
-      f"table covers 47 of 50 states — Alaska, Louisiana and North Carolina "
+      f"table covers {len(seat_swing_known)} of 50 states — {_and_list(missing_split)} "
       f"have no 2026 seat split in the source table, so no state-level net "
-      f"total is reported (the 47 known states sum to 248 Democratic seats, "
-      f"against a national infobox total of 254). Third, the seat changes "
+      f"total is reported (the {len(seat_swing_known)} known states sum to {known_d_sum} Democratic seats, "
+      f"against a national infobox total of {int(d26['seats_after'])}). Third, the seat changes "
       f"partly reflect new maps, not only votes: California and Texas both "
       f"redrew congressional maps mid-decade before the 2026 election, so a "
       f"2022-to-2026 seat comparison in those states mixes redistricting with "
@@ -571,13 +619,14 @@ def build_markdown(v):
     A("## Split outcomes\n")
     A(f"In 2022, {n_split_22} states had a governor whose party differed from "
       f"their House delegation's majority party. In 2026 the number is "
-      f"{n_split_26}: {split26_txt}. (Alaska and Kansas are excluded from the "
-      f"2026 count because their governor races are uncalled, and states with "
-      f"evenly split delegations are excluded in both years.) The fall from 7 "
-      f"to 4 split states means fewer states split their ticket in 2026 than "
+      f"{n_split_26}: {split26_txt}. ({_and_list(gov_uncalled)} excluded from the "
+      f"2026 count because {'its' if len(gov_uncalled) == 1 else 'their'} governor race "
+      f"{'is' if len(gov_uncalled) == 1 else 'are'} uncalled, and states with "
+      f"evenly split delegations are excluded in both years.) The fall from {n_split_22} "
+      f"to {n_split_26} split states means fewer states split their ticket in 2026 than "
       f"in 2022. Texas is the most notable new split: a Democratic governor "
-      f"with a Republican-majority House delegation (24 R, 14 D). Georgia is "
-      f"the other new split in 2026; New Hampshire and Vermont were split in "
+      f"with a Republican-majority House delegation ({int(tx26_row['rep_seats'])} R, {int(tx26_row['dem_seats'])} D). "
+      f"{_and_list(other_new)} {'is' if len(other_new) == 1 else 'are'} the other new split{'s' if len(other_new) != 1 else ''} in 2026; {_and_list(split_both)} were split in "
       f"both cycles.\n")
     A("## Texas deep-dive\n")
     A("| Office | 2014 | 2018 | 2020 | 2022 | 2024 | 2026 |")
@@ -612,13 +661,9 @@ def build_markdown(v):
     for _, r in flips.iterrows():
         A(f"| {r['state']} | {r['winner']} ({r['winner_party']}) | {re.sub(r'\[.*?\]', '', r['incumbent'])} ({r['incumbent_party']}) |")
     A("")
-    A(f"Seven Senate seats flipped from Republican to Democratic in 2026, "
-      f"and none flipped the other way. Six are named on the results table: "
-      f"{flips_txt}. The seventh flip is recorded in the Senate composition "
-      f"table but is not individually identified on the page — two races "
-      f"(Alaska and Mississippi) have outcomes that appear only in the "
-      f"table's overall result row, so the seat is counted but not named "
-      f"here. The 15 closest House races of 2026 cannot be listed yet: no "
+    A(f"{len(flips)} Senate seats flipped from Republican to Democratic in 2026, "
+      f"and none flipped the other way. All {len(flips)} are named on the results table: "
+      f"{flips_txt}. The 15 closest House races of 2026 cannot be listed yet: no "
       f"district-margin source has been published. The closest races of the "
       f"two previous cycles are in the scorecard; the tightest were "
       f"{closest_txt}.\n")

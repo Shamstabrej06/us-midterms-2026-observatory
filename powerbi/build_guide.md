@@ -75,18 +75,18 @@ new to Power BI, do the setup section first and check each page's
 ## Page 1 — The Night
 
 **Headline band:** "Democrats took the House, the Senate and 22
-governor races in 2026 — with 19 House races still uncalled."
+governor races in 2026 — with 9 House races still uncalled."
 
 **KPI row (4 cards, left to right):**
 
 1. Card — measure `[House Seats D 2026]`. Title: "House seats —
-   Democrats (preliminary)". Expected: **254**.
+   Democrats (preliminary)". Expected: **257**.
 2. Card — measure `[House Seats R 2026]`. Title: "House seats —
-   Republicans (preliminary)". Expected: **162**.
+   Republicans (preliminary)". Expected: **169**.
 3. Card — measure `[Senate Seats D 2026]`. Title: "Senate seats —
    Democrats (preliminary)". Expected: **53**.
 4. Card — measure `[Gov Wins D 2026]`. Title: "Governor races won
-   by Democrats (preliminary)". Expected: **22 of 36**.
+   by Democrats (preliminary)". Expected: **23 of 36**.
 
 **Main visual — clustered bar chart, "House seats by party, 2026
 (preliminary)":** Y-axis (values): `[House Seats D 2026]` is not
@@ -94,11 +94,11 @@ plottable as a series — instead use a bar chart with
 `fact_results[party_name]` on the Y-axis and
 `SUM(fact_results[seats_after])` on the X-axis, with visual filters
 `office_key = HOU`, `geography_level = national`, `cycle = 2026`.
-Two bars (Democratic 254, Republican 162). Data labels on. Add a
+Two bars (Democratic 257, Republican 169). Data labels on. Add a
 constant line at 218 (Analytics pane → Constant line, value 218,
 label "Majority = 218 seats"). Takeaway under the visual:
-"Democrats cleared the 218-seat majority with 36 seats to spare;
-19 races are still uncalled."
+"Democrats cleared the 218-seat majority with 39 seats to spare;
+9 races are still uncalled."
 
 **Supporting visual — donut chart, "Senate composition, 2026
 (preliminary)":** Legend `fact_senate_composition[party_name]`,
@@ -121,11 +121,11 @@ to 100 because all 100 seats are accounted for."
 **KPI row (4 cards):**
 
 1. `[House Net Change D 2026]` — "Net House seats, Democrats 2026
-   (preliminary)". Expected: **+40**.
+   (preliminary)". Expected: **+43**.
 2. `[House Popular Vote Margin 2026]` — "House popular-vote margin,
-   D minus R, 2026 (preliminary)". Expected: **+13.1 pts**.
+   D minus R, 2026 (preliminary)". Expected: **+13.9 pts**.
 3. Card (static text) — "Largest Democratic popular-vote share in
-   the 1994–2026 series: 55.8% (preliminary)". Type this in as text;
+   the 1994–2026 series: 56.2% (preliminary)". Type this in as text;
    it is the `[House Popular Vote D 2026]` value.
 4. `[Senate Net Change D 2026]` — "Net Senate seats, Democrats 2026
    (preliminary)". Expected: **+8**.
@@ -134,7 +134,7 @@ to 100 because all 100 seats are accounted for."
 cycle, 2018 vs 2022 vs 2026":** X-axis `dim_cycle[cycle]`, values
 `[House Net Change D]`, visual filter `cycle` in (2018, 2022, 2026)
 and `office_key = HOU` is inside the measure. Three bars: 2018 +41,
-2022 −9, 2026 +40. Data labels on. Takeaway: "2026 is the mirror
+2022 −9, 2026 +43. Data labels on. Takeaway: "2026 is the mirror
 image of 2022 — and the second-largest Democratic midterm gain in
 the series after 2018."
 
@@ -142,7 +142,7 @@ the series after 2018."
 share by party, 1994–2026 (preliminary for 2026)":** X-axis
 `dim_cycle[cycle]` (filter `election_type = midterm`), values
 `[Dem House Vote Share]` and `[Rep House Vote Share]`. Markers on.
-Takeaway: "The Democratic vote share in 2026 (55.8%) is the highest
+Takeaway: "The Democratic vote share in 2026 (56.2%) is the highest
 in the nine-cycle series; 2022 was 47.3%."
 
 **Second supporting visual — filled map, "Democratic House seats
@@ -153,7 +153,7 @@ Diverging scale: muted red for losses, grey at 0, muted blue for
 gains. Tooltips: add `dim_geography[state_name]` and
 `[Dem Seats Change 2022 to 2026]` to the Tooltips bucket, so
 hovering a state shows its name and its seat change. Footnote under the map, 9 pt grey: "Alaska, Louisiana and
-North Carolina have no 2026 seat split in the source table and are
+Minnesota have no 2026 seat split in the source table and are
 blank. Seat changes partly reflect mid-decade redistricting in
 California and Texas, not only votes." Takeaway: "The gains were
 concentrated: California +8 and New York +5 account for 13 seats;
@@ -237,7 +237,7 @@ the story is still open."
    **74**.
 4. Card — `[Total Receipts]` filtered to `cycle = 2026`. Title:
    "House + Senate candidate receipts, 2026 (preliminary)".
-   Expected: **$4,199,069,691**.
+   Expected: **$4,186,738,510**.
 
 **Main visual — line chart, "National turnout (VEP) by midterm,
 1994–2022":** X-axis `fact_turnout[cycle]`, values `[Turnout
@@ -285,7 +285,7 @@ second-largest loss in the series."
    the only midterms where the president's party gained seats."
 3. Card — `[Presidents Party Net Change]` filtered to
    `cycle = 2026`. Title: "President's-party net House change,
-   2026 (preliminary)". Expected: **−56**.
+   2026 (preliminary)". Expected: **−49**.
 
 **Main visual — clustered column chart, "President's-party net
 House seat change, every midterm 1994–2026 (preliminary for
@@ -331,7 +331,7 @@ elections, not a law — two of the nine broke it."
    party control of House, Senate and presidency (trifecta), 2026".
    Expected: **No**.
 4. Card — `[Senate Flips 2026]`. Title: "Senate seats that flipped
-   party, 2026 (preliminary)". Expected: **6 named**.
+   party, 2026 (preliminary)". Expected: **8 named**.
 
 **Main visual — table, "Control by cycle":** a table visual with
 `dim_cycle[cycle]`, `dim_cycle[president_party]`,
@@ -417,9 +417,9 @@ seats 1 in 2026, down from 2).
 - [ ] Every 2026 figure carries "(preliminary)" in its title or in
       a text box directly under the visual.
 - [ ] KPI cards match the expected values in `dax_measures.md`
-      (House D 254 / R 162; Senate D 53 / R 45 / I 2; Governors
-      D 22 / R 12; House net D +40; popular-vote margin +13.1 pts).
-- [ ] The page 2 map leaves Alaska, Louisiana and North Carolina
+      (House D 257 / R 169; Senate D 53 / R 44 / I 2; Governors
+      D 23 / R 12; House net D +43; popular-vote margin +13.9 pts).
+- [ ] The page 2 map leaves Alaska, Louisiana and Minnesota
       blank and carries the footnote explaining why.
 - [ ] The page 4 turnout line ends at 2022 and the 2026 card says
       "not yet published" (no invented number).

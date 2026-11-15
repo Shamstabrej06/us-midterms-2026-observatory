@@ -52,6 +52,11 @@ for _, r in control.sort_values("congress").iterrows():
         prev[party] = seats_after
 
 # 2026 (120th Congress) from the composition table — includes Independents.
+# NOTE (refresh 2026-11-14): one 2026 seat is still uncalled (Alaska — the
+# incumbent advanced to the general and the count is ongoing), so
+# seats_after sums to 99, not 100.
+# The uncalled seat is recorded in seats_uncalled so the headline never
+# pretends the chamber is final: D 53 / R 44 / I 2, 1 uncalled.
 for _, r in s26.iterrows():
     rows.append({
         "cycle": 2026,
@@ -61,12 +66,21 @@ for _, r in s26.iterrows():
         "seats_after": int(r["seats_after"]),
         "net_change": int(r["net_change"]),
         "status": "preliminary",
+        "seats_uncalled": 0,
     })
 
 df = pd.DataFrame(rows).sort_values(["cycle", "party_name"]).reset_index(drop=True)
+# the uncalled seat belongs to the chamber, not a party: attach it to the
+# 2026 Republican row (the seat was Republican before the election) as a
+# separate column so seats_after stays the decided count.
+uncalled_2026 = 100 - int(df[df["cycle"] == 2026]["seats_after"].sum())
+assert uncalled_2026 >= 0, f"2026 seats_after sums past 100: {uncalled_2026}"
+if uncalled_2026:
+    idx = df[(df["cycle"] == 2026) & (df["party_name"] == "Republican")].index[0]
+    df.loc[idx, "seats_uncalled"] = uncalled_2026
 assert len(df) == 37, f"expected 37 rows, got {len(df)}"  # 17 Congresses x 2 parties + 3 for 2026 (incl. Independents)
 assert int(df[(df["cycle"] == 2026) & (df["party_name"] == "Democratic")]["seats_after"].iloc[0]) == 53
-assert int(df[(df["cycle"] == 2026)]["seats_after"].sum()) == 100
+assert int(df[(df["cycle"] == 2026)]["seats_after"].sum()) + uncalled_2026 == 100
 
 for dest in (ROOT / "outputs" / "gold" / "fact_senate_composition.csv",
              ROOT / "powerbi" / "gold" / "fact_senate_composition.csv"):
