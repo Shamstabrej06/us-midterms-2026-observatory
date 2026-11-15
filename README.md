@@ -126,19 +126,15 @@ us-midterms-2026-observatory/
 │   ├── sample/               # size-safe extracts the scripts actually run on
 │   └── silver/               # cleaned, harmonised tables
 ├── docs/
-│   ├── PROJECT_STATE.md      # the running project state (sources, row counts, headline metrics)
 │   ├── data_inventory.md     # what each file contains, quality problems on first inspection
 │   ├── data_dictionary.md    # every gold table and column, grain, source
 │   ├── findings.md           # the findings pack: tables + plain-language explainers
-│   └── linkedin_and_portfolio.md
 ├── outputs/
-│   ├── midterms.db           # SQLite gold layer (11 tables)
 │   ├── gold/                 # gold CSVs (also copied to powerbi/gold/)
 │   └── Findings_Scorecard.xlsx
 ├── powerbi/
 │   ├── gold/                 # import-ready gold CSVs
 │   ├── dax_measures.md       # every DAX measure, grouped by dashboard page
-│   ├── build_guide.md        # page-by-page assembly for the 7-page dashboard
 │   └── theme.json            # muted blue / muted red / grey theme
 └── src/
     ├── 01_acquire.py
@@ -168,9 +164,9 @@ python3 src/04_findings.py
 #    - Excel scorecard: outputs/Findings_Scorecard.xlsx
 #    - Findings: docs/findings.md
 
-# 4. Build the dashboard in Power BI Desktop:
-#    follow powerbi/build_guide.md (import powerbi/gold/, create the
-#    measures in powerbi/dax_measures.md, apply powerbi/theme.json).
+# 4. Open the finished dashboard: powerbi/MidtermsObservatory.pbix
+#    (PDF export: powerbi/MidtermsObservatory.pdf). The measures are
+#    documented in powerbi/dax_measures.md; the theme is powerbi/theme.json.
 ```
 
 The scripts run end-to-end on the committed extracts in

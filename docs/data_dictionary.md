@@ -11,7 +11,7 @@ are guestbook-gated; see `data/SOURCES.md`), so `fact_results` is built
 at **race-state-cycle grain** (with national rows for the House popular
 vote). The grain is explicit in every row via `geography_level`. County
 population still appears in `dim_geography`; county-level vote shift
-and county flips are dropped metrics (see `docs/PROJECT_STATE.md`).
+and county flips are dropped metrics.
 
 ## dim_geography — 56 rows
 
@@ -126,7 +126,9 @@ One row per candidate-cycle, from the FEC candidate summary files.
 
 Negative money values are legitimate in FEC data (refunds exceed
 receipts; a committee can owe more than it holds) and are kept, not
-quarantined. See `docs/PROJECT_STATE.md` for the audit counts.
+quarantined. Audit counts in the FEC files: 24 negative total_receipts,
+9 negative total_disbursements, 246 negative cash-on-hand (BOP),
+643 negative cash-on-hand (end), 33 negative individual contributions.
 
 ## fact_turnout — 60 rows
 
